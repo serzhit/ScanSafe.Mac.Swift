@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920823D1EB9F49D00B70D4C /* AppDelegate.swift */; };
-		F92082401EB9F49D00B70D4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920823F1EB9F49D00B70D4C /* ViewController.swift */; };
 		F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92082411EB9F49D00B70D4C /* Assets.xcassets */; };
 		F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92082431EB9F49D00B70D4C /* Main.storyboard */; };
 		F92082501EB9F49D00B70D4C /* ScanSafe_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920824F1EB9F49D00B70D4C /* ScanSafe_MacTests.swift */; };
 		F920825B1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */; };
+		F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082701EBA218500B70D4C /* CloudCoin.swift */; };
+		F92082731EBA21D900B70D4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082721EBA21D900B70D4C /* ViewController.swift */; };
+		F92082751EBA32CC00B70D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082741EBA32CC00B70D4C /* Utils.swift */; };
+		F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082761EBA44B000B70D4C /* RAIDA.swift */; };
+		F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082781EBA44DF00B70D4C /* RAIDANode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,6 @@
 /* Begin PBXFileReference section */
 		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F920823F1EB9F49D00B70D4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F92082441EB9F49D00B70D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F92082461EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +48,11 @@
 		F92082561EB9F49D00B70D4C /* ScanSafe.MacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanSafe.MacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSafe_MacUITests.swift; sourceTree = "<group>"; };
 		F920825C1EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F92082701EBA218500B70D4C /* CloudCoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCoin.swift; sourceTree = "<group>"; };
+		F92082721EBA21D900B70D4C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F92082741EBA32CC00B70D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F92082761EBA44B000B70D4C /* RAIDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDA.swift; sourceTree = "<group>"; };
+		F92082781EBA44DF00B70D4C /* RAIDANode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDANode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				F920823D1EB9F49D00B70D4C /* AppDelegate.swift */,
-				F920823F1EB9F49D00B70D4C /* ViewController.swift */,
 				F92082411EB9F49D00B70D4C /* Assets.xcassets */,
 				F92082431EB9F49D00B70D4C /* Main.storyboard */,
 				F92082461EB9F49D00B70D4C /* Info.plist */,
+				F92082701EBA218500B70D4C /* CloudCoin.swift */,
+				F92082721EBA21D900B70D4C /* ViewController.swift */,
+				F92082741EBA32CC00B70D4C /* Utils.swift */,
+				F92082761EBA44B000B70D4C /* RAIDA.swift */,
+				F92082781EBA44DF00B70D4C /* RAIDANode.swift */,
 			);
 			path = ScanSafe.Mac;
 			sourceTree = "<group>";
@@ -258,8 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F92082401EB9F49D00B70D4C /* ViewController.swift in Sources */,
+				F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */,
+				F92082731EBA21D900B70D4C /* ViewController.swift in Sources */,
 				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
+				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
+				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,
+				F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,12 +418,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -416,12 +434,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
