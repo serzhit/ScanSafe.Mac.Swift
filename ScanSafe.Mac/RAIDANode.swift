@@ -14,7 +14,7 @@ class Node: NSObject {
     let Name: String
     var LastEchoStatus: RAIDAResponse
     
-    //countable properties
+    //computed properties
     var Country: RAIDA.Countries {
         switch Number {
         case 0:
@@ -76,16 +76,52 @@ class Node: NSObject {
         return "\(Country)"
     }
     
-    var BaseUri: NSURL {
-        return NSURL(string: "https://RAIDA\(Number).cloudcoin.global/service")!
+    var BaseUri: URL? {
+        guard let tmp = URL(string: "https://RAIDA\(Number).cloudcoin.global/service") else {
+            print("Error creating NSURL...")
+            return nil
+        }
+        return tmp
     }
-    var BackupUri: NSURL {
-        return NSURL(string: "https://RAIDA\(Number).cloudcoin.ch/service")!
+    var BackupUri: URL? {
+        guard let tmp = URL(string: "https://RAIDA\(Number).cloudcoin.ch/service") else {
+            print("Error creating NSURL...")
+            return nil
+        }
+        return tmp
     }
     
+    //Constructor
     init(number: Int) {
         Number = number
         Name = "RAIDA\(Number)"
-        LastEchoStatus = 
+        LastEchoStatus = RAIDAResponse()
+    }
+    
+    //Methods
+    func Echo() -> RAIDAResponse {
+        enum JSONError: String, Error {
+            case NoData = "ERROR: no data"
+            case ConversionFailed = "ERROR: conversion from JSON failed"
+        }
+        var result: RAIDAResponse = RAIDAResponse()
+        
+        URLSession.shared.dataTask(with: BaseUri!) { (data, response, error) in
+            do {
+                guard let data = data else {
+                    throw JSONError.NoData
+                }
+                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? RAIDAResponse else {
+                    throw JSONError.ConversionFailed
+                }
+                print(json)
+                result = json
+            } catch let error as JSONError {
+                print(error.rawValue)
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            }.resume()
+        return result
     }
 }

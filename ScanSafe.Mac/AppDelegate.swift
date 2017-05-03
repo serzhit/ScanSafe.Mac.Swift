@@ -15,8 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        let newans = CloudCoin.generatePans()
-        _ = CloudCoin(nn: 1, sn: 1234, ans: newans as! [String], expired: "29E7", aoid: [""])
+//        let newans = CloudCoin.generatePans()
+        RAIDA.Instance?.getEcho()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
