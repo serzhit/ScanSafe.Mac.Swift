@@ -683,8 +683,8 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd" customClass="SSMainView">
+                <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="574" height="384"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -706,7 +706,7 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Scaner" id="jVz-Pb-Rcw"/>
                                 <connections>
-                                    <action selector="Scan:" target="5gI-5U-AMq" id="D7c-MS-mfw"/>
+                                    <action selector="Scan:" target="5gI-5U-AMq" id="Pf1-XA-wxR"/>
                                 </connections>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ymk-3e-fKO">
@@ -718,7 +718,7 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Safe" id="o2S-jc-4kw"/>
                                 <connections>
-                                    <action selector="Safe:" target="5gI-5U-AMq" id="CwX-BO-jq6"/>
+                                    <action selector="Safe:" target="5gI-5U-AMq" id="bCK-UJ-bgC"/>
                                 </connections>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JEM-rh-Fd7">
@@ -730,7 +730,7 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Pay" id="W18-W5-Oy4"/>
                                 <connections>
-                                    <action selector="Pay:" target="5gI-5U-AMq" id="DUZ-zD-fkU"/>
+                                    <action selector="Pay:" target="5gI-5U-AMq" id="FdA-GV-exK"/>
                                 </connections>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-Fq-hha">
@@ -1137,37 +1137,32 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Australia" destination="TJL-PY-e7v" id="MaN-CL-wKD"/>
-                        <outlet property="Bangalore" destination="0CF-U3-o59" id="ZOB-xt-hZx"/>
-                        <outlet property="Bulgaria" destination="htT-rY-cn1" id="lqC-QQ-3bd"/>
-                        <outlet property="Canada" destination="jm8-sM-bdj" id="n5K-1O-ydR"/>
-                        <outlet property="Columbia" destination="oCD-Lg-Hcs" id="ErK-1q-zGJ"/>
-                        <outlet property="Germany" destination="hjg-df-Wb1" id="PYr-d3-FK8"/>
-                        <outlet property="HyperBad" destination="hVW-82-pFg" id="zds-ei-aub"/>
-                        <outlet property="Hyperbad" destination="hVW-82-pFg" id="0dn-xq-6Av"/>
-                        <outlet property="IntroLabel" destination="ypc-z7-uqE" id="f8D-0Q-EAc"/>
-                        <outlet property="IntroductionLabel" destination="ypc-z7-uqE" id="xnW-2E-gNF"/>
-                        <outlet property="Luxemburg" destination="sOa-t8-BU6" id="kjD-o2-1VD"/>
-                        <outlet property="Macedonia" destination="nDj-ub-lna" id="c0X-bz-dbp"/>
-                        <outlet property="Phillipines" destination="CJM-4c-Up8" id="b8Y-pY-Uuu"/>
-                        <outlet property="Punjab" destination="kLc-lO-2rs" id="7he-6B-FPs"/>
-                        <outlet property="Romania" destination="JO5-NJ-1FO" id="D1I-y6-HCO"/>
-                        <outlet property="Russia1" destination="jvw-GM-29y" id="Rvu-1Q-mwv"/>
-                        <outlet property="Russia2" destination="hqC-l0-gxG" id="W0Q-8t-qEm"/>
-                        <outlet property="Russia3" destination="YnU-Im-Tdc" id="bM6-uV-3eJ"/>
-                        <outlet property="Serbia" destination="q2y-pN-8SX" id="tyI-ra-yF8"/>
-                        <outlet property="Singapore" destination="DOg-7y-FMs" id="H1X-sY-Ono"/>
-                        <outlet property="Switzerland" destination="TBf-BW-6MD" id="zuN-tS-f51"/>
-                        <outlet property="Taiwan" destination="eby-aF-UsA" id="SJ2-8q-vLq"/>
-                        <outlet property="Texas" destination="fuO-RU-jQM" id="czO-cO-qbk"/>
-                        <outlet property="UK" destination="9Ri-T7-1Z8" id="pQA-7q-NRm"/>
-                        <outlet property="UKraine" destination="9fN-tu-o4G" id="myL-YQ-iSW"/>
-                        <outlet property="USA1" destination="XzI-Xw-eUI" id="Nyq-vb-Vh1"/>
-                        <outlet property="USA2" destination="yLb-Ea-dzZ" id="K4l-Ma-vmD"/>
-                        <outlet property="USA3" destination="q2y-pN-8SX" id="40Y-Kg-La0"/>
-                        <outlet property="Ukraine" destination="9fN-tu-o4G" id="OP1-5A-uPU"/>
-                        <outlet property="Venezuela" destination="Rrk-2H-uNA" id="hmE-no-ZFa"/>
-                        <outlet property="WorldMap" destination="wk9-yV-S4h" id="BqN-UX-RKG"/>
+                        <outlet property="Australia" destination="TJL-PY-e7v" id="UJ0-0o-LRl"/>
+                        <outlet property="Bangalore" destination="0CF-U3-o59" id="tyB-Bt-j7I"/>
+                        <outlet property="Bulgaria" destination="htT-rY-cn1" id="UrX-Bb-HbI"/>
+                        <outlet property="Canada" destination="jm8-sM-bdj" id="cXa-K1-Pjm"/>
+                        <outlet property="Columbia" destination="oCD-Lg-Hcs" id="6y5-wU-hdA"/>
+                        <outlet property="Germany" destination="hjg-df-Wb1" id="TZF-XD-V6d"/>
+                        <outlet property="Huperbad" destination="hVW-82-pFg" id="uIo-lX-eA6"/>
+                        <outlet property="IntroLabel" destination="ypc-z7-uqE" id="wUw-XD-04L"/>
+                        <outlet property="Luxemburg" destination="sOa-t8-BU6" id="Fhd-pY-zuo"/>
+                        <outlet property="Macedonia" destination="nDj-ub-lna" id="mOg-GM-IMl"/>
+                        <outlet property="Phillipines" destination="CJM-4c-Up8" id="2ZL-l1-6Xm"/>
+                        <outlet property="Punjab" destination="kLc-lO-2rs" id="uTQ-VD-Cpv"/>
+                        <outlet property="Romania" destination="JO5-NJ-1FO" id="kUy-xB-Abh"/>
+                        <outlet property="Russia1" destination="jvw-GM-29y" id="6LA-oE-8fX"/>
+                        <outlet property="Russia2" destination="hqC-l0-gxG" id="OmM-mU-FYu"/>
+                        <outlet property="Russia3" destination="YnU-Im-Tdc" id="l2Q-Jc-LY1"/>
+                        <outlet property="Serbia" destination="q2y-pN-8SX" id="Kno-k8-4Wi"/>
+                        <outlet property="Singapore" destination="DOg-7y-FMs" id="fCC-RO-pGv"/>
+                        <outlet property="Switzerland" destination="TBf-BW-6MD" id="FJh-Kk-f7m"/>
+                        <outlet property="Taiwan" destination="eby-aF-UsA" id="sSu-jR-CAW"/>
+                        <outlet property="Texas" destination="fuO-RU-jQM" id="odd-ij-KI3"/>
+                        <outlet property="UK" destination="9Ri-T7-1Z8" id="u1c-4C-3I3"/>
+                        <outlet property="USA1" destination="XzI-Xw-eUI" id="Htb-sI-LvA"/>
+                        <outlet property="USA2" destination="yLb-Ea-dzZ" id="gUb-F1-xHN"/>
+                        <outlet property="Ukraine" destination="9fN-tu-o4G" id="ho1-K0-Lj3"/>
+                        <outlet property="Venezuela" destination="Rrk-2H-uNA" id="rCm-Xh-oxz"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

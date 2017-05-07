@@ -43,13 +43,13 @@ class RAIDA: NSObject {
     }
     
     //properties
-    var NodesArray: [Node] = []
-    var EchoStatus: [RAIDAResponse] = []
-    
+    var NodesArray: [Node?] = Array<Node?>(repeating: nil, count: NODEQUANTITY)
+    var EchoStatus: [RAIDAResponse?] = Array<RAIDAResponse?>(repeating: nil, count: NODEQUANTITY)
     //Singeton pattern
-    static let theOnlyInstance: RAIDA? = RAIDA()
-    static var Instance: RAIDA? {
-        return self.theOnlyInstance
+    private static let theOnlyInstance: RAIDA? = RAIDA()
+    public static var Instance: RAIDA?
+    {
+        return theOnlyInstance
     }
     
     override init() {
@@ -62,34 +62,41 @@ class RAIDA: NSObject {
     
     //methods
     func getEcho() {
-        for node: Node in NodesArray {
-            EchoStatus[node.Number] = node.Echo()
+        for node: Node? in NodesArray {
+            EchoStatus[node!.Number] = node!.Echo()
         }
     }
-    
-    
 }
 
-class RAIDAResponse: NSObject {
+struct RAIDAResponse {
     var server: String
     var status: String
     var sn: String
     var message: String
     var time: String
     
-    override init() {
-        self.server = "unknown"
-        self.status = "unknown"
-        self.sn = "0"
-        self.message = "Not yet replied"
-        self.time = "never"
+    init() {
+        server = "unknown"
+        status = "unknown"
+        sn = "none"
+        message = "none"
+        time = "never"
     }
-    init(server: String, status: String, sn: String, message: String, time: String) {
+    
+    init?(json: [String: Any]) {
+        guard let server = json["server"] as? String,
+            let st = json["status"] as? String,
+            let sn = json["sn"] as? String,
+            let message = json["message"] as? String,
+            let time = json["time"] as? String
+        else {
+            return nil
+        }
+        
         self.server = server
-        self.status = status
+        self.status = st
         self.sn = sn
         self.message = message
         self.time = time
     }
-    
 }

@@ -103,25 +103,37 @@ class Node: NSObject {
         enum JSONError: String, Error {
             case NoData = "ERROR: no data"
             case ConversionFailed = "ERROR: conversion from JSON failed"
+            case BadFormat = "JSON is not correct"
         }
         var result: RAIDAResponse = RAIDAResponse()
+        let config = URLSessionConfiguration.default
         
-        URLSession.shared.dataTask(with: BaseUri!) { (data, response, error) in
-            do {
-                guard let data = data else {
-                    throw JSONError.NoData
+        let session = URLSession(configuration: config)
+        let url: URL? = URL(string: "/echo", relativeTo: BaseUri!)
+        print(url!.absoluteString)
+        let task = session.dataTask(with: url!) {
+            data, response, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                do {
+                    guard let data = data else {
+                        throw JSONError.NoData
+                    }
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? RAIDAResponse else {
+                        throw JSONError.ConversionFailed
+                    }
+                    print(json)
+                    result = json
+                } catch let error as JSONError {
+                    print(error.rawValue)
+                } catch let error as NSError {
+                    print(error.debugDescription)
                 }
-                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? RAIDAResponse else {
-                    throw JSONError.ConversionFailed
-                }
-                print(json)
-                result = json
-            } catch let error as JSONError {
-                print(error.rawValue)
-            } catch let error as NSError {
-                print(error.debugDescription)
             }
-            }.resume()
-        return result
+        }
+        task.resume()
+        LastEchoStatus = result
+        return LastEchoStatus
     }
 }
