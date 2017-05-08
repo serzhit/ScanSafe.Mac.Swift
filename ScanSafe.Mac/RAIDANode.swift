@@ -12,63 +12,63 @@ class Node: NSObject {
     //properties
     let Number: Int
     let Name: String
-    var LastEchoStatus: RAIDAResponse
+    var LastEchoStatus: RAIDAResponse?
     
     //computed properties
-    var Country: RAIDA.Countries {
+    var Country: Countries {
         switch Number {
         case 0:
-            return RAIDA.Countries.Australia
+            return Countries.Australia
         case 1:
-            return RAIDA.Countries.Macedonia
+            return Countries.Macedonia
         case 2:
-            return RAIDA.Countries.Philippines
+            return Countries.Philippines
         case 3:
-            return RAIDA.Countries.Serbia
+            return Countries.Serbia
         case 4:
-            return RAIDA.Countries.Bulgaria
+            return Countries.Bulgaria
         case 5:
-            return RAIDA.Countries.Russia3
+            return Countries.Russia3
         case 6:
-            return RAIDA.Countries.Switzerland
+            return Countries.Switzerland
         case 7:
-            return RAIDA.Countries.UK
+            return Countries.UK
         case 8:
-            return RAIDA.Countries.Punjab
+            return Countries.Punjab
         case 9:
-            return RAIDA.Countries.Banglore
+            return Countries.Banglore
         case 10:
-            return RAIDA.Countries.Texas
+            return Countries.Texas
         case 11:
-            return RAIDA.Countries.USA1
+            return Countries.USA1
         case 12:
-            return RAIDA.Countries.Romania
+            return Countries.Romania
         case 13:
-            return RAIDA.Countries.Taiwan
+            return Countries.Taiwan
         case 14:
-            return RAIDA.Countries.Russia1
+            return Countries.Russia1
         case 15:
-            return RAIDA.Countries.Russia2
+            return Countries.Russia2
         case 16:
-            return RAIDA.Countries.Columbia
+            return Countries.Columbia
         case 17:
-            return RAIDA.Countries.Singapore
+            return Countries.Singapore
         case 18:
-            return RAIDA.Countries.Germany
+            return Countries.Germany
         case 19:
-            return RAIDA.Countries.Canada
+            return Countries.Canada
         case 20:
-            return RAIDA.Countries.Venezuela
+            return Countries.Venezuela
         case 21:
-            return RAIDA.Countries.Hyperbad
+            return Countries.Hyperbad
         case 22:
-            return RAIDA.Countries.USA2
+            return Countries.USA2
         case 23:
-            return RAIDA.Countries.Ukraine
+            return Countries.Ukraine
         case 24:
-            return RAIDA.Countries.Luxenburg
+            return Countries.Luxenburg
         default:
-            return RAIDA.Countries.USA3
+            return Countries.USA3
         }
     }
     
@@ -95,45 +95,52 @@ class Node: NSObject {
     init(number: Int) {
         Number = number
         Name = "RAIDA\(Number)"
-        LastEchoStatus = RAIDAResponse()
     }
     
     //Methods
-    func Echo() -> RAIDAResponse {
+    func Echo(withinGroup: DispatchGroup) {
         enum JSONError: String, Error {
             case NoData = "ERROR: no data"
             case ConversionFailed = "ERROR: conversion from JSON failed"
             case BadFormat = "JSON is not correct"
         }
-        var result: RAIDAResponse = RAIDAResponse()
+        let delegate = RAIDA.Instance?.EchoDelegate
         let config = URLSessionConfiguration.default
         
         let session = URLSession(configuration: config)
-        let url: URL? = URL(string: "/echo", relativeTo: BaseUri!)
+        let url: URL? = URL(string: "/service/echo", relativeTo: BaseUri!)
         print(url!.absoluteString)
-        let task = session.dataTask(with: url!) {
+        _ = session.dataTask(with: url!) {
             data, response, error in
             if error != nil {
-                print(error!.localizedDescription)
+                print(error.debugDescription)
             } else {
                 do {
                     guard let data = data else {
                         throw JSONError.NoData
                     }
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? RAIDAResponse else {
-                        throw JSONError.ConversionFailed
+                    let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: data.count)
+                    data.copyBytes(to: ptr, count: data.count)
+                    let datastring = String(cString: UnsafePointer(ptr))
+                    ptr.deallocate(capacity: data.count)
+                    print(datastring)
+                    let parsedJson = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    let dict = parsedJson as? NSDictionary
+                    if (dict?.value(forKey: "status") as? String) == "ready" {
+                        print("Node \(self.Number) is ready")
+                        delegate?.EchoReceivedFrom(node: self)
                     }
-                    print(json)
-                    result = json
+                    withinGroup.leave()
+                    
+                } catch let error as NSError {
+                    print(error)
                 } catch let error as JSONError {
                     print(error.rawValue)
-                } catch let error as NSError {
-                    print(error.debugDescription)
+                } catch let error as JSONSerializationError {
+                    print(error.rawValue)
                 }
+
             }
-        }
-        task.resume()
-        LastEchoStatus = result
-        return LastEchoStatus
+        }.resume()
     }
 }

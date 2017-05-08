@@ -17,3 +17,15 @@ protocol RAIDADetectDelegate {
     func DetectCompletedOn(node: Node)
     func RAIDADetectionCompleted()
 }
+
+protocol CloudCoinP {
+    
+    var nn: Int { get set }
+    var sn: Int { get set }
+    var denomination: Denomination { get }
+    var ans: [String?] { get set }
+    var pans: [String?] { get set }
+    var aoid: [String?] { get set }
+    var ed: String { get set }
+
+}

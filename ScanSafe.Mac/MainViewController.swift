@@ -8,15 +8,18 @@
 
 import Cocoa
 
-class ViewController: NSViewController, RAIDAEchoDelegate {
-    @IBAction func Scan(_ sender: Any) {
+class MainViewController: NSViewController, RAIDAEchoDelegate {
+
+    @IBAction func Scan(_ sender: NSButton) {
+        FileSystem.ChooseInputFile()
     }
-    @IBAction func Safe(_ sender: Any) {
+    @IBAction func Safe(_ sender: NSButton) {
     }
-    @IBAction func Pay(_ sender: Any) {
+    @IBAction func Pay(_ sender: NSButton) {
     }
     @IBOutlet weak var IntroLabel: NSTextField!
     @IBOutlet weak var Australia: NSBox!
+    @IBOutlet weak var RAIDAReadyLabel: NSTextField!
     @IBOutlet weak var Bangalore: NSBox!
     @IBOutlet weak var Huperbad: NSBox!
     @IBOutlet weak var Punjab: NSBox!
@@ -48,6 +51,10 @@ class ViewController: NSViewController, RAIDAEchoDelegate {
         super.viewDidLoad()
         initCountries()
         // Do any additional setup after loading the view.
+        RAIDA.Instance?.EchoDelegate = self
+//        RAIDAReadyLabel.isHidden = true
+        RAIDA.Instance?.getEcho()
+        
     }
     
     func initCountries() {
@@ -141,11 +148,17 @@ class ViewController: NSViewController, RAIDAEchoDelegate {
     }
     
     func EchoReceivedFrom(node: Node) {
-        Countries[node]?.fillColor = NSColor.green
+        DispatchQueue.main.async {
+            self.Countries[node]?.fillColor = NSColor.green
+            print("ViewController: Node \(node.Number) is ready!")
+        }
     }
     
     func AllEchoesReceived() {
-        
+        DispatchQueue.main.async {
+            print("All echoes received!")
+            UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
+        }
     }
 }
 

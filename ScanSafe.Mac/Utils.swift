@@ -26,17 +26,17 @@ class Utils: NSObject {
         return randomString
     }
     
-    static func Denomination2Int(forValue: CloudCoin.Denomination) -> Int {
+    static func Denomination2Int(forValue: Denomination) -> Int {
         switch forValue {
-            case CloudCoin.Denomination.One:
+            case Denomination.One:
                 return 1
-            case CloudCoin.Denomination.Five:
+            case Denomination.Five:
                 return 5
-            case CloudCoin.Denomination.Quarter:
+            case Denomination.Quarter:
                 return 25
-            case CloudCoin.Denomination.Hundred:
+            case Denomination.Hundred:
                 return 100
-            case CloudCoin.Denomination.KiloQuarter:
+            case Denomination.KiloQuarter:
                 return 250
             default:
                 return 0

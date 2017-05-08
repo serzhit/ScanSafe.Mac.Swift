@@ -9,17 +9,7 @@
 import Cocoa
 
 class CloudCoin: NSObject {
-    
-    enum Denomination {
-        case Unknown, One, Five, Quarter, Hundred, KiloQuarter
-    }
-    enum Status {
-        case Authenticated, Counterfeit, Fractioned, Unknown
-    }
-    enum raidaNodeResponse {
-        case pass, fail, error, fixing, unknown
-    }
-    
+        
     var nn: Int
     var sn: Int
     var denomination: Denomination {

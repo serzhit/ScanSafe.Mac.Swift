@@ -12,35 +12,6 @@ class RAIDA: NSObject {
     //constants needed in other classes
     static let NODEQUANTITY = 25
     static let MINNODES4PASS = 13
-    enum Countries {
-        case
-        Australia,
-        Macedonia,
-        Philippines,
-        Serbia,
-        Bulgaria,
-        Russia3,
-        Ukraine,
-        UK,
-        Punjab,
-        Banglore,
-        Texas,
-        USA1,
-        USA2,
-        USA3,
-        Romania,
-        Taiwan,
-        Russia1,
-        Russia2,
-        Columbia,
-        Singapore,
-        Germany,
-        Canada,
-        Venezuela,
-        Hyperbad,
-        Switzerland,
-        Luxenburg
-    }
     
     //properties
     var NodesArray: [Node?] = Array<Node?>(repeating: nil, count: NODEQUANTITY)
@@ -52,51 +23,80 @@ class RAIDA: NSObject {
         return theOnlyInstance
     }
     
+    //Delegates
+    var EchoDelegate: RAIDAEchoDelegate?
+    
+    //Constructor
     override init() {
         for i in 0..<RAIDA.NODEQUANTITY {
             self.NodesArray[i] = Node(number: i)
-            self.EchoStatus[i] = RAIDAResponse()
+//            self.EchoStatus[i] = nil
         }
         super.init()
     }
     
     //methods
     func getEcho() {
+        let myGroup = DispatchGroup()
         for node: Node? in NodesArray {
-            EchoStatus[node!.Number] = node!.Echo()
+            myGroup.enter()
+            node!.Echo(withinGroup: myGroup)
+            //myGroup.leave()
+        }
+        myGroup.notify(queue: .main) {
+            self.EchoDelegate?.AllEchoesReceived()
         }
     }
 }
 
 struct RAIDAResponse {
+    enum Status: String {
+        case ready, fail, error
+    }
     var server: String
     var status: String
-    var sn: String
+//    var sn: String?
     var message: String
     var time: String
-    
+/*
     init() {
         server = "unknown"
         status = "unknown"
-        sn = "none"
+//        sn = "none"
         message = "none"
         time = "never"
     }
-    
-    init?(json: [String: Any]) {
-        guard let server = json["server"] as? String,
-            let st = json["status"] as? String,
-            let sn = json["sn"] as? String,
-            let message = json["message"] as? String,
-            let time = json["time"] as? String
-        else {
-            return nil
+*/
+    init?(json: [String: String]) throws {
+        guard let server = json["server"] else {
+            throw JSONSerializationError.missingServer
         }
-        
+        guard let st = json["status"] else {
+            throw JSONSerializationError.missingStatus
+        }
+//            let sn: String = json["sn"] as? String,
+        guard let message = json["message"] else {
+            throw JSONSerializationError.missingMessage
+        }
+        guard let time = json["time"] else {
+            throw JSONSerializationError.missingTime
+        }
+        guard let status = Status(rawValue: st) else {
+            throw JSONSerializationError.invalidStatus
+        }
         self.server = server
-        self.status = st
-        self.sn = sn
+        self.status = status.rawValue
+//        self.sn = sn
         self.message = message
         self.time = time
+
     }
+}
+
+enum JSONSerializationError: String, Error {
+    case missingServer = "Missing 'server' in json"
+    case missingStatus = "Missing 'status' in json"
+    case missingMessage = "Missing 'message' in json"
+    case missingTime = "Missing 'time' in json"
+    case invalidStatus = "Invalid status in message"
 }

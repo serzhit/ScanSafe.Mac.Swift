@@ -13,12 +13,18 @@
 		F92082501EB9F49D00B70D4C /* ScanSafe_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920824F1EB9F49D00B70D4C /* ScanSafe_MacTests.swift */; };
 		F920825B1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */; };
 		F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082701EBA218500B70D4C /* CloudCoin.swift */; };
-		F92082731EBA21D900B70D4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082721EBA21D900B70D4C /* ViewController.swift */; };
+		F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082721EBA21D900B70D4C /* MainViewController.swift */; };
 		F92082751EBA32CC00B70D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082741EBA32CC00B70D4C /* Utils.swift */; };
 		F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082761EBA44B000B70D4C /* RAIDA.swift */; };
 		F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082781EBA44DF00B70D4C /* RAIDANode.swift */; };
 		F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920827A1EBACEC100B70D4C /* CoinStack.swift */; };
 		F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7871EBE6AE900E9B64D /* Protocols.swift */; };
+		F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7891EC048F300E9B64D /* UserInteraction.swift */; };
+		F9ECA78C1EC09D6000E9B64D /* IOModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA78B1EC09D6000E9B64D /* IOModels.swift */; };
+		F9ECA78E1EC09FC900E9B64D /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9ECA78D1EC09FC900E9B64D /* Settings.plist */; };
+		F9ECA7901EC0C55100E9B64D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA78F1EC0C55100E9B64D /* Logger.swift */; };
+		F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */; };
+		F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7931EC0DF4700E9B64D /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +57,18 @@
 		F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSafe_MacUITests.swift; sourceTree = "<group>"; };
 		F920825C1EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F92082701EBA218500B70D4C /* CloudCoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCoin.swift; sourceTree = "<group>"; };
-		F92082721EBA21D900B70D4C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F92082721EBA21D900B70D4C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F92082741EBA32CC00B70D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F92082761EBA44B000B70D4C /* RAIDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDA.swift; sourceTree = "<group>"; };
 		F92082781EBA44DF00B70D4C /* RAIDANode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDANode.swift; sourceTree = "<group>"; };
 		F920827A1EBACEC100B70D4C /* CoinStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinStack.swift; sourceTree = "<group>"; };
 		F9ECA7871EBE6AE900E9B64D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		F9ECA7891EC048F300E9B64D /* UserInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
+		F9ECA78B1EC09D6000E9B64D /* IOModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOModels.swift; sourceTree = "<group>"; };
+		F9ECA78D1EC09FC900E9B64D /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		F9ECA78F1EC0C55100E9B64D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOpenPanelExtension.swift; sourceTree = "<group>"; };
+		F9ECA7931EC0DF4700E9B64D /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +124,18 @@
 				F92082431EB9F49D00B70D4C /* Main.storyboard */,
 				F92082461EB9F49D00B70D4C /* Info.plist */,
 				F92082701EBA218500B70D4C /* CloudCoin.swift */,
-				F92082721EBA21D900B70D4C /* ViewController.swift */,
+				F92082721EBA21D900B70D4C /* MainViewController.swift */,
 				F92082741EBA32CC00B70D4C /* Utils.swift */,
 				F92082761EBA44B000B70D4C /* RAIDA.swift */,
 				F92082781EBA44DF00B70D4C /* RAIDANode.swift */,
 				F920827A1EBACEC100B70D4C /* CoinStack.swift */,
 				F9ECA7871EBE6AE900E9B64D /* Protocols.swift */,
+				F9ECA7891EC048F300E9B64D /* UserInteraction.swift */,
+				F9ECA78B1EC09D6000E9B64D /* IOModels.swift */,
+				F9ECA78D1EC09FC900E9B64D /* Settings.plist */,
+				F9ECA78F1EC0C55100E9B64D /* Logger.swift */,
+				F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */,
+				F9ECA7931EC0DF4700E9B64D /* Enums.swift */,
 			);
 			path = ScanSafe.Mac;
 			sourceTree = "<group>";
@@ -251,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */,
+				F9ECA78E1EC09FC900E9B64D /* Settings.plist in Resources */,
 				F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,13 +296,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */,
-				F92082731EBA21D900B70D4C /* ViewController.swift in Sources */,
+				F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */,
+				F9ECA7901EC0C55100E9B64D /* Logger.swift in Sources */,
+				F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */,
 				F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */,
 				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
 				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
+				F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */,
 				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,
 				F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */,
 				F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */,
+				F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */,
+				F9ECA78C1EC09D6000E9B64D /* IOModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +455,7 @@
 				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -447,6 +472,7 @@
 				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
