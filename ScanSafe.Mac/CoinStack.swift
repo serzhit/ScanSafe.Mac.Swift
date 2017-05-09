@@ -69,7 +69,7 @@ class CoinStack: NSObject {
     override init() {
         self.cloudcoin = Set<CloudCoin>()
     }
-    init(coin: CloudCoin) {
+    init(_ coin: CloudCoin) {
         let coll: [CloudCoin] = [coin]
         self.cloudcoin = Set(coll)
     }

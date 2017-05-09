@@ -11,7 +11,7 @@ import Cocoa
 class MainViewController: NSViewController, RAIDAEchoDelegate {
 
     @IBAction func Scan(_ sender: NSButton) {
-        FileSystem.ChooseInputFile()
+        let urls = FileSystem.ChooseInputFile()
     }
     @IBAction func Safe(_ sender: NSButton) {
     }

@@ -46,7 +46,7 @@ class CloudCoin: NSObject {
     }
     var isValidated: Bool = false
     
-    init (nn: Int,sn: Int, ans: [String], expired: String, aoid: [String]) {
+    init? (nn: Int,sn: Int, ans: [String], expired: String, aoid: [String]) {
         
         self.sn = sn;
         self.nn = nn;

@@ -42,4 +42,8 @@ class Utils: NSObject {
                 return 0
         }
     }
+    
+    static func ToHexString(_ fromData: Data) -> String {
+        return fromData.map { String(format: "%02x", $0) }.joined()
+    }
 }
