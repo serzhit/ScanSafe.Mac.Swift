@@ -11,7 +11,20 @@ import Cocoa
 class MainViewController: NSViewController, RAIDAEchoDelegate {
 
     @IBAction func Scan(_ sender: NSButton) {
-        let urls = FileSystem.ChooseInputFile()
+        guard let files = FileSystem.ChooseInputFile() else {
+            return
+        }
+        guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
+            UserInteraction.alert(with: "Can't read input files", style: NSAlertStyle.warning)
+            return
+        }
+        let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
+        if alertAnswer == NSAlertFirstButtonReturn {
+            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: true)
+        } else {
+            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: false)
+
+        }
     }
     @IBAction func Safe(_ sender: NSButton) {
     }
@@ -49,12 +62,13 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         initCountries()
-        // Do any additional setup after loading the view.
+
         RAIDA.Instance?.EchoDelegate = self
-//        RAIDAReadyLabel.isHidden = true
-        RAIDA.Instance?.getEcho()
-        
+        FileSystem.InitializePaths();
+        RAIDA.Instance?.getEcho();
+
     }
     
     func initCountries() {

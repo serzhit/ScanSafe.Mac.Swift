@@ -15,7 +15,7 @@ protocol RAIDAEchoDelegate {
 
 protocol RAIDADetectDelegate {
     func DetectCompletedOn(node: Node)
-    func RAIDADetectionCompleted()
+    func CoinDetectionCompleted()
 }
 
 protocol CloudCoinP {

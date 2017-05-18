@@ -21,4 +21,14 @@ class Logger: NSObject {
             }
         }
     }
+    
+    static let tw: NSObject
+    
+    static Logger()
+{
+    tw = TextWriter.Synchronized(File.AppendText(LogFile.FullName));
+    }
+    static func Write(msg: String, lvl: Level) {
+        
+    }
 }

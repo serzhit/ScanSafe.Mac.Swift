@@ -99,11 +99,6 @@ class Node: NSObject {
     
     //Methods
     func Echo(withinGroup: DispatchGroup) {
-        enum JSONError: String, Error {
-            case NoData = "ERROR: no data"
-            case ConversionFailed = "ERROR: conversion from JSON failed"
-            case BadFormat = "JSON is not correct"
-        }
         let delegate = RAIDA.Instance?.EchoDelegate
         let config = URLSessionConfiguration.default
         
@@ -142,5 +137,10 @@ class Node: NSObject {
 
             }
         }.resume()
+    }
+    
+    func Detect(withGroup: DispatchGroup, withCoin: CloudCoin) {
+        
+        
     }
 }

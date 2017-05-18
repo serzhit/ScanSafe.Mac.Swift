@@ -46,3 +46,8 @@ enum Countries {
     Switzerland,
     Luxenburg
 }
+enum JSONError: String, Error {
+    case NoData = "ERROR: no data"
+    case ConversionFailed = "ERROR: conversion from JSON failed"
+    case BadFormat = "JSON is not correct"
+}

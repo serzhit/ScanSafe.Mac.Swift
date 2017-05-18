@@ -54,6 +54,21 @@ class FileSystem {
     }
 }
 
+class CloudCoinFilesCollection {
+    let files: [CloudCoinFile?]
+    var CoinsFoundInFiles: CoinStack
+    init? (urls: [URL]) {
+        for url in urls {
+            let ccFile = CloudCoinFile(url: url)
+            files.append(ccFile)
+            if ccFile != nil {
+                CoinsFoundInFiles.Add(stack: ccFile!.Coins)
+            }
+            
+        }
+    }
+}
+
 class CloudCoinFile {
     var IsValidFile: Bool
     var Filename: String
@@ -63,16 +78,17 @@ class CloudCoinFile {
     
     }
     
-    init(urls: [URL]) {
-        for url in urls {
-            ParseCloudCoinFile(atURL: url);
+    init?(url: URL) {
+        Filename = url.absoluteString
+        guard ParseCloudCoinFile(atURL: url) else {
+            return nil
         }
     }
-    private func ParseCloudCoinFile(atURL: URL) {
+    private func ParseCloudCoinFile(atURL: URL) -> Bool {
         
         guard FileSystem.FM.fileExists(atPath: atURL.absoluteString) else {
             print("File \(atURL.absoluteString) doesn't exists!")
-            return
+            return false
         }
         Filename = atURL.absoluteString
         var fhandle: FileHandle?
@@ -80,6 +96,7 @@ class CloudCoinFile {
             fhandle = try  FileHandle(forReadingFrom: atURL)
         } catch let error as NSError {
             print(error.debugDescription)
+            return false
         }
         var signature: Data? = Data(count: 20)
         signature = fhandle?.readData(ofLength: 20)
@@ -90,45 +107,52 @@ class CloudCoinFile {
             regEx = try NSRegularExpression(pattern: regexpattern, options: [])
         } catch let error as NSError {
             print(error.debugDescription)
+            return false
         }
         IsValidFile = false
         
         if signature!.prefix(3).elementsEqual( [255,216,255] ) { //JPEG
             guard let coin = ReadJpeg(withFileHandle: fhandle!) else {
                 print("No coin in jpeg file at \(atURL.absoluteString)")
-                return
+                return false
             }
             IsValidFile = coin.Validate()
             guard IsValidFile else {
                 print("Coin in jpeg file at \(atURL.absoluteString) has bad format")
-                return
+                return false
             }
-            Coins.Add(CoinStack(coin))
-            Logger.Write("Coin with SN " + coin.sn + " added for detecting", Logger.Level.Normal);
+            Coins.Add(stack: CoinStack(coin))
+//            Logger.Write("Coin with SN " + coin.sn + " added for detecting", Logger.Level.Normal);
 
         }
         else if (regEx?.numberOfMatches(in: String(data: signature!, encoding: .utf8)!, options: [], range: NSRange(location: 0,length: 19)))! > 0 {//JSON
 
-            guard let json = ReadJson(fhandle) else {
+            guard let stackFromJson = ReadJson(withFileHandle: fhandle!) else {
                 print("Cannot read json file \(atURL.absoluteString)")
+                return false
             }
-            for coin in json {
+            for coin in stackFromJson {
                 guard coin.Validate() else {
                     IsValidFile = false
                     break
                 }
                 IsValidFile = true;
-                Logger.Write("Coin with SN " + coin.sn + " added for detecting", Logger.Level.Normal);
+//                Logger.Write("Coin with SN " + coin.sn + " added for detecting", Logger.Level.Normal);
             }
     
             if IsValidFile {
-                Coins.Add(json)
+                Coins.Add(stack: stackFromJson)
+            } else {
+                print("Bad coin in stack file!")
+                return false
             }
         }
         if IsValidFile {
             FileSystem.CopyOriginalFileToImported(atURL)
+            return true
         } else {
             print("Cant be in this point actually")
+            return false
         }
     }
     
@@ -175,5 +199,18 @@ class CloudCoinFile {
             return nil
         }
         return coin
+    }
+    
+    private func ReadJson(withFileHandle: FileHandle) -> CoinStack? {
+        let stack: CoinStack?
+        let jsonData: Data?
+        do {
+            jsonData = withFileHandle.readDataToEndOfFile()
+            stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack
+            withFileHandle.closeFile()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
+        return stack
     }
 }

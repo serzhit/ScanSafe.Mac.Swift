@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class CoinStack: NSObject {
+class CoinStack: Sequence {
     //properties
-    var cloudcoin: Set<CloudCoin>? = nil
+    var cloudcoin: Set<CloudCoin>?
     
     //computable properties
     var coinsInStack: Int {
@@ -66,7 +66,7 @@ class CoinStack: NSObject {
     }
     
     //Constructors
-    override init() {
+    init() {
         self.cloudcoin = Set<CloudCoin>()
     }
     init(_ coin: CloudCoin) {
@@ -81,7 +81,7 @@ class CoinStack: NSObject {
     }
     
     //Methods
-    func Add(coin: CloudCoin) {
+    func Add(_ coin: CloudCoin) {
         self.cloudcoin?.insert(coin)
     }
     func Add(stack: CoinStack) {
@@ -93,5 +93,8 @@ class CoinStack: NSObject {
         for coin in stack.cloudcoin! {
             self.cloudcoin!.remove(coin)
         }
+    }
+    func makeIterator()-> SetIterator<CloudCoin> {
+        return self.cloudcoin!.makeIterator()
     }
 }

@@ -25,6 +25,7 @@ class RAIDA: NSObject {
     
     //Delegates
     var EchoDelegate: RAIDAEchoDelegate?
+    var DetectDelegate: RAIDADetectDelegate?
     
     //Constructor
     override init() {
@@ -41,10 +42,21 @@ class RAIDA: NSObject {
         for node: Node? in NodesArray {
             myGroup.enter()
             node!.Echo(withinGroup: myGroup)
-            //myGroup.leave()
         }
         myGroup.notify(queue: .main) {
             self.EchoDelegate?.AllEchoesReceived()
+        }
+    }
+    
+    func Detect(stack: CoinStack, ArePasswordsToBeChanged: Bool) {
+        let stackGroup = DispatchGroup()
+        let coinGroup = DispatchGroup()
+        for coin: CloudCoin in stack {
+            stackGroup.enter()
+            for node: Node? in NodesArray {
+                coinGroup.enter()
+                node!.Detect(withGroup: coinGroup, withCoin: coin)
+            }
         }
     }
 }

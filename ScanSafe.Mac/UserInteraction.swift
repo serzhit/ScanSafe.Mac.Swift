@@ -23,5 +23,14 @@ class UserInteraction: NSObject {
             print ("returnCode: ", returnCode)
         }
     }
-
+    static func YesNoAlert(with: String, style: NSAlertStyle) -> NSModalResponse {
+        let alert = NSAlert()
+        alert.alertStyle = style
+        alert.messageText = "\(with)"
+        alert.icon = NSImage(byReferencingFile: "Assets.xcassets/Appicon")
+        alert.informativeText = "The Easy eCurrency for Everyone!"
+        alert.addButton(withTitle: "Yes")
+        alert.addButton(withTitle: "No")
+        return alert.runModal()
+    }
 }
