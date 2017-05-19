@@ -33,36 +33,44 @@ class CoinStack: Sequence {
         return s
     }
     var Ones: Int {
-        return (cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.denomination != Denomination.One }).count)
+        //return (cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.denomination != Denomination.One }).count)
+        return 0;
     }
     var Fives: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.denomination != Denomination.Five }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.denomination != Denomination.Five }).count
+        return 0;
     }
     var Quarters: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.denomination != Denomination.Quarter }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.denomination != Denomination.Quarter }).count
+        return 0;
     }
     var Hundreds: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.denomination != Denomination.Hundred }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.denomination != Denomination.Hundred }).count
+        return 0;
     }
     var KiloQuarters: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.denomination != Denomination.KiloQuarter }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.denomination != Denomination.KiloQuarter }).count
+        return 0;
     }
     var AuthenticatedQuantity: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.Verdict != Status.Authenticated }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.Verdict != Status.Authenticated }).count
+        return 0;
     }
     var FractionedQuantity: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.Verdict != Status.Fractioned }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.Verdict != Status.Fractioned }).count
+        return 0;
     }
     var CounterfeitedQuantity: Int {
-        return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
-            return coin.Verdict != Status.Counterfeit }).count
+        //return cloudcoin!.drop(while: { (coin: CloudCoin) -> Bool in
+        //    return coin.Verdict != Status.Counterfeit }).count
+        return 0;
     }
     
     //Constructors

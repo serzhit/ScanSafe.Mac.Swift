@@ -232,7 +232,7 @@
 				TargetAttributes = {
 					F92082391EB9F49C00B70D4C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = KA9EEPV34B;
+						DevelopmentTeam = 6GNRYZ4GJF;
 						ProvisioningStyle = Automatic;
 					};
 					F920824A1EB9F49D00B70D4C = {
@@ -460,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = KA9EEPV34B;
+				DEVELOPMENT_TEAM = 6GNRYZ4GJF;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -477,7 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = KA9EEPV34B;
+				DEVELOPMENT_TEAM = 6GNRYZ4GJF;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

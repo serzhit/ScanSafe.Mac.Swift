@@ -12,11 +12,11 @@ import Cocoa
 class FileSystem {
     static let FM  = FileManager.default
     
-    static let settingsPath: String?  = Bundle.main.path(forResource: "Setttings", ofType: "plist")
-    static var settingsDict: NSDictionary? = NSDictionary(contentsOfFile: settingsPath!)
+    //static let settingsPath: String?  = Bundle.main.path(forResource: "Setttings", ofType: "plist")
+    //static var settingsDict: NSDictionary? = NSDictionary(contentsOfFile: settingsPath!)
 
     static func InitializePaths() {
-        let homedir: String? = settingsDict?.object(forKey: "AppFolder") as? String
+        /*let homedir: String? = settingsDict?.object(forKey: "AppFolder") as? String
         let importdir: String? = settingsDict?.object(forKey: "ImportFolder") as? String
         let exportdir: String? = settingsDict?.object(forKey: "]ExportFolder") as? String
         let backupdir: String? = settingsDict?.object(forKey: "]BackupFolder") as? String
@@ -32,7 +32,7 @@ class FileSystem {
                     UserInteraction.alert(with: "Error encountered creating system foldres.", style: NSAlertStyle.critical)
                 }
             }
-        }
+        }*/
         
         Logger.Initialize();
     }
@@ -55,9 +55,12 @@ class FileSystem {
 }
 
 class CloudCoinFilesCollection {
-    let files: [CloudCoinFile?]
+    var files: [CloudCoinFile?]
     var CoinsFoundInFiles: CoinStack
     init? (urls: [URL]) {
+        files = [CloudCoinFile?]()
+        CoinsFoundInFiles = CoinStack()
+        
         for url in urls {
             let ccFile = CloudCoinFile(url: url)
             files.append(ccFile)
@@ -70,12 +73,12 @@ class CloudCoinFilesCollection {
 }
 
 class CloudCoinFile {
-    var IsValidFile: Bool
+    var IsValidFile : Bool = false
     var Filename: String
     var Coins: CoinStack = CoinStack()
     
     init() {
-    
+        Filename = ""
     }
     
     init?(url: URL) {
@@ -202,8 +205,10 @@ class CloudCoinFile {
     }
     
     private func ReadJson(withFileHandle: FileHandle) -> CoinStack? {
-        let stack: CoinStack?
+        var stack: CoinStack?
         let jsonData: Data?
+        stack = nil
+        
         do {
             jsonData = withFileHandle.readDataToEndOfFile()
             stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack

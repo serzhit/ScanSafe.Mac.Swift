@@ -10,19 +10,19 @@ import Cocoa
 
 class Logger: NSObject {
     enum Level { case Warning, Normal, Error, Debug }
-    static let logdir: String? = FileSystem.settingsDict?.object(forKey: "LogFolder") as? String
-    static let logFile: String = "\(logdir!) cloudcoin.log"
+    //static let logdir: String? = FileSystem.settingsDict?.object(forKey: "LogFolder") as? String
+   // static let logFile: String = "\(logdir!) cloudcoin.log"
     
     static func Initialize() {
-        if !FileSystem.FM.fileExists(atPath: logFile) {
+        /*if !FileSystem.FM.fileExists(atPath: logFile) {
             guard FileSystem.FM.createFile(atPath: logFile, contents: Data(capacity: 0)) else {
                 print("Cannot create Log file: \(logFile)")
                 return
             }
-        }
+        }*/
     }
     
-    static let tw: NSObject
+    /*static let tw: NSObject
     
     static Logger()
 {
@@ -30,5 +30,5 @@ class Logger: NSObject {
     }
     static func Write(msg: String, lvl: Level) {
         
-    }
+    }*/
 }
