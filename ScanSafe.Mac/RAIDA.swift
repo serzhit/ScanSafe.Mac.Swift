@@ -57,6 +57,7 @@ class RAIDA: NSObject {
                 coinGroup.enter()
                 node!.Detect(withGroup: coinGroup, withCoin: coin)
             }
+            stackGroup.leave()
         }
     }
 }
