@@ -100,6 +100,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		729BDD041ECFE0B400FFECB3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F92082701EBA218500B70D4C /* CloudCoin.swift */,
+				F92082741EBA32CC00B70D4C /* Utils.swift */,
+				F92082761EBA44B000B70D4C /* RAIDA.swift */,
+				F92082781EBA44DF00B70D4C /* RAIDANode.swift */,
+				F920827A1EBACEC100B70D4C /* CoinStack.swift */,
+				F9ECA7871EBE6AE900E9B64D /* Protocols.swift */,
+				F9ECA7891EC048F300E9B64D /* UserInteraction.swift */,
+				F9ECA78B1EC09D6000E9B64D /* IOModels.swift */,
+				F9ECA78F1EC0C55100E9B64D /* Logger.swift */,
+				F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */,
+				F9ECA7931EC0DF4700E9B64D /* Enums.swift */,
+				F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		729BDD051ECFE0D400FFECB3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F92082721EBA21D900B70D4C /* MainViewController.swift */,
+				F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		F92082311EB9F49C00B70D4C = {
 			isa = PBXGroup;
 			children = (
@@ -123,25 +151,13 @@
 		F920823C1EB9F49D00B70D4C /* ScanSafe.Mac */ = {
 			isa = PBXGroup;
 			children = (
+				729BDD051ECFE0D400FFECB3 /* ViewControllers */,
+				729BDD041ECFE0B400FFECB3 /* Core */,
 				F920823D1EB9F49D00B70D4C /* AppDelegate.swift */,
 				F92082411EB9F49D00B70D4C /* Assets.xcassets */,
 				F92082431EB9F49D00B70D4C /* Main.storyboard */,
 				F92082461EB9F49D00B70D4C /* Info.plist */,
-				F92082701EBA218500B70D4C /* CloudCoin.swift */,
-				F92082721EBA21D900B70D4C /* MainViewController.swift */,
-				F92082741EBA32CC00B70D4C /* Utils.swift */,
-				F92082761EBA44B000B70D4C /* RAIDA.swift */,
-				F92082781EBA44DF00B70D4C /* RAIDANode.swift */,
-				F920827A1EBACEC100B70D4C /* CoinStack.swift */,
-				F9ECA7871EBE6AE900E9B64D /* Protocols.swift */,
-				F9ECA7891EC048F300E9B64D /* UserInteraction.swift */,
-				F9ECA78B1EC09D6000E9B64D /* IOModels.swift */,
 				F9ECA78D1EC09FC900E9B64D /* Settings.plist */,
-				F9ECA78F1EC0C55100E9B64D /* Logger.swift */,
-				F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */,
-				F9ECA7931EC0DF4700E9B64D /* Enums.swift */,
-				F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */,
-				F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */,
 			);
 			path = ScanSafe.Mac;
 			sourceTree = "<group>";

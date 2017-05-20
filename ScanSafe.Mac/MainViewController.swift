@@ -10,26 +10,6 @@ import Cocoa
 
 class MainViewController: NSViewController, RAIDAEchoDelegate {
 
-    @IBAction func Scan(_ sender: NSButton) {
-        guard let files = FileSystem.ChooseInputFile() else {
-            return
-        }
-        guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
-            UserInteraction.alert(with: "Can't read input files", style: NSAlertStyle.warning)
-            return
-        }
-        let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
-        if alertAnswer == NSAlertFirstButtonReturn {
-            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: true)
-        } else {
-            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: false)
-
-        }
-    }
-    @IBAction func Safe(_ sender: NSButton) {
-    }
-    @IBAction func Pay(_ sender: NSButton) {
-    }
     @IBOutlet weak var IntroLabel: NSTextField!
     @IBOutlet weak var Australia: NSBox!
     @IBOutlet weak var RAIDAReadyLabel: NSTextField!
@@ -57,6 +37,28 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
     @IBOutlet weak var Luxemburg: NSBox!
     @IBOutlet weak var Macedonia: NSBox!
     @IBOutlet weak var Switzerland: NSBox!
+    
+    @IBAction func Scan(_ sender: NSButton) {
+        guard let files = FileSystem.ChooseInputFile() else {
+            return
+        }
+        guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
+            UserInteraction.alert(with: "Can't read input files", style: NSAlertStyle.warning)
+            return
+        }
+        let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
+        if alertAnswer == NSAlertFirstButtonReturn {
+            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: true)
+        } else {
+            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: false)
+
+        }
+    }
+    
+    @IBAction func Safe(_ sender: NSButton) {
+    }
+    @IBAction func Pay(_ sender: NSButton) {
+    }
     
     var Countries: Dictionary<Node,NSBox> = Dictionary<Node,NSBox>()
     
