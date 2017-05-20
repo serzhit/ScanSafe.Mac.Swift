@@ -22,12 +22,12 @@ class Logger: NSObject {
         }
     }
     
-    static let tw: NSObject
-    
-    static Logger()
-{
-    tw = TextWriter.Synchronized(File.AppendText(LogFile.FullName));
+    static func lock(obj: AnyObject, blk:() -> ()) {
+        objc_sync_enter(obj)
+        blk()
+        objc_sync_exit(obj)
     }
+    
     static func Write(msg: String, lvl: Level) {
         
     }

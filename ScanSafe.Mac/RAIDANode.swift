@@ -140,7 +140,12 @@ class Node: NSObject {
     }
     
     func Detect(withGroup: DispatchGroup, withCoin: CloudCoin) {
+        let delegate = RAIDA.Instance?.DetectDelegate
+        let config = URLSessionConfiguration.default
         
+        let session = URLSession(configuration: config)
+        let url: URL? = URL(string: "/service/delegate", relativeTo: BaseUri!)
+
         
     }
 }
