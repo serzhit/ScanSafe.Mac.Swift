@@ -140,7 +140,30 @@ class Node: NSObject {
     }
     
     func Detect(withGroup: DispatchGroup, withCoin: CloudCoin) {
+        let query : String = "/detect?nn=\(withCoin.nn)&sn=\(withCoin.sn)&an=\(withCoin.ans[Number]!)&pan=\(withCoin.pans[Number]!)&denomination=\(Utils.Denomination2Int(forValue: withCoin.denomination))"
         
+        let coinUrl = URL(string: BaseUri!.absoluteString + query)
+        var request = URLRequest(url: coinUrl!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){data, response, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            guard let data = data else {
+                print("Data is empty")
+                return
+            }
+            
+            let jsonString = NSString(data: data, encoding: 0)
+            print(jsonString)
+        }
+        
+        task.resume()
+        
+        print(BaseUri!.absoluteString + query)
         
     }
 }

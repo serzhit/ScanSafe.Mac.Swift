@@ -44,6 +44,9 @@ class Utils: NSObject {
     }
     
     static func ToHexString(_ fromData: Data) -> String {
-        return fromData.map { String(format: "%02x", $0) }.joined()
+        return fromData.map { String(format: "%02hhx", $0) }.joined()
+        /*return fromData.withUnsafeBytes{(ptr:UnsafePointer<String>) -> String in
+            return ptr.pointee
+        }*/
     }
 }

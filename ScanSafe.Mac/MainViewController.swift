@@ -42,16 +42,24 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         guard let files = FileSystem.ChooseInputFile() else {
             return
         }
-        guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
+        
+        var coinFile: CloudCoinFile;
+        
+        coinFile = CloudCoinFile(urls: files);
+        
+        /*guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
             UserInteraction.alert(with: "Can't read input files", style: NSAlertStyle.warning)
             return
-        }
-        let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
-        if alertAnswer == NSAlertFirstButtonReturn {
-            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: true)
-        } else {
-            RAIDA.Instance?.Detect(stack: coinFiles.CoinsFoundInFiles, ArePasswordsToBeChanged: false)
-
+        }*/
+        
+        if (coinFile.IsValidFile)
+        {
+            let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
+            if alertAnswer == NSAlertFirstButtonReturn {
+                RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
+            } else {
+                RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
+            }
         }
     }
     
@@ -173,7 +181,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
     func AllEchoesReceived() {
         DispatchQueue.main.async {
             print("All echoes received!")
-            UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
+            //UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
         }
     }
 }

@@ -87,13 +87,24 @@ class CloudCoinFile {
             return nil
         }
     }
+    
+    init(urls: [URL]?)
+    {
+        Filename = ""
+        for url in urls!
+        {
+            ParseCloudCoinFile(atURL: url);
+        }
+    }
+    
     private func ParseCloudCoinFile(atURL: URL) -> Bool {
         
-        guard FileSystem.FM.fileExists(atPath: atURL.absoluteString) else {
-            print("File \(atURL.absoluteString) doesn't exists!")
+        guard FileSystem.FM.fileExists(atPath: atURL.path) else {
+            print("File \(atURL.path) doesn't exists!")
             return false
         }
-        Filename = atURL.absoluteString
+        Filename = atURL.path
+        
         var fhandle: FileHandle?
         do {
             fhandle = try  FileHandle(forReadingFrom: atURL)
@@ -105,20 +116,23 @@ class CloudCoinFile {
         signature = fhandle?.readData(ofLength: 20)
         
         var regEx: NSRegularExpression?
-        let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
-        do {
+        //let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
+        let regexpattern: String = "json" //testing case
+        /*do {
             regEx = try NSRegularExpression(pattern: regexpattern, options: [])
         } catch let error as NSError {
             print(error.debugDescription)
             return false
-        }
+        }*/
+        regEx = try! NSRegularExpression(pattern: regexpattern, options: [])
         IsValidFile = false
         
         if signature!.prefix(3).elementsEqual( [255,216,255] ) { //JPEG
-            guard let coin = ReadJpeg(withFileHandle: fhandle!) else {
+            guard let coin = ReadJpeg(withFilePath: Filename) else {
                 print("No coin in jpeg file at \(atURL.absoluteString)")
                 return false
             }
+            
             IsValidFile = coin.Validate()
             guard IsValidFile else {
                 print("Coin in jpeg file at \(atURL.absoluteString) has bad format")
@@ -159,9 +173,17 @@ class CloudCoinFile {
         }
     }
     
-    private func ReadJpeg(withFileHandle: FileHandle) -> CloudCoin? {
-        let fileByteContent: Data? = withFileHandle.readData(ofLength: 455)
+    private func ReadJpeg(withFilePath: String) -> CloudCoin? {
+        /*if let data = NSData(contentsOfFile: Filename){
+            var buffer = [UInt8](repeating: 0, count: data.length)
+            data.getBytes(&buffer, length: data.length)
+            
+            print("content file = \(data as NSData)")
+            
+        }*/
         
+        let fileRange = NSRange(location: 0, length: 455)
+        let fileByteContent = NSData(contentsOfFile: withFilePath)?.subdata(with: fileRange)
         var an: [String] = Array<String>(repeating: "", count: RAIDA.NODEQUANTITY)
         var aoid: [String] = [""]
         var nn: Int?
@@ -169,12 +191,16 @@ class CloudCoinFile {
         var ed: String?
         
         let jpegHexContent: String = Utils.ToHexString(fileByteContent!)
+        
+        print("content file = \(fileByteContent! as NSData)")
+        
         for i in 0..<RAIDA.NODEQUANTITY {
             let start = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 40+i*32)
             let end = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 72+i*32)
             let range = start..<end
             an[i] = jpegHexContent.substring(with: range)
         }
+        
         var start = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 840)
         var end = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 895)
         var range = start..<end
@@ -188,12 +214,12 @@ class CloudCoinFile {
         start = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 902)
         end = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 904)
         range = start..<end
-        nn = Int(jpegHexContent.substring(with: range))
+        nn = Int(jpegHexContent.substring(with: range), radix: 16)
         
         start = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 904)
         end = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 910)
         range = start..<end
-        sn = Int(jpegHexContent.substring(with: range))
+        sn = Int(jpegHexContent.substring(with: range), radix: 16)
         
         guard let coin = CloudCoin(nn: nn!, sn: sn!, ans: an, expired: ed!, aoid: aoid) else {
             return nil
