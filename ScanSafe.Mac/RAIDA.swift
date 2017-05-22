@@ -65,9 +65,9 @@ class RAIDA: NSObject {
                 coinGroup.enter()
                 
                 node!.Detect(withCoin: coin){detectResult in
+                    coinGroup.leave()
                     if detectResult != nil
                     {
-                        coinGroup.leave()
                         self.DetectDelegate?.ProgressUpdated(progress: 100 / (Double)(stack.coinsInStack * self.NodesArray.count))
                     }
                 }
@@ -76,10 +76,9 @@ class RAIDA: NSObject {
             coinGroup.notify(queue: DispatchQueue.global(qos: .background)) {
                 DispatchQueue.main.async {
                     stackGroup.leave()
+                    print("coin detected")
                     let index = coinSetGroup.index(of: coinGroup)
-                    
                     self.DetectDelegate?.DetectCompletedOn(coin: coinList[index!])
-                    //print("coin sn = \(coin.sn)")
                 }
             }
         }

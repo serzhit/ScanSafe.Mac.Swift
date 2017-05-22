@@ -159,6 +159,11 @@ class Node: NSObject {
             }
             
             let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            if (json == nil)
+            {
+                completion(nil)
+                return;
+            }
             
             if let detectResult = DetectResponse(json: json!!)
             {
