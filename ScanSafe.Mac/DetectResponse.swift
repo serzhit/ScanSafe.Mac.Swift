@@ -49,3 +49,4 @@ extension DetectResponse{
         self.time = time
     }
 }
+

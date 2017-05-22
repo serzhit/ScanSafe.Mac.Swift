@@ -1187,8 +1187,28 @@
                                 <rect key="frame" x="44" y="325" width="486" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-TH-Fpe">
+                                <rect key="frame" x="269" y="308" width="37" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0%" id="UcT-ID-jUe">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACm-a8-nHK">
+                                <rect key="frame" x="247" y="5" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K6J-Pa-u9E">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OnCancelAction:" target="OG7-h9-KFl" id="3iQ-sS-BBx"/>
+                                </connections>
+                            </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO1-Gu-EtV">
-                                <rect key="frame" x="0.0" y="12" width="574" height="157"/>
+                                <rect key="frame" x="0.0" y="47" width="574" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="ofY-qw-dLa">
                                     <rect key="frame" x="1" y="0.0" width="572" height="156"/>
@@ -1350,10 +1370,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-TH-Fpe">
-                                <rect key="frame" x="269" y="308" width="37" height="17"/>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="DetectedTableView" destination="hIc-Kl-777" id="v85-Fr-59f"/>
+                        <outlet property="btnClose" destination="ACm-a8-nHK" id="8A4-eZ-0Tr"/>
+                        <outlet property="lblProgress" destination="x3x-TH-Fpe" id="qP6-xx-z37"/>
+                        <outlet property="progressBar" destination="z1U-cI-4Ka" id="4AT-ns-wVs"/>
+                    </connections>
+                </viewController>
+                <customObject id="mZa-MG-jmc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="401"/>
+        </scene>
+        <!--Enter Password View Controller-->
+        <scene sceneID="xaU-Dj-4wi">
+            <objects>
+                <viewController identifier="EnterPasswordViewController" storyboardIdentifier="EnterPasswordViewController" id="f5B-9Q-uO2" customClass="EnterPasswordViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="x4V-rn-nuU">
+                        <rect key="frame" x="0.0" y="0.0" width="285" height="122"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7rt-Jg-ebO">
+                                <rect key="frame" x="9" y="52" width="268" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0%" id="UcT-ID-jUe">
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="PRS-6C-jrZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UYZ-5L-Mcf">
+                                <rect key="frame" x="103" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7d4-U9-KTf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="puF-r2-Blz">
+                                <rect key="frame" x="62" y="92" width="162" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter Your Safe Password" id="VEi-8d-rYE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1362,14 +1426,111 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="DetectedTableView" destination="hIc-Kl-777" id="v85-Fr-59f"/>
-                        <outlet property="lblProgress" destination="x3x-TH-Fpe" id="qP6-xx-z37"/>
-                        <outlet property="progressBar" destination="z1U-cI-4Ka" id="4AT-ns-wVs"/>
+                        <outlet property="btnOK" destination="UYZ-5L-Mcf" id="SQb-Hd-oy3"/>
                     </connections>
                 </viewController>
-                <customObject id="mZa-MG-jmc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="cHa-5I-kaj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="382"/>
+            <point key="canvasLocation" x="1112.5" y="305"/>
+        </scene>
+        <!--New Password View Controller-->
+        <scene sceneID="fEN-1h-98f">
+            <objects>
+                <viewController identifier="NewPasswordViewController" storyboardIdentifier="NewPasswordViewController" id="ZkY-KV-ZLH" customClass="NewPasswordViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ru4-3a-hDc">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="221"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y45-5R-9LU">
+                                <rect key="frame" x="20" y="114" width="279" height="91"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" ambiguous="YES" id="emh-qV-Xt2">
+                                    <rect key="frame" x="1" y="1" width="277" height="89"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="4AA-Lp-Q0U">
+                                            <rect key="frame" x="0.0" y="-1" width="277" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <size key="minSize" width="277" height="89"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment>
+                                                    <string key="content">A password has not been set up yet. Please enter and verify your password in the fields below. Make sure to keep a copy of the password in a secure place. The application cannot restore a lost/forgotten password. Loss of a password will result in loss of any stored CloudCoins.</string>
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="bJi-QG-3E9">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="nRY-Oh-Wba">
+                                    <rect key="frame" x="-100" y="-100" width="15" height="133"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-ah-Fgl">
+                                <rect key="frame" x="28" y="51" width="265" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="ugF-hn-smd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQL-by-kqy">
+                                <rect key="frame" x="119" y="7" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hOg-zl-6aS">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                            </button>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eW0-f9-hre">
+                                <rect key="frame" x="28" y="79" width="265" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="IQJ-c4-u9k">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                        </subviews>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="lblExplain" destination="Y45-5R-9LU" id="8ON-fJ-YXG"/>
+                    </connections>
+                </viewController>
+                <customObject id="t7l-z9-PFS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444.5" y="330.5"/>
         </scene>
     </scenes>
     <resources>

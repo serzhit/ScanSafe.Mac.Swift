@@ -9,14 +9,24 @@
 import Cocoa
 
 class DetectViewController: NSViewController, RAIDADetectDelegate {
+    
+    @IBOutlet weak var btnClose: NSButton!
     @IBOutlet weak var progressBar: NSProgressIndicator!
-
     @IBOutlet weak var DetectedTableView: NSTableView!
     @IBOutlet weak var lblProgress: NSTextField!
+    
+    @IBAction func OnCancelAction(_ sender: AnyObject) {
+        let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
+        self.presentViewControllerAsModalWindow(newPassVC!);
+
+        dismiss(self)
+    }
+    
     var detectResults : [DetectDisplay] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         RAIDA.Instance?.DetectDelegate = self
         

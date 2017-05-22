@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8A1ED2363B003B94FF /* DetectResponse.swift */; };
+		729A3A8D1ED2E5A3003B94FF /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */; };
+		729A3A8F1ED2E6C4003B94FF /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */; };
 		F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920823D1EB9F49D00B70D4C /* AppDelegate.swift */; };
 		F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92082411EB9F49D00B70D4C /* Assets.xcassets */; };
 		F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92082431EB9F49D00B70D4C /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		729A3A8A1ED2363B003B94FF /* DetectResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
+		729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			children = (
 				F92082721EBA21D900B70D4C /* MainViewController.swift */,
 				F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */,
+				729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */,
+				729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,8 +350,10 @@
 				F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */,
 				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
 				729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */,
+				729A3A8F1ED2E6C4003B94FF /* NewPasswordViewController.swift in Sources */,
 				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
 				F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */,
+				729A3A8D1ED2E5A3003B94FF /* EnterPasswordViewController.swift in Sources */,
 				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,
 				F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */,
 				F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */,

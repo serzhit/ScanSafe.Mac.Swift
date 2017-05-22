@@ -52,12 +52,14 @@ class RAIDA: NSObject {
     
     func Detect(stack: CoinStack, ArePasswordsToBeChanged: Bool) {
         let stackGroup = DispatchGroup()
-        var coinSetGroup = Set<DispatchGroup>()
+        var coinSetGroup = [DispatchGroup]()
+        var coinList = [CloudCoin]()
         
         for coin: CloudCoin in stack {
             stackGroup.enter()
             let coinGroup = DispatchGroup();
-            coinSetGroup.insert(coinGroup)
+            coinSetGroup.append(coinGroup)
+            coinList.append(coin)
             
             for node: Node? in NodesArray {
                 coinGroup.enter()
@@ -70,14 +72,22 @@ class RAIDA: NSObject {
                     }
                 }
             }
+            
             coinGroup.notify(queue: DispatchQueue.global(qos: .background)) {
-                stackGroup.leave()
-                self.DetectDelegate?.DetectCompletedOn(coin: coin)
+                DispatchQueue.main.async {
+                    stackGroup.leave()
+                    let index = coinSetGroup.index(of: coinGroup)
+                    
+                    self.DetectDelegate?.DetectCompletedOn(coin: coinList[index!])
+                    //print("coin sn = \(coin.sn)")
+                }
             }
         }
         
         stackGroup.notify(queue: DispatchQueue.main) {
-            self.DetectDelegate?.CoinDetectionCompleted()
+            DispatchQueue.main.async {
+                self.DetectDelegate?.CoinDetectionCompleted()
+            }
         }
     }
 }
