@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8A1ED2363B003B94FF /* DetectResponse.swift */; };
 		F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920823D1EB9F49D00B70D4C /* AppDelegate.swift */; };
 		F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92082411EB9F49D00B70D4C /* Assets.xcassets */; };
 		F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92082431EB9F49D00B70D4C /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		729A3A8A1ED2363B003B94FF /* DetectResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
 		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		729A3A881ED23530003B94FF /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				729A3A891ED235B4003B94FF /* Raida */,
+			);
+			name = Modals;
+			sourceTree = "<group>";
+		};
+		729A3A891ED235B4003B94FF /* Raida */ = {
+			isa = PBXGroup;
+			children = (
+				729A3A8A1ED2363B003B94FF /* DetectResponse.swift */,
+			);
+			name = Raida;
+			sourceTree = "<group>";
+		};
 		729BDD041ECFE0B400FFECB3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +169,7 @@
 		F920823C1EB9F49D00B70D4C /* ScanSafe.Mac */ = {
 			isa = PBXGroup;
 			children = (
+				729A3A881ED23530003B94FF /* Modals */,
 				729BDD051ECFE0D400FFECB3 /* ViewControllers */,
 				729BDD041ECFE0B400FFECB3 /* Core */,
 				F920823D1EB9F49D00B70D4C /* AppDelegate.swift */,
@@ -324,6 +343,7 @@
 				F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */,
 				F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */,
 				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
+				729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */,
 				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
 				F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */,
 				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,

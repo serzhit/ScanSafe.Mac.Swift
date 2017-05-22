@@ -16,8 +16,10 @@ class RAIDA: NSObject {
     //properties
     var NodesArray: [Node?] = Array<Node?>(repeating: nil, count: NODEQUANTITY)
     var EchoStatus: [RAIDAResponse?] = Array<RAIDAResponse?>(repeating: nil, count: NODEQUANTITY)
+    
     //Singeton pattern
     private static let theOnlyInstance: RAIDA? = RAIDA()
+    
     public static var Instance: RAIDA?
     {
         return theOnlyInstance
@@ -50,14 +52,32 @@ class RAIDA: NSObject {
     
     func Detect(stack: CoinStack, ArePasswordsToBeChanged: Bool) {
         let stackGroup = DispatchGroup()
-        let coinGroup = DispatchGroup()
+        var coinSetGroup = Set<DispatchGroup>()
+        
         for coin: CloudCoin in stack {
             stackGroup.enter()
+            let coinGroup = DispatchGroup();
+            coinSetGroup.insert(coinGroup)
+            
             for node: Node? in NodesArray {
                 coinGroup.enter()
-                node!.Detect(withGroup: coinGroup, withCoin: coin)
+                
+                node!.Detect(withCoin: coin){detectResult in
+                    if detectResult != nil
+                    {
+                        coinGroup.leave()
+                        
+                    }
+                }
             }
-            stackGroup.leave()
+            coinGroup.notify(queue: DispatchQueue.global(qos: .background)) {
+                self.DetectDelegate?.DetectCompletedOn(coin: coin)
+                stackGroup.leave()
+        }
+        stackGroup.notify(queue: DispatchQueue.global(qos: .background)) {
+            self.DetectDelegate?.CoinDetectionCompleted()
+            }
+        
         }
     }
 }

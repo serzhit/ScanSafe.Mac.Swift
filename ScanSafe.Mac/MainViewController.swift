@@ -44,18 +44,15 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         }
         
         var coinFile: CloudCoinFile;
-        
         coinFile = CloudCoinFile(urls: files);
-        
-        /*guard let coinFiles = CloudCoinFilesCollection(urls: files) else {
-            UserInteraction.alert(with: "Can't read input files", style: NSAlertStyle.warning)
-            return
-        }*/
         
         if (coinFile.IsValidFile)
         {
             let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
             if alertAnswer == NSAlertFirstButtonReturn {
+                let detectVC = self.storyboard?.instantiateController(withIdentifier: "DetectViewController") as? DetectViewController
+                self.presentViewControllerAsModalWindow(detectVC!);
+                
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
             } else {
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)

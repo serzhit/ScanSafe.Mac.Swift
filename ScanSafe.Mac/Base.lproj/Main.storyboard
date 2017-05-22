@@ -1178,7 +1178,7 @@
         <!--Detect View Controller-->
         <scene sceneID="r3m-FL-YMS">
             <objects>
-                <viewController storyboardIdentifier="DetectViewController" id="OG7-h9-KFl" customClass="DetectViewController" customModule="ScanSafe_Mac" sceneMemberID="viewController">
+                <viewController identifier="DetectViewController" storyboardIdentifier="DetectViewController" id="OG7-h9-KFl" customClass="DetectViewController" customModule="ScanSafe_Mac" sceneMemberID="viewController">
                     <view key="view" id="Ngc-yA-rBG">
                         <rect key="frame" x="0.0" y="0.0" width="574" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1214,7 +1214,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="HLh-vi-ewE">
+                                                        <tableCellView identifier="SerialCellID" id="HLh-vi-ewE">
                                                             <rect key="frame" x="1" y="1" width="90" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1247,7 +1247,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="wlu-7c-hi2">
+                                                        <tableCellView identifier="ValueCellID" id="wlu-7c-hi2">
                                                             <rect key="frame" x="94" y="1" width="50" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1280,7 +1280,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="nZW-jB-Cgi">
+                                                        <tableCellView identifier="AuthCellID" id="nZW-jB-Cgi">
                                                             <rect key="frame" x="147" y="1" width="90" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1313,7 +1313,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="bDB-15-ZXo">
+                                                        <tableCellView identifier="CommentCellID" id="bDB-15-ZXo">
                                                             <rect key="frame" x="240" y="1" width="330" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1358,7 +1358,7 @@
                 </viewController>
                 <customObject id="mZa-MG-jmc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="401"/>
+            <point key="canvasLocation" x="655" y="382"/>
         </scene>
     </scenes>
     <resources>

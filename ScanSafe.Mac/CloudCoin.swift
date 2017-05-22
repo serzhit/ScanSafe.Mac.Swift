@@ -34,7 +34,7 @@ class CloudCoin: NSObject {
     var isPassed: Bool {
         let passed = CountStatuses(raidaNodeResponse.pass)
         
-        return (passed > RAIDA.NODEQUANTITY) ? true : false
+        return (passed >= RAIDA.NODEQUANTITY) ? true : false
     }
     var Verdict: Status {
         if (percentOfRAIDAPass != 100) {

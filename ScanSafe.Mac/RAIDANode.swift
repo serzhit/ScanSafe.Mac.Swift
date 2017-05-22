@@ -139,9 +139,8 @@ class Node: NSObject {
         }.resume()
     }
     
-    func Detect(withGroup: DispatchGroup, withCoin: CloudCoin) {
+    func Detect(withCoin: CloudCoin, completion: @escaping (DetectResponse?) -> Void) {
         let query : String = "/detect?nn=\(withCoin.nn)&sn=\(withCoin.sn)&an=\(withCoin.ans[Number]!)&pan=\(withCoin.pans[Number]!)&denomination=\(Utils.Denomination2Int(forValue: withCoin.denomination))"
-        
         let coinUrl = URL(string: BaseUri!.absoluteString + query)
         var request = URLRequest(url: coinUrl!)
         request.httpMethod = "GET"
@@ -149,21 +148,41 @@ class Node: NSObject {
         let task = URLSession.shared.dataTask(with: request){data, response, error in
             guard error == nil else {
                 print(error!)
-                return
+                completion(nil)
+                return;
             }
             
             guard let data = data else {
                 print("Data is empty")
-                return
+                completion(nil)
+                return;
             }
             
-            let jsonString = NSString(data: data, encoding: 0)
-            print(jsonString)
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            
+            if let detectResult = DetectResponse(json: json!!)
+            {
+                let number = self.Number
+                if detectResult.status == "pass"
+                {
+                    withCoin.ans[number] = withCoin.pans[number]
+                }
+                
+                switch detectResult.status
+                {
+                    case "pass" :
+                        withCoin.detectStatus[number] = raidaNodeResponse.pass
+                        break;
+                    case "fail" :
+                        withCoin.detectStatus[number] = raidaNodeResponse.fail
+                        break;
+                    default :
+                        withCoin.detectStatus[number] = raidaNodeResponse.error
+                }
+                completion(detectResult)
+            }
         }
         
         task.resume()
-        
-        print(BaseUri!.absoluteString + query)
-        
     }
 }
