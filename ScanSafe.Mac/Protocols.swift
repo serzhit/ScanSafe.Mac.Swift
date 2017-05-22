@@ -15,6 +15,7 @@ protocol RAIDAEchoDelegate {
 
 protocol RAIDADetectDelegate {
     func DetectCompletedOn(coin: CloudCoin)
+    func ProgressUpdated(progress: Double)
     func CoinDetectionCompleted()
 }
 

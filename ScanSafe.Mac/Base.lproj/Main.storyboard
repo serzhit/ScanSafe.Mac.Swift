@@ -1350,10 +1350,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3x-TH-Fpe">
+                                <rect key="frame" x="269" y="308" width="37" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0%" id="UcT-ID-jUe">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="DetectedTableView" destination="hIc-Kl-777" id="v85-Fr-59f"/>
+                        <outlet property="lblProgress" destination="x3x-TH-Fpe" id="qP6-xx-z37"/>
+                        <outlet property="progressBar" destination="z1U-cI-4Ka" id="4AT-ns-wVs"/>
                     </connections>
                 </viewController>
                 <customObject id="mZa-MG-jmc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

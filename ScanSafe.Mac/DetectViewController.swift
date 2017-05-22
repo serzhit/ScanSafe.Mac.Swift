@@ -9,8 +9,10 @@
 import Cocoa
 
 class DetectViewController: NSViewController, RAIDADetectDelegate {
+    @IBOutlet weak var progressBar: NSProgressIndicator!
 
     @IBOutlet weak var DetectedTableView: NSTableView!
+    @IBOutlet weak var lblProgress: NSTextField!
     var detectResults : [DetectDisplay] = []
     
     override func viewDidLoad() {
@@ -30,11 +32,25 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
         let detectInfo = DetectDisplay(Serial: coin.sn, Value: Utils.Denomination2Int(forValue: coin.denomination), Check: coin.isPassed,
                                        Comment: "\(coin.percentOfRAIDAPass)" + " % of keys are good. Checked in ");
         detectResults.append(detectInfo)
-        DetectedTableView.reloadData();
+        DispatchQueue.main.async {
+            self.DetectedTableView.reloadData();
+        }
     }
     
     func CoinDetectionCompleted(){
         print("CoinDetectionCompleted")
+        DispatchQueue.main.async {
+            self.progressBar.doubleValue = 100.0
+            self.lblProgress.stringValue = "100%"
+        }
+    }
+    
+    func ProgressUpdated(progress: Double){
+        DispatchQueue.main.async {
+            self.progressBar.increment(by: progress)
+            let progress = self.progressBar.doubleValue
+            self.lblProgress.stringValue = "\(Int(progress))" + "%"
+        }
     }
 }
 

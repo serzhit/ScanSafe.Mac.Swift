@@ -66,18 +66,18 @@ class RAIDA: NSObject {
                     if detectResult != nil
                     {
                         coinGroup.leave()
-                        
+                        self.DetectDelegate?.ProgressUpdated(progress: 100 / (Double)(stack.coinsInStack * self.NodesArray.count))
                     }
                 }
             }
             coinGroup.notify(queue: DispatchQueue.global(qos: .background)) {
-                self.DetectDelegate?.DetectCompletedOn(coin: coin)
                 stackGroup.leave()
-        }
-        stackGroup.notify(queue: DispatchQueue.global(qos: .background)) {
-            self.DetectDelegate?.CoinDetectionCompleted()
+                self.DetectDelegate?.DetectCompletedOn(coin: coin)
             }
+        }
         
+        stackGroup.notify(queue: DispatchQueue.main) {
+            self.DetectDelegate?.CoinDetectionCompleted()
         }
     }
 }
