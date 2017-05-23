@@ -21,7 +21,7 @@ class DetectViewController: NSViewController {
 extension DetectViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 
+        return 0
     }
     
 }

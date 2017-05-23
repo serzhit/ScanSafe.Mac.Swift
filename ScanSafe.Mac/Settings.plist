@@ -14,5 +14,7 @@
 	<string>~/CloudCoin/Backup/</string>
 	<key>TmpFolder</key>
 	<string>~/CloudCoin/Tmp/</string>
+	<key>SafeFolder</key>
+	<string>~/.cloudcoin/</string>
 </dict>
 </plist>

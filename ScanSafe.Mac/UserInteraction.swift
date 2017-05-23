@@ -16,7 +16,7 @@ class UserInteraction: NSObject {
         let alert = NSAlert()
         alert.alertStyle = style
         alert.messageText = "\(with)"
-        alert.icon = NSImage(byReferencingFile: "Assets.xcassets")
+        alert.icon = NSImage(byReferencingFile: "Assets.xcassets/Appicon")
         alert.informativeText = "The Easy eCurrency for Everyone!"
         alert.addButton(withTitle: "OK")
         alert.beginSheetModal(for: mainWin!) { (returnCode: NSModalResponse) -> Void in
@@ -32,5 +32,22 @@ class UserInteraction: NSObject {
         alert.addButton(withTitle: "Yes")
         alert.addButton(withTitle: "No")
         return alert.runModal()
+    }
+}
+
+class SetPassword: SetPasswordDelegate {
+    let mainWin = NSApplication.shared().mainWindow
+    let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SetPassword") as! SetPasswordViewController
+    var isPasswordSet:Bool = false
+    var Password: String = ""
+    
+    init() {
+        mainWin!.contentViewController!.presentViewControllerAsSheet(viewController)
+        viewController.viewWillDisappear()
+    }
+    
+    func PasswordHasBeenSet() {
+        isPasswordSet = true
+        Password = viewController.SetPasswordField.stringValue
     }
 }

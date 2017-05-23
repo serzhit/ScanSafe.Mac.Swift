@@ -18,7 +18,9 @@
 		F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082761EBA44B000B70D4C /* RAIDA.swift */; };
 		F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082781EBA44DF00B70D4C /* RAIDANode.swift */; };
 		F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920827A1EBACEC100B70D4C /* CoinStack.swift */; };
+		F9467DAF1ED0350700810CF9 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9467DAE1ED0350700810CF9 /* Safe.swift */; };
 		F98951FB1EC604DE00ABF8D6 /* DetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */; };
+		F9A02DDC1ED05DC5001F4A6B /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A02DDB1ED05DC5001F4A6B /* SetPasswordViewController.swift */; };
 		F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7871EBE6AE900E9B64D /* Protocols.swift */; };
 		F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7891EC048F300E9B64D /* UserInteraction.swift */; };
 		F9ECA78C1EC09D6000E9B64D /* IOModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA78B1EC09D6000E9B64D /* IOModels.swift */; };
@@ -64,7 +66,9 @@
 		F92082761EBA44B000B70D4C /* RAIDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDA.swift; sourceTree = "<group>"; };
 		F92082781EBA44DF00B70D4C /* RAIDANode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDANode.swift; sourceTree = "<group>"; };
 		F920827A1EBACEC100B70D4C /* CoinStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinStack.swift; sourceTree = "<group>"; };
+		F9467DAE1ED0350700810CF9 /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
 		F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectViewController.swift; sourceTree = "<group>"; };
+		F9A02DDB1ED05DC5001F4A6B /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
 		F9ECA7871EBE6AE900E9B64D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F9ECA7891EC048F300E9B64D /* UserInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
 		F9ECA78B1EC09D6000E9B64D /* IOModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOModels.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				F9ECA7931EC0DF4700E9B64D /* Enums.swift */,
 				F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */,
 				F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */,
+				F9467DAE1ED0350700810CF9 /* Safe.swift */,
+				F9A02DDB1ED05DC5001F4A6B /* SetPasswordViewController.swift */,
 			);
 			path = ScanSafe.Mac;
 			sourceTree = "<group>";
@@ -305,11 +311,13 @@
 				F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */,
 				F98951FB1EC604DE00ABF8D6 /* DetectViewController.swift in Sources */,
 				F9ECA7901EC0C55100E9B64D /* Logger.swift in Sources */,
+				F9467DAF1ED0350700810CF9 /* Safe.swift in Sources */,
 				F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */,
 				F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */,
 				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
 				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
 				F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */,
+				F9A02DDC1ED05DC5001F4A6B /* SetPasswordViewController.swift in Sources */,
 				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,
 				F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */,
 				F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */,

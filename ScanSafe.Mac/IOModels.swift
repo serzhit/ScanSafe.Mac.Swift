@@ -22,14 +22,15 @@ class FileSystem {
         let backupdir: String? = settingsDict?.object(forKey: "]BackupFolder") as? String
         let logdir: String? = settingsDict?.object(forKey: "LogFolder") as? String
         let tmpDir: String? = settingsDict?.object(forKey: "TmpFolder") as? String
+        let safeDir: String? = settingsDict?.object(forKey: "SafeFolder") as? String
     
-        for path in [homedir, importdir, exportdir, backupdir, logdir, tmpDir] {
+        for path in [homedir, importdir, exportdir, backupdir, logdir, tmpDir, safeDir] {
             if !FM.fileExists(atPath: path!) {
                 do {
                     try FM.createDirectory(atPath: path!, withIntermediateDirectories: true)
                 } catch let error as NSError {
                     print(error.debugDescription)
-                    UserInteraction.alert(with: "Error encountered creating system foldres.", style: NSAlertStyle.critical)
+                    UserInteraction.alert(with: "Error encountered creating system foldrrs.", style: NSAlertStyle.critical)
                 }
             }
         }
@@ -55,8 +56,8 @@ class FileSystem {
 }
 
 class CloudCoinFilesCollection {
-    let files: [CloudCoinFile?]
-    var CoinsFoundInFiles: CoinStack
+    var files: [CloudCoinFile?] = []
+    var CoinsFoundInFiles: CoinStack = CoinStack()
     init? (urls: [URL]) {
         for url in urls {
             let ccFile = CloudCoinFile(url: url)
@@ -70,12 +71,12 @@ class CloudCoinFilesCollection {
 }
 
 class CloudCoinFile {
-    var IsValidFile: Bool
+    var IsValidFile: Bool = false
     var Filename: String
     var Coins: CoinStack = CoinStack()
     
     init() {
-    
+        Filename = ""
     }
     
     init?(url: URL) {

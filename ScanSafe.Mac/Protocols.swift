@@ -18,6 +18,10 @@ protocol RAIDADetectDelegate {
     func CoinDetectionCompleted()
 }
 
+protocol SetPasswordDelegate {
+    func PasswordHasBeenSet()
+}
+
 protocol CloudCoinP {
     
     var nn: Int { get set }
