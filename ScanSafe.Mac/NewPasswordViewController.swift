@@ -2,7 +2,7 @@
 //  NewPasswordViewController.swift
 //  ScanSafe.Mac
 //
-//  Created by Donald on 5/22/17.
+//  Created by Gao on 5/22/17.
 //  Copyright © 2017 Git in Sky. All rights reserved.
 //
 

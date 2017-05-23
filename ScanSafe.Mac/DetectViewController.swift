@@ -27,14 +27,12 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         RAIDA.Instance?.DetectDelegate = self
         
-        DetectedTableView.delegate = self;
-        DetectedTableView.dataSource = self;
+        DetectedTableView.delegate = self
+        DetectedTableView.dataSource = self
         
         detectResults = [DetectDisplay]()
-        
     }
     
     func DetectCompletedOn(coin: CloudCoin) {

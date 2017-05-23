@@ -1,5 +1,5 @@
 //
-//  EnterPasswordViewController.swift
+//  SafeContentViewController.swift
 //  ScanSafe.Mac
 //
 //  Created by Gao on 5/22/17.
@@ -8,11 +8,9 @@
 
 import Cocoa
 
-class EnterPasswordViewController: NSViewController{
-    @IBOutlet weak var btnOK: NSButton!
+class SafeContentViewController: NSViewController{
     
     override func viewDidLoad() {
         
     }
-    
 }
