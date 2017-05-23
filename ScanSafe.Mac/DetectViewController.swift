@@ -16,9 +16,21 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     @IBOutlet weak var lblProgress: NSTextField!
     
     @IBAction func OnCancelAction(_ sender: AnyObject) {
-        let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
-        self.presentViewControllerAsModalWindow(newPassVC!);
-
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileManager = FileManager.default
+            let safeFilePath = dir.appendingPathComponent(Safe.SafeFileName)
+            
+            if fileManager.fileExists(atPath: safeFilePath.path)
+            {
+                let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
+                self.presentViewControllerAsModalWindow(enterPassVC!);
+            }
+            else
+            {
+                let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
+                self.presentViewControllerAsModalWindow(newPassVC!);
+            }
+        }
         dismiss(self)
     }
     

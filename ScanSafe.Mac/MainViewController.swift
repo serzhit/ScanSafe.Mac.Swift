@@ -60,7 +60,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         }
     }
     
-    @IBAction func Safe(_ sender: NSButton) {
+    @IBAction func SafeAction(_ sender: NSButton) {
     }
     @IBAction func Pay(_ sender: NSButton) {
     }
@@ -75,6 +75,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         RAIDA.Instance?.EchoDelegate = self
         FileSystem.InitializePaths();
         RAIDA.Instance?.getEcho();
+        
+        Safe.Instance();
 
     }
     

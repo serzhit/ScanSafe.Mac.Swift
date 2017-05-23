@@ -11,6 +11,7 @@ import Cocoa
 class UserInteraction: NSObject {
     static let mainWin = NSApplication.shared().mainWindow
     
+    static var password: String = ""
     
     static func alert(with: String, style: NSAlertStyle) {
         let alert = NSAlert()

@@ -2,7 +2,7 @@
 //  DetectResponse.swift
 //  ScanSafe.Mac
 //
-//  Created by Donald on 5/21/17.
+//  Created by Gao on 5/21/17.
 //  Copyright © 2017 Git in Sky. All rights reserved.
 //
 
