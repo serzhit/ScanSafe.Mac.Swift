@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static FileSystem.InitializePaths() -&gt; ():IOModels.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Node.Detect(withGroup : DispatchGroup, withCoin : CloudCoin) -&gt; ():RAIDANode.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CloudCoinFile.ReadJpeg(withFileHandle : FileHandle) -&gt; CloudCoin?:IOModels.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileByteContent!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

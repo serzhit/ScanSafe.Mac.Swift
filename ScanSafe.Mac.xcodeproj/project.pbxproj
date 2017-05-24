@@ -32,6 +32,7 @@
 		F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */; };
 		F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7931EC0DF4700E9B64D /* Enums.swift */; };
 		F9ECA7981EC5934300E9B64D /* ApplicationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */; };
+		FF2081EC6DB8577AFF17E884 /* Pods_ScanSafe_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanSafe.Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		723AAE4F1ED3ABD000668327 /* SafeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeContentViewController.swift; sourceTree = "<group>"; };
 		7269E1741ED4DEF50071C8C4 /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
 		729A3A8A1ED2363B003B94FF /* DetectResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
 		729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		72F1B3311ED52DBE00758529 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanSafe_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanSafe.Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac.release.xcconfig"; sourceTree = "<group>"; };
 		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2081EC6DB8577AFF17E884 /* Pods_ScanSafe_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,13 +164,33 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		7E884DFBB5BA770E5E13E969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DD2E7B3DDD626569605CEE8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */,
+				F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F92082311EB9F49C00B70D4C = {
 			isa = PBXGroup;
 			children = (
+				72F1B3311ED52DBE00758529 /* Crypto-Bridging-Header.h */,
 				F920823C1EB9F49D00B70D4C /* ScanSafe.Mac */,
 				F920824E1EB9F49D00B70D4C /* ScanSafe.MacTests */,
 				F92082591EB9F49D00B70D4C /* ScanSafe.MacUITests */,
 				F920823B1EB9F49D00B70D4C /* Products */,
+				9DD2E7B3DDD626569605CEE8 /* Pods */,
+				7E884DFBB5BA770E5E13E969 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F920825F1EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.Mac" */;
 			buildPhases = (
+				4968E6CAABAD7FC631EA9ADD /* [CP] Check Pods Manifest.lock */,
 				F92082361EB9F49C00B70D4C /* Sources */,
 				F92082371EB9F49C00B70D4C /* Frameworks */,
 				F92082381EB9F49C00B70D4C /* Resources */,
+				58332217AA732861AFBB22EA /* [CP] Embed Pods Frameworks */,
+				BBB574B0B785D71297F25C13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,6 +371,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4968E6CAABAD7FC631EA9ADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58332217AA732861AFBB22EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBB574B0B785D71297F25C13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F92082361EB9F49C00B70D4C /* Sources */ = {
@@ -508,6 +585,7 @@
 		};
 		F92082601EB9F49D00B70D4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -519,12 +597,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crypto-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		F92082611EB9F49D00B70D4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -536,6 +616,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crypto-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

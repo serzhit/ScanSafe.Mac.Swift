@@ -43,6 +43,12 @@ class Utils: NSObject {
         }
     }
     
+//    static func Encrypt(plain: String, password: String, iv: String)
+//    {
+//        let encrypted = try AES(key: password, iv: iv).encrypt(plain)
+//        return encrypted
+//    }
+    
     static func ToHexString(_ fromData: Data) -> String {
         return fromData.map { String(format: "%02hhx", $0) }.joined()
     }

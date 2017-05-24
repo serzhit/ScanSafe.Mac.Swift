@@ -76,8 +76,27 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         FileSystem.InitializePaths();
         RAIDA.Instance?.getEcho();
         
-        Safe.Instance();
+        //Test dictionary from json
+//        let dic = ["2": "B", "1": "A", "3": "C"]
+//        
+//        let dictionary = ["aKey": "aValue", "anotherKey": "anotherValue"]
+//        if let theJSONData = try? JSONSerialization.data(
+//            withJSONObject: dictionary,
+//            options: []) {
+//            let theJSONText = String(data: theJSONData,
+//                                     encoding: .ascii)
+//            print("JSON string = \(theJSONText!)")
+//        }
+//        
+//        let stack = CoinStack()
+//        let cloudcoin = CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!
+//        stack.Add(CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!)
+//        stack.Add(CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!)
+//        
+//        
+//        let data1 = try? JSONSerialization.data(withJSONObject: cloudcoin, options: JSONSerialization.WritingOptions.prettyPrinted)
 
+//        print(String(data: data1!, encoding:String.Encoding.utf8))
     }
     
     func initCountries() {

@@ -10,22 +10,22 @@ import Cocoa
 
 class CoinStack: Sequence {
     //properties
-    var cloudcoin: Set<CloudCoin>?
+    var cloudcoinSet: Set<CloudCoin>?
     
     //computable properties
     var coinsInStack: Int {
-        return cloudcoin!.count
+        return cloudcoinSet!.count
     }
     var SumInStack: Int {
         var s = 0
-        for cccc in cloudcoin! {
+        for cccc in cloudcoinSet! {
             s += Utils.Denomination2Int(forValue: cccc.denomination)
         }
         return s
     }
     var SumOfGoodCoins: Int {
     var s = 0
-        for cccc in cloudcoin! {
+        for cccc in cloudcoinSet! {
             if cccc.Verdict != Status.Counterfeit {
                 s += Utils.Denomination2Int(forValue: cccc.denomination)
             }
@@ -33,60 +33,80 @@ class CoinStack: Sequence {
         return s
     }
     var Ones: Int {
-        return cloudcoin!.filter({$0.denomination != Denomination.One}).count;
+        return cloudcoinSet!.filter({$0.denomination != Denomination.One}).count;
     }
     var Fives: Int {
-        return cloudcoin!.filter({$0.denomination != Denomination.Five}).count;
+        return cloudcoinSet!.filter({$0.denomination != Denomination.Five}).count;
     }
     var Quarters: Int {
-        return cloudcoin!.filter({$0.denomination != Denomination.Quarter}).count;
+        return cloudcoinSet!.filter({$0.denomination != Denomination.Quarter}).count;
     }
     var Hundreds: Int {
-        return cloudcoin!.filter({$0.denomination != Denomination.Hundred}).count;
+        return cloudcoinSet!.filter({$0.denomination != Denomination.Hundred}).count;
     }
     var KiloQuarters: Int {
-        return cloudcoin!.filter({$0.denomination != Denomination.KiloQuarter}).count;
+        return cloudcoinSet!.filter({$0.denomination != Denomination.KiloQuarter}).count;
     }
     var AuthenticatedQuantity: Int {
-        return cloudcoin!.filter({$0.Verdict != Status.Authenticated}).count;
+        return cloudcoinSet!.filter({$0.Verdict != Status.Authenticated}).count;
     }
     var FractionedQuantity: Int {
-        return cloudcoin!.filter({$0.Verdict != Status.Fractioned}).count;
+        return cloudcoinSet!.filter({$0.Verdict != Status.Fractioned}).count;
     }
     var CounterfeitedQuantity: Int {
-        return cloudcoin!.filter({$0.Verdict != Status.Counterfeit}).count;
+        return cloudcoinSet!.filter({$0.Verdict != Status.Counterfeit}).count;
     }
     
     //Constructors
     init() {
-        self.cloudcoin = Set<CloudCoin>()
+        self.cloudcoinSet = Set<CloudCoin>()
     }
     init(_ coin: CloudCoin) {
         let coll: [CloudCoin] = [coin]
-        self.cloudcoin = Set(coll)
+        self.cloudcoinSet = Set(coll)
     }
     init(stack: Set<CloudCoin>) {
-        self.cloudcoin = stack
+        self.cloudcoinSet = stack
     }
     init(collection: AnyCollection<CloudCoin>) {
-        self.cloudcoin = Set(collection)
+        self.cloudcoinSet = Set(collection)
     }
     
     //Methods
     func Add(_ coin: CloudCoin) {
-        self.cloudcoin?.insert(coin)
+        self.cloudcoinSet?.insert(coin)
     }
+    
     func Add(stack: CoinStack) {
-        for coin in stack.cloudcoin! {
-            self.cloudcoin!.insert(coin)
+        for coin in stack.cloudcoinSet! {
+            self.cloudcoinSet!.insert(coin)
         }
     }
+    
     func Remove(stack: CoinStack) {
-        for coin in stack.cloudcoin! {
-            self.cloudcoin!.remove(coin)
+        for coin in stack.cloudcoinSet! {
+            self.cloudcoinSet!.remove(coin)
         }
     }
+    
     func makeIterator()-> SetIterator<CloudCoin> {
-        return self.cloudcoin!.makeIterator()
+        return self.cloudcoinSet!.makeIterator()
+    }
+    
+    func GetDictionary() -> [[String:Any]] {
+        var allDictionaries: [[String: Any]] = []
+        for coin in cloudcoinSet!
+        {
+            let dictionary = [
+                "an": coin.ans,
+                "detectStatus": coin.detectStatus,
+                "aoid": coin.aoid,
+                "ed": coin.ed,
+                "nn": coin.nn,
+                "sn": coin.sn] as [String : Any]
+            allDictionaries.append(dictionary)
+        }
+        
+        return allDictionaries
     }
 }

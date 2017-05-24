@@ -27,6 +27,8 @@ class NewPasswordViewController: NSViewController{
             self.presentViewControllerAsModalWindow(safeContentVC!);
             
             dismiss(self)
+            
+            Safe.Instance()
         }
     }
 

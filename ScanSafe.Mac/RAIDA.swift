@@ -61,6 +61,11 @@ class RAIDA: NSObject {
             coinSetGroup.append(coinGroup)
             coinList.append(coin)
             
+            if (!ArePasswordsToBeChanged)
+            {
+                coin.pans = coin.ans
+            }
+            
             for node: Node? in NodesArray {
                 coinGroup.enter()
                 
