@@ -124,7 +124,7 @@ class CoinStack: Sequence {
             
             
             let dictionary = [
-                "an": coin.ans,
+                "ans": coin.ans,
                 "detectStatus": detectIntArray,
                 "aoid": coin.aoid,
                 "ed": coin.ed,
@@ -134,5 +134,23 @@ class CoinStack: Sequence {
         }
         
         return allDictionaries
+    }
+    
+    init? (jsonArray:[[String: Any]]){
+        cloudcoinSet = Set<CloudCoin>()
+        for var json in jsonArray {
+            guard let ans = json["ans"] as? [String],
+                let detectStatus = json["detectStatus"] as? [Int],
+                let aoid = json["aoid"] as? [String],
+                let ed = json["ed"] as? String,
+                let nn = json["nn"] as? Int,
+                let sn = json["sn"] as? Int
+                else {
+                    return nil
+            }
+            
+            var coin = CloudCoin(nn: nn, sn: sn, ans: ans, expired: ed, aoid: aoid)
+            cloudcoinSet?.insert(coin!)
+        }
     }
 }

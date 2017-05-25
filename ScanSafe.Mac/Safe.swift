@@ -79,12 +79,12 @@ class Safe: NSObject {
             {
                 let safeContents = ReadSafeFile(filePath: filePath!)
                 theOnlySafeInstance = Safe(filePath: filePath!, coins: safeContents)
+                return theOnlySafeInstance
             }
             else {
                 return nil;
             }
         }
-        
         
         return nil
     }
@@ -95,11 +95,7 @@ class Safe: NSObject {
         
         if let theJsonData = try? JSONSerialization.data(withJSONObject: stackDic, options: []) {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
-            let password: Array<UInt8> = Array(userEnteredPassword.utf8)
-            let salt: Array<UInt8> = Array(Slogan.utf8)
-            let key = try! PKCS5.PBKDF2(password: password, salt: salt, iterations: 4096, variant: .sha256).calculate()
-            let iv = Array(key[0...15])
-            let cryptedJson = try! theJsonText!.aesEncrypt(key: key, iv: iv)
+            let cryptedJson = Crypto(source: theJsonText!, isEncrypt: true)
             
             try? (encryptedUserEnteredPassword + cryptedJson).write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
             
@@ -110,7 +106,30 @@ class Safe: NSObject {
     }
     
     static func ReadSafeFile(filePath: URL) -> CoinStack {
+        var coinsContent = try? String(contentsOf: filePath, encoding: String.Encoding.utf8)
+        coinsContent = String(coinsContent!.characters.dropFirst(40))
+        coinsContent = Crypto(source: coinsContent!, isEncrypt: false)
+        let coinsData = coinsContent?.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let json = try? JSONSerialization.jsonObject(with: coinsData!, options: []) as? [[String: Any]]
+        
+        if let coinStack = CoinStack(jsonArray: json!!){
+            return coinStack
+        }
+        
         return CoinStack()
+    }
+    
+    static func Crypto(source: String, isEncrypt: Bool) -> String {
+        let password: Array<UInt8> = Array(userEnteredPassword.utf8)
+        let salt: Array<UInt8> = Array(Slogan.utf8)
+        let key = try! PKCS5.PBKDF2(password: password, salt: salt, iterations: 4096, variant: .sha256).calculate()
+        let iv = Array(key[0...15])
+        if isEncrypt {
+            return try! source.aesEncrypt(key: key, iv: iv)
+        }
+        else {
+            return try! source.aesDecrypt(key: key, iv: iv)
+        }
     }
     
     func Add(stack: CoinStack)
@@ -129,14 +148,19 @@ class Safe: NSObject {
     }
     
     func Save() {
+        var url = Utils.GetFileUrl(path: Safe.SafeFileName)
+        Safe.CreateSafeFile(filePath: url!, stack: Contents)
         
+        url = Utils.GetFileUrl(path: Safe.SafeFileName + ".bkp")
+        Safe.CreateSafeFile(filePath: url!, stack: Contents)
     }
     
     func RemoveCounterfeitCoins(){
-        
+        for coin in Contents{
+            if (coin.Verdict == Status.Counterfeit)
+            {
+                Contents.cloudcoinSet?.remove(coin)
+            }
+        }
     }
-    
-    
 }
-
-

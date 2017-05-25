@@ -189,15 +189,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         UserInteraction.password = password
         
         Safe.Instance()?.Add(stack: coinFile.Coins)
-//        let contentDic = coinFile.Coins.GetDictionary()
-//        do{
-//            let theJsonData = try JSONSerialization.data(withJSONObject: contentDic, options: [])
-//            let theJsonText = String(data: theJsonData, encoding: .ascii)
-//            print(theJsonText)
-//        } catch let error as NSError{
-//                print(error.localizedDescription)
-//        }
-        
+       
         let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
         self.presentViewControllerAsModalWindow(safeContentVC!);
     }
@@ -242,7 +234,7 @@ extension String {
         return encryptedData.base64EncodedString()
     }
     
-    func aesDecrypt(key: String, iv: String) throws -> String {
+    func aesDecrypt(key: Array<UInt8>, iv: Array<UInt8>) throws -> String {
         let data = Data(base64Encoded: self)!
         let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
         let decryptedData = Data(decrypted)
