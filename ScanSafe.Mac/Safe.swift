@@ -31,14 +31,14 @@ class Safe: NSObject {
     let bkpFilePath: String
     let safeFileUrl: URL
     let bkpFileUrl: URL
-    let contents: CoinStack
+    var Contents: CoinStack
     
     init(filePath: URL, coins: CoinStack) {
         safeFilePath = filePath.path
         bkpFilePath = filePath.path + ".bkp"
         safeFileUrl = filePath
         bkpFileUrl = URL(fileURLWithPath: bkpFilePath)
-        contents = coins;
+        Contents = coins;
     }
     
     static var theOnlySafeInstance: Safe? = nil
@@ -48,41 +48,43 @@ class Safe: NSObject {
     static var encryptedUserEnteredPassword: String = ""
     
     static func GetInstance() -> Safe? {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let filePath = dir.appendingPathComponent(SafeFileName)
+        
+        let filePath = Utils.GetFileUrl(path: SafeFileName)
 //            let bkpFilePath = dir.appendingPathComponent(SafeFileName + ".bkp")
-            let fileManager = FileManager.default
-            
-            userEnteredPassword = UserInteraction.password
-            encryptedUserEnteredPassword = userEnteredPassword.sha1()
-            
-            if (!fileManager.fileExists(atPath: filePath.path))
-            { //Safe does not exist, create one
-                if (userEnteredPassword != "")
+        
+        userEnteredPassword = UserInteraction.password
+        encryptedUserEnteredPassword = userEnteredPassword.sha1()
+        
+        if (!Utils.FileExists(url: filePath!))
+        { //Safe does not exist, create one
+            if (userEnteredPassword != "")
+            {
+                let coins = CoinStack()
+                let folderPath = Utils.GetFileUrl(path: "Cloudcoin")
+                
+                try? FileManager.default.createDirectory(at: folderPath!, withIntermediateDirectories: false, attributes: nil)
+                if (CreateSafeFile(filePath: filePath!, stack: coins))
                 {
-                    let coins = CoinStack()
-                    if (CreateSafeFile(filePath: filePath, stack: coins))
-                    {
-                        theOnlySafeInstance = Safe(filePath: filePath, coins: coins)
-                        return theOnlySafeInstance
-                    }
-                }
-                else
-                {
-                    return nil;
+                    theOnlySafeInstance = Safe(filePath: filePath!, coins: coins)
+                    return theOnlySafeInstance
                 }
             }
-            else { //Safe already exists
-                if (userEnteredPassword != "")
-                {
-                    let safeContents = ReadSafeFile(filePath: filePath)
-                    theOnlySafeInstance = Safe(filePath: filePath, coins: safeContents)
-                }
-                else {
-                    return nil;
-                }
+            else
+            {
+                return nil;
             }
         }
+        else { //Safe already exists
+            if (userEnteredPassword != "")
+            {
+                let safeContents = ReadSafeFile(filePath: filePath!)
+                theOnlySafeInstance = Safe(filePath: filePath!, coins: safeContents)
+            }
+            else {
+                return nil;
+            }
+        }
+        
         
         return nil
     }
@@ -90,16 +92,16 @@ class Safe: NSObject {
     static func CreateSafeFile(filePath: URL, stack: CoinStack) -> Bool
     {
         let stackDic = stack.GetDictionary()
+        
         if let theJsonData = try? JSONSerialization.data(withJSONObject: stackDic, options: []) {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
             let password: Array<UInt8> = Array(userEnteredPassword.utf8)
             let salt: Array<UInt8> = Array(Slogan.utf8)
             let key = try! PKCS5.PBKDF2(password: password, salt: salt, iterations: 4096, variant: .sha256).calculate()
             let iv = Array(key[0...15])
-            let cryptedJson = try? theJsonText!.aesEncrypt(key: key, iv: iv)
+            let cryptedJson = try! theJsonText!.aesEncrypt(key: key, iv: iv)
             
-            try? encryptedUserEnteredPassword.write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
-            try? cryptedJson!.write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
+            try? (encryptedUserEnteredPassword + cryptedJson).write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
             
             return true;
         }
@@ -110,34 +112,31 @@ class Safe: NSObject {
     static func ReadSafeFile(filePath: URL) -> CoinStack {
         return CoinStack()
     }
+    
+    func Add(stack: CoinStack)
+    {
+        Contents.Add(stack: stack)
+        RemoveCounterfeitCoins();
+        //SafeContentChanged();
+        Save();
+    }
+    
+    func Remove(coin: CloudCoin)
+    {
+        Contents.cloudcoinSet?.remove(coin)
+        //SafeContentChanged()
+        Save();
+    }
+    
+    func Save() {
+        
+    }
+    
+    func RemoveCounterfeitCoins(){
+        
+    }
+    
+    
 }
 
-extension String {
-    func sha1() -> String {
-        let data = self.data(using: String.Encoding.utf8)!
-        var digest = [UInt8](repeating: 0, count:Int(CC_SHA1_DIGEST_LENGTH))
-        data.withUnsafeBytes {
-            _ = CC_SHA1($0, CC_LONG(data.count), &digest)
-        }
-        let hexBytes = digest.map { String(format: "%02hhx", $0) }
-        
-        return hexBytes.joined()
-    }
-    
-    func aesEncrypt(key: Array<UInt8>, iv: Array<UInt8>) throws -> String {
-        let data = self.data(using: .utf8)!
-        let encrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).encrypt([UInt8](data))
-        let encryptedData = Data(encrypted)
-        
-        return encryptedData.base64EncodedString()
-    }
-    
-    func aesDecrypt(key: String, iv: String) throws -> String {
-        let data = Data(base64Encoded: self)!
-        let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
-        let decryptedData = Data(decrypted)
-        
-        return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
-    }
-}
 

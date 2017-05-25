@@ -13,6 +13,8 @@ class NewPasswordViewController: NSViewController{
     @IBOutlet weak var txtPassword: NSSecureTextField!
     @IBOutlet weak var txtVerifyPassword: NSSecureTextField!
     
+    var delegate: ImportDelegate?
+    
     @IBAction func OnOkAction(_ sender: AnyObject) {
         if txtPassword.stringValue.characters.count < 5 {
             UserInteraction.alert(with: "Password is too short. Use more than 5 characters.", style: NSAlertStyle.warning)
@@ -21,14 +23,8 @@ class NewPasswordViewController: NSViewController{
             UserInteraction.alert(with: "Passwords don't match.", style: NSAlertStyle.warning)
         }
         else {
-            UserInteraction.password = txtPassword.stringValue
-            
-            let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
-            self.presentViewControllerAsModalWindow(safeContentVC!);
-            
+            delegate?.FinishImported(password: txtPassword.stringValue)
             dismiss(self)
-            
-            Safe.Instance()
         }
     }
 

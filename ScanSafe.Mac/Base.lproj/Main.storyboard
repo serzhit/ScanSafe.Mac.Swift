@@ -1414,9 +1414,12 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="OnOkAction:" target="f5B-9Q-uO2" id="gFg-dW-7Bn"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puF-r2-Blz">
-                                <rect key="frame" x="62" y="92" width="162" height="17"/>
+                                <rect key="frame" x="62" y="86" width="162" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter Your Safe Password" id="VEi-8d-rYE">
                                     <font key="font" metaFont="system"/>
@@ -1428,6 +1431,7 @@ DQ
                     </view>
                     <connections>
                         <outlet property="btnOK" destination="UYZ-5L-Mcf" id="SQb-Hd-oy3"/>
+                        <outlet property="txtPassword" destination="7rt-Jg-ebO" id="p5t-gU-Nmc"/>
                     </connections>
                 </viewController>
                 <customObject id="cHa-5I-kaj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1546,7 +1550,7 @@ DQ
                 </viewController>
                 <customObject id="t7l-z9-PFS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="773"/>
+            <point key="canvasLocation" x="526.5" y="772.5"/>
         </scene>
         <!--Safe Content View Controller-->
         <scene sceneID="Mw3-C8-RmR">

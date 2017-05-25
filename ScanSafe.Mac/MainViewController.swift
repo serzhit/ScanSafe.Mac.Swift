@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import CryptoSwift
 
-class MainViewController: NSViewController, RAIDAEchoDelegate {
+class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, DetectDelegate {
 
     @IBOutlet weak var IntroLabel: NSTextField!
     @IBOutlet weak var Australia: NSBox!
@@ -38,12 +39,13 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
     @IBOutlet weak var Macedonia: NSBox!
     @IBOutlet weak var Switzerland: NSBox!
     
+    var coinFile: CloudCoinFile = CloudCoinFile()
+    
     @IBAction func Scan(_ sender: NSButton) {
         guard let files = FileSystem.ChooseInputFile() else {
             return
         }
         
-        var coinFile: CloudCoinFile;
         coinFile = CloudCoinFile(urls: files);
         
         if (coinFile.IsValidFile)
@@ -51,6 +53,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
             let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
             if alertAnswer == NSAlertFirstButtonReturn {
                 let detectVC = self.storyboard?.instantiateController(withIdentifier: "DetectViewController") as? DetectViewController
+                detectVC?.detectDelegate = self
                 self.presentViewControllerAsModalWindow(detectVC!);
                 
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
@@ -75,28 +78,6 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
         RAIDA.Instance?.EchoDelegate = self
         FileSystem.InitializePaths();
         RAIDA.Instance?.getEcho();
-        
-        //Test dictionary from json
-//        let dic = ["2": "B", "1": "A", "3": "C"]
-//        
-//        let dictionary = ["aKey": "aValue", "anotherKey": "anotherValue"]
-//        if let theJSONData = try? JSONSerialization.data(
-//            withJSONObject: dictionary,
-//            options: []) {
-//            let theJSONText = String(data: theJSONData,
-//                                     encoding: .ascii)
-//            print("JSON string = \(theJSONText!)")
-//        }
-//        
-//        let stack = CoinStack()
-//        let cloudcoin = CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!
-//        stack.Add(CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!)
-//        stack.Add(CloudCoin(nn: 0, sn: 0, ans: [], expired: "", aoid: [])!)
-//        
-//        
-//        let data1 = try? JSONSerialization.data(withJSONObject: cloudcoin, options: JSONSerialization.WritingOptions.prettyPrinted)
-
-//        print(String(data: data1!, encoding:String.Encoding.utf8))
     }
     
     func initCountries() {
@@ -183,6 +164,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
             }
         }
     }
+    
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -201,6 +183,71 @@ class MainViewController: NSViewController, RAIDAEchoDelegate {
             print("All echoes received!")
             //UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
         }
+    }
+    
+    func FinishImported(password: String) {
+        UserInteraction.password = password
+        
+        Safe.Instance()?.Add(stack: coinFile.Coins)
+//        let contentDic = coinFile.Coins.GetDictionary()
+//        do{
+//            let theJsonData = try JSONSerialization.data(withJSONObject: contentDic, options: [])
+//            let theJsonText = String(data: theJsonData, encoding: .ascii)
+//            print(theJsonText)
+//        } catch let error as NSError{
+//                print(error.localizedDescription)
+//        }
+        
+        let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
+        self.presentViewControllerAsModalWindow(safeContentVC!);
+    }
+    
+    func FinishDetected()
+    {
+        let safeFilePath = Utils.GetFileUrl(path: Safe.SafeFileName)!
+            
+        if Utils.FileExists(url: safeFilePath)
+        {
+            let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
+            enterPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(enterPassVC!);
+        }
+        else
+        {
+            let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
+            newPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(newPassVC!);
+        }
+        
+    }
+}
+
+extension String {
+    func sha1() -> String {
+        let data = self.data(using: String.Encoding.utf8)!
+        var digest = [UInt8](repeating: 0, count:Int(CC_SHA1_DIGEST_LENGTH))
+        data.withUnsafeBytes {
+            _ = CC_SHA1($0, CC_LONG(data.count), &digest)
+        }
+        let hexBytes = digest.map { String(format: "%02hhx", $0) }
+        
+        return hexBytes.joined()
+    }
+    
+    func aesEncrypt(key: Array<UInt8>, iv: Array<UInt8>) throws -> String {
+        let data = self.data(using: .utf8)!
+        let encrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).encrypt([UInt8](data))
+        let encryptedData = Data(encrypted)
+        
+        return encryptedData.base64EncodedString()
+    }
+    
+    func aesDecrypt(key: String, iv: String) throws -> String {
+        let data = Data(base64Encoded: self)!
+        let decrypted = try! AES(key: key, iv: iv, blockMode: .CBC, padding: PKCS7()).decrypt([UInt8](data))
+        let decryptedData = Data(decrypted)
+        
+        return String(bytes: decryptedData.bytes, encoding: .utf8) ?? "Could not decrypt"
     }
 }
 

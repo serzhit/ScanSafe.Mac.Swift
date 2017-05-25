@@ -52,4 +52,16 @@ class Utils: NSObject {
     static func ToHexString(_ fromData: Data) -> String {
         return fromData.map { String(format: "%02hhx", $0) }.joined()
     }
+    
+    static func GetFileUrl(path: String) -> URL? {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return dir.appendingPathComponent(path)
+        }
+        return nil;
+    }
+    
+    static func FileExists(url: URL) -> Bool{
+        let fileManager = FileManager.default
+        return fileManager.fileExists(atPath: url.path)
+    }
 }

@@ -13,6 +13,14 @@ protocol RAIDAEchoDelegate {
     func AllEchoesReceived()
 }
 
+protocol ImportDelegate{
+    func FinishImported(password: String)
+}
+
+protocol DetectDelegate {
+    func FinishDetected()
+}
+
 protocol RAIDADetectDelegate {
     func DetectCompletedOn(coin: CloudCoin)
     func ProgressUpdated(progress: Double)

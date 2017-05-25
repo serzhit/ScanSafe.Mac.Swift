@@ -15,22 +15,10 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     @IBOutlet weak var DetectedTableView: NSTableView!
     @IBOutlet weak var lblProgress: NSTextField!
     
+    var detectDelegate : DetectDelegate?
+    
     @IBAction func OnCancelAction(_ sender: AnyObject) {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileManager = FileManager.default
-            let safeFilePath = dir.appendingPathComponent(Safe.SafeFileName)
-            
-            if fileManager.fileExists(atPath: safeFilePath.path)
-            {
-                let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
-                self.presentViewControllerAsModalWindow(enterPassVC!);
-            }
-            else
-            {
-                let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
-                self.presentViewControllerAsModalWindow(newPassVC!);
-            }
-        }
+        detectDelegate?.FinishDetected()
         dismiss(self)
     }
     

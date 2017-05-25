@@ -96,10 +96,36 @@ class CoinStack: Sequence {
     func GetDictionary() -> [[String:Any]] {
         var allDictionaries: [[String: Any]] = []
         for coin in cloudcoinSet!
-        {
+        {//    case pass = 0, fail, error, fixing, unknown
+            var detectIntArray :[Int] = []
+            for detectStatus in coin.detectStatus
+            {
+                var detectInt = 4
+                switch(detectStatus)
+                {
+                case .pass :
+                    detectInt = 0
+                    break
+                case .fail:
+                    detectInt = 1
+                    break
+                case .error:
+                    detectInt = 2
+                    break
+                case .fixing:
+                    detectInt = 3
+                    break
+                case .unknown:
+                    detectInt = 4
+                    break
+                }
+                detectIntArray.append(detectInt)
+            }
+            
+            
             let dictionary = [
                 "an": coin.ans,
-                "detectStatus": coin.detectStatus,
+                "detectStatus": detectIntArray,
                 "aoid": coin.aoid,
                 "ed": coin.ed,
                 "nn": coin.nn,

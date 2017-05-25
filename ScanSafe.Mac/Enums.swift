@@ -14,8 +14,8 @@ enum Denomination {
 enum Status {
     case Authenticated, Counterfeit, Fractioned, Unknown
 }
-enum raidaNodeResponse {
-    case pass, fail, error, fixing, unknown
+enum raidaNodeResponse: Int {
+    case pass = 0, fail, error, fixing, unknown
 }
 enum Countries {
     case
