@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "mac",
-      "filename" : "Копия BigSafe.png",
+      "filename" : "safe.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
-      "filename" : "BigSafe.png",
+      "filename" : "safe-1.png",
       "scale" : "2x"
     }
   ],

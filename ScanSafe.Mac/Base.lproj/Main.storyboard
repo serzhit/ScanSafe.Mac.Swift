@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -683,25 +684,70 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="5gI-5U-AMq" customClass="MainViewController" customModule="ScanSafe_Mac" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="574" height="364"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <view key="view" wantsLayer="YES" misplaced="YES" id="ERx-hH-rdd">
+                        <rect key="frame" x="0.0" y="0.0" width="606" height="492"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField identifier="IntroLabel" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-z7-uqE">
-                                <rect key="frame" x="29" y="218" width="249" height="119"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="justified" id="pQZ-4a-qz0">
-                                    <font key="font" metaFont="system"/>
-                                    <string key="title">You get CloudCoins (new worldwide currency) in form of files from anywhere - sites, emails, USB Sticks, Smartphones... This app just checks them for counterfeit, loads and keeps 'em in safe and makes stacks for payments or gifts.</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="9yK-HQ-s0l">
-                                <rect key="frame" x="253" y="68" width="91" height="100"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="gxb-Ol-U4c">
+                                <rect key="frame" x="0.0" y="197" width="646" height="295"/>
+                                <subviews>
+                                    <box boxType="custom" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-Qa-3k7">
+                                        <rect key="frame" x="0.0" y="0.0" width="646" height="295"/>
+                                        <view key="contentView" id="FXg-kb-Hui">
+                                            <rect key="frame" x="1" y="1" width="644" height="293"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <color key="borderColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="fillColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    </box>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CMb-b6-RXJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="646" height="295"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="backicons" id="Gzz-NU-5fw"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="FXV-Mr-Cwv"/>
-                                    <constraint firstAttribute="width" secondItem="9yK-HQ-s0l" secondAttribute="height" multiplier="91:100" id="MpP-ba-0ul"/>
-                                    <constraint firstAttribute="width" constant="91" id="qfZ-WA-QNE"/>
+                                    <constraint firstItem="Fgd-Qa-3k7" firstAttribute="leading" secondItem="gxb-Ol-U4c" secondAttribute="leading" id="7pt-6V-N85"/>
+                                    <constraint firstItem="Fgd-Qa-3k7" firstAttribute="top" secondItem="gxb-Ol-U4c" secondAttribute="top" id="KL4-uU-FMf"/>
+                                    <constraint firstAttribute="bottom" secondItem="CMb-b6-RXJ" secondAttribute="bottom" id="SAz-xf-laB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fgd-Qa-3k7" secondAttribute="bottom" id="cwB-Tc-Hez"/>
+                                    <constraint firstItem="CMb-b6-RXJ" firstAttribute="leading" secondItem="gxb-Ol-U4c" secondAttribute="leading" id="tA3-rT-RYv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fgd-Qa-3k7" secondAttribute="trailing" id="tnE-HF-55n"/>
+                                    <constraint firstAttribute="trailing" secondItem="CMb-b6-RXJ" secondAttribute="trailing" id="vLk-cv-MXx"/>
+                                    <constraint firstItem="CMb-b6-RXJ" firstAttribute="top" secondItem="gxb-Ol-U4c" secondAttribute="top" id="yjw-S7-wJu"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="NiM-QO-vKN">
+                                <rect key="frame" x="0.0" y="0.0" width="646" height="197"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3R-8W-eA5">
+                                        <rect key="frame" x="9" y="13" width="35" height="14"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Done!" id="jQg-D4-dlN">
+                                            <font key="font" metaFont="system" size="11"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idc-hs-yo6">
+                                        <rect key="frame" x="43" y="13" width="89" height="14"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hover for status" id="DzD-ty-N7d">
+                                            <font key="font" metaFont="system" size="11"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="G3R-8W-eA5" secondAttribute="bottom" constant="13" id="3es-pY-LS4"/>
+                                    <constraint firstItem="G3R-8W-eA5" firstAttribute="leading" secondItem="NiM-QO-vKN" secondAttribute="leading" constant="11" id="6bB-Xe-SN6"/>
+                                    <constraint firstItem="Idc-hs-yo6" firstAttribute="leading" secondItem="G3R-8W-eA5" secondAttribute="trailing" constant="3" id="IzO-ah-Jp0"/>
+                                    <constraint firstItem="G3R-8W-eA5" firstAttribute="centerY" secondItem="Idc-hs-yo6" secondAttribute="centerY" id="yM8-RE-4Bz"/>
+                                </constraints>
+                            </customView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="9yK-HQ-s0l">
+                                <rect key="frame" x="253" y="274" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="FXV-Mr-Cwv"/>
+                                    <constraint firstAttribute="width" constant="140" id="qfZ-WA-QNE"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Safe" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="iU1-pL-Vws">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -712,12 +758,12 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="jIs-Y3-kiP">
-                                <rect key="frame" x="64" y="68" width="102" height="100"/>
+                                <rect key="frame" x="93" y="274" width="140" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="Lg8-h5-LDn"/>
-                                    <constraint firstAttribute="height" constant="100" id="dRe-X0-EaQ"/>
+                                    <constraint firstAttribute="width" constant="140" id="Lg8-h5-LDn"/>
+                                    <constraint firstAttribute="height" constant="140" id="dRe-X0-EaQ"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Scaner" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="C3G-3z-aq3">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Scaner" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="C3G-3z-aq3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -726,10 +772,10 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="TtH-GG-ssy">
-                                <rect key="frame" x="426" y="68" width="100" height="100"/>
+                                <rect key="frame" x="413" y="274" width="140" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="nPj-jH-q3o"/>
-                                    <constraint firstAttribute="height" constant="100" id="x4z-iC-GId"/>
+                                    <constraint firstAttribute="width" constant="140" id="nPj-jH-q3o"/>
+                                    <constraint firstAttribute="height" constant="140" id="x4z-iC-GId"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Pay" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="zW9-6H-ygj">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -739,24 +785,8 @@
                                     <action selector="Pay:" target="5gI-5U-AMq" id="jDb-Pu-wZN"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-Fq-hha">
-                                <rect key="frame" x="98" y="34" width="35" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Scan" id="SYr-77-hwb">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-0G-UD0">
-                                <rect key="frame" x="283" y="34" width="31" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Safe" id="giH-HE-ywK">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wk9-yV-S4h">
-                                <rect key="frame" x="294" y="210" width="259" height="134"/>
+                                <rect key="frame" x="194" y="31" width="259" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="FMj-Id-Nz0"/>
                                     <constraint firstAttribute="width" constant="259" id="VyH-mf-Cad"/>
@@ -765,7 +795,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="WorldMap" id="chg-O4-bep"/>
                             </imageView>
                             <box boxType="custom" cornerRadius="4" title="Australia" translatesAutoresizingMaskIntoConstraints="NO" id="TJL-PY-e7v">
-                                <rect key="frame" x="527" y="243" width="7" height="7"/>
+                                <rect key="frame" x="427" y="64" width="7" height="7"/>
                                 <view key="contentView" id="ckX-wA-BCY">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -777,7 +807,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Bangalore" translatesAutoresizingMaskIntoConstraints="NO" id="0CF-U3-o59">
-                                <rect key="frame" x="471" y="278" width="7" height="7"/>
+                                <rect key="frame" x="371" y="99" width="7" height="7"/>
                                 <view key="contentView" id="z10-93-Zi5">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -789,7 +819,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="HyperBad" translatesAutoresizingMaskIntoConstraints="NO" id="hVW-82-pFg">
-                                <rect key="frame" x="479" y="289" width="7" height="7"/>
+                                <rect key="frame" x="379" y="110" width="7" height="7"/>
                                 <view key="contentView" id="GzU-8q-RaN">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -801,7 +831,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Punjab" translatesAutoresizingMaskIntoConstraints="NO" id="kLc-lO-2rs">
-                                <rect key="frame" x="473" y="285" width="7" height="7"/>
+                                <rect key="frame" x="373" y="106" width="7" height="7"/>
                                 <view key="contentView" id="1SW-EA-XCt">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -813,7 +843,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Venezuela" translatesAutoresizingMaskIntoConstraints="NO" id="Rrk-2H-uNA">
-                                <rect key="frame" x="351" y="268" width="7" height="7"/>
+                                <rect key="frame" x="251" y="89" width="7" height="7"/>
                                 <view key="contentView" id="YoE-nI-UFb">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -825,7 +855,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Columbia" translatesAutoresizingMaskIntoConstraints="NO" id="oCD-Lg-Hcs">
-                                <rect key="frame" x="362" y="273" width="7" height="7"/>
+                                <rect key="frame" x="262" y="94" width="7" height="7"/>
                                 <view key="contentView" id="o3o-zB-YeV">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -837,7 +867,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA1" translatesAutoresizingMaskIntoConstraints="NO" id="XzI-Xw-eUI">
-                                <rect key="frame" x="330" y="296" width="7" height="7"/>
+                                <rect key="frame" x="230" y="117" width="7" height="7"/>
                                 <view key="contentView" id="7Lj-2S-kF2">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -849,7 +879,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA2" translatesAutoresizingMaskIntoConstraints="NO" id="yLb-Ea-dzZ">
-                                <rect key="frame" x="336" y="303" width="7" height="7"/>
+                                <rect key="frame" x="236" y="124" width="7" height="7"/>
                                 <view key="contentView" id="z8i-vZ-Rf5">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -861,7 +891,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Canada" translatesAutoresizingMaskIntoConstraints="NO" id="jm8-sM-bdj">
-                                <rect key="frame" x="364" y="309" width="7" height="7"/>
+                                <rect key="frame" x="264" y="130" width="7" height="7"/>
                                 <view key="contentView" id="sbE-Jg-AaM">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -873,7 +903,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA3" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-pN-8SX">
-                                <rect key="frame" x="350" y="302" width="7" height="7"/>
+                                <rect key="frame" x="250" y="123" width="7" height="7"/>
                                 <view key="contentView" id="5NB-kG-7Mz">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -885,7 +915,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="UK" translatesAutoresizingMaskIntoConstraints="NO" id="9Ri-T7-1Z8">
-                                <rect key="frame" x="411" y="312" width="7" height="7"/>
+                                <rect key="frame" x="311" y="133" width="7" height="7"/>
                                 <view key="contentView" id="edp-c0-rfH">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -897,7 +927,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Germany" translatesAutoresizingMaskIntoConstraints="NO" id="hjg-df-Wb1">
-                                <rect key="frame" x="422" y="311" width="7" height="7"/>
+                                <rect key="frame" x="322" y="132" width="7" height="7"/>
                                 <view key="contentView" id="03j-Gi-gCw">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -909,7 +939,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Romania" translatesAutoresizingMaskIntoConstraints="NO" id="JO5-NJ-1FO">
-                                <rect key="frame" x="432" y="303" width="7" height="7"/>
+                                <rect key="frame" x="332" y="124" width="7" height="7"/>
                                 <view key="contentView" id="DIG-WU-W9V">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -921,7 +951,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia2" translatesAutoresizingMaskIntoConstraints="NO" id="jvw-GM-29y">
-                                <rect key="frame" x="434" y="315" width="7" height="7"/>
+                                <rect key="frame" x="334" y="136" width="7" height="7"/>
                                 <view key="contentView" id="39q-RP-Vlk">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -933,7 +963,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia1" translatesAutoresizingMaskIntoConstraints="NO" id="hqC-l0-gxG">
-                                <rect key="frame" x="437" y="312" width="7" height="7"/>
+                                <rect key="frame" x="337" y="133" width="7" height="7"/>
                                 <view key="contentView" id="2Kq-Vk-xma">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -945,7 +975,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia3" translatesAutoresizingMaskIntoConstraints="NO" id="YnU-Im-Tdc">
-                                <rect key="frame" x="445" y="315" width="7" height="7"/>
+                                <rect key="frame" x="345" y="136" width="7" height="7"/>
                                 <view key="contentView" id="gEs-PW-NHP">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -957,7 +987,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Texas" translatesAutoresizingMaskIntoConstraints="NO" id="fuO-RU-jQM">
-                                <rect key="frame" x="342" y="295" width="7" height="7"/>
+                                <rect key="frame" x="242" y="116" width="7" height="7"/>
                                 <view key="contentView" id="3DO-wa-qvY">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -969,7 +999,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Taiwan" translatesAutoresizingMaskIntoConstraints="NO" id="eby-aF-UsA">
-                                <rect key="frame" x="508" y="287" width="7" height="7"/>
+                                <rect key="frame" x="408" y="108" width="7" height="7"/>
                                 <view key="contentView" id="2jF-nh-XCW">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -981,7 +1011,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Philippines" translatesAutoresizingMaskIntoConstraints="NO" id="CJM-4c-Up8">
-                                <rect key="frame" x="509" y="274" width="7" height="7"/>
+                                <rect key="frame" x="409" y="95" width="7" height="7"/>
                                 <view key="contentView" id="PUh-gx-WDa">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -993,7 +1023,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Singapore" translatesAutoresizingMaskIntoConstraints="NO" id="DOg-7y-FMs">
-                                <rect key="frame" x="497" y="273" width="7" height="7"/>
+                                <rect key="frame" x="397" y="94" width="7" height="7"/>
                                 <view key="contentView" id="rbS-fi-o8W">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1005,7 +1035,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Ukraine" translatesAutoresizingMaskIntoConstraints="NO" id="9fN-tu-o4G">
-                                <rect key="frame" x="434" y="307" width="7" height="7"/>
+                                <rect key="frame" x="334" y="128" width="7" height="7"/>
                                 <view key="contentView" id="Pw2-h5-tMM">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1017,7 +1047,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Romania" translatesAutoresizingMaskIntoConstraints="NO" id="htT-rY-cn1">
-                                <rect key="frame" x="429" y="306" width="7" height="7"/>
+                                <rect key="frame" x="329" y="127" width="7" height="7"/>
                                 <view key="contentView" id="PJS-fI-TuI">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1029,7 +1059,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Luxembourg" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-t8-BU6">
-                                <rect key="frame" x="414" y="306" width="7" height="7"/>
+                                <rect key="frame" x="314" y="127" width="7" height="7"/>
                                 <view key="contentView" id="nsD-ay-efF">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1041,7 +1071,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Macedonia" translatesAutoresizingMaskIntoConstraints="NO" id="nDj-ub-lna">
-                                <rect key="frame" x="420" y="302" width="7" height="7"/>
+                                <rect key="frame" x="320" y="123" width="7" height="7"/>
                                 <view key="contentView" id="ATv-wg-wEU">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1053,7 +1083,7 @@
                                 </constraints>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Switzerland" translatesAutoresizingMaskIntoConstraints="NO" id="TBf-BW-6MD">
-                                <rect key="frame" x="417" y="308" width="7" height="7"/>
+                                <rect key="frame" x="317" y="129" width="7" height="7"/>
                                 <view key="contentView" id="rdk-Zc-1NH">
                                     <rect key="frame" x="1" y="1" width="5" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1064,75 +1094,67 @@
                                     <constraint firstAttribute="width" secondItem="TBf-BW-6MD" secondAttribute="height" multiplier="1:1" id="dK8-BN-o9f"/>
                                 </constraints>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlZ-GB-78Z">
-                                <rect key="frame" x="465" y="31" width="36" height="24"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pay" id="IfE-Nr-me0">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="kLc-lO-2rs" secondAttribute="bottom" constant="-59" id="072-61-rce"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="q2y-pN-8SX" secondAttribute="bottom" constant="-42" id="07X-Lx-euy"/>
+                            <constraint firstAttribute="trailing" secondItem="gxb-Ol-U4c" secondAttribute="trailing" id="0Ql-nE-7Yh"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="jvw-GM-29y" secondAttribute="bottom" constant="-29" id="1On-fl-hPC"/>
-                            <constraint firstItem="TtH-GG-ssy" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="196" id="3JJ-Jh-ClC"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="YnU-Im-Tdc" secondAttribute="bottom" constant="-29" id="3XW-v7-E8L"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="XzI-Xw-eUI" secondAttribute="trailing" constant="-43" id="3XZ-1M-D0e"/>
                             <constraint firstItem="9fN-tu-o4G" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-119" id="3k3-y3-LQz"/>
                             <constraint firstItem="TJL-PY-e7v" firstAttribute="top" secondItem="wk9-yV-S4h" secondAttribute="bottom" constant="-40" id="4VG-fQ-Len"/>
+                            <constraint firstItem="9yK-HQ-s0l" firstAttribute="centerX" secondItem="ERx-hH-rdd" secondAttribute="centerX" id="4X4-xO-bL7"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="hjg-df-Wb1" secondAttribute="bottom" constant="-33" id="5jb-ha-i9B"/>
-                            <constraint firstItem="9yK-HQ-s0l" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="253" id="6pe-c4-NdC"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="q2y-pN-8SX" secondAttribute="trailing" constant="-63" id="7Hl-dK-FZh"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="9fN-tu-o4G" secondAttribute="bottom" constant="-37" id="7a3-QN-Owp"/>
+                            <constraint firstItem="jIs-Y3-kiP" firstAttribute="centerY" secondItem="gxb-Ol-U4c" secondAttribute="centerY" id="8qW-am-vzt"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="htT-rY-cn1" secondAttribute="bottom" constant="-38" id="9HT-NJ-d38"/>
                             <constraint firstItem="CJM-4c-Up8" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-44" id="A60-M5-ukm"/>
                             <constraint firstItem="JO5-NJ-1FO" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-121" id="FDK-fl-v9L"/>
-                            <constraint firstItem="Nf2-Fq-hha" firstAttribute="leading" secondItem="jIs-Y3-kiP" secondAttribute="trailing" constant="-66" id="GGO-OL-7wr"/>
                             <constraint firstItem="Rrk-2H-uNA" firstAttribute="top" secondItem="wk9-yV-S4h" secondAttribute="bottom" constant="-65" id="HUL-jc-t6F"/>
-                            <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="20" id="Kcx-Je-J1F"/>
+                            <constraint firstItem="wk9-yV-S4h" firstAttribute="centerX" secondItem="ERx-hH-rdd" secondAttribute="centerX" id="JMo-SG-m8X"/>
                             <constraint firstItem="kLc-lO-2rs" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-80" id="Lbb-X5-www"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="sOa-t8-BU6" secondAttribute="trailing" constant="-127" id="OOS-fq-kZt"/>
-                            <constraint firstItem="ypc-z7-uqE" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="31" id="Ojn-nV-aZY"/>
+                            <constraint firstItem="NiM-QO-vKN" firstAttribute="top" secondItem="gxb-Ol-U4c" secondAttribute="bottom" id="P5n-pI-KDk"/>
                             <constraint firstItem="TJL-PY-e7v" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-26" id="PPc-u9-Una"/>
                             <constraint firstItem="YnU-Im-Tdc" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-108" id="S9q-Eg-yLv"/>
-                            <constraint firstItem="MlZ-GB-78Z" firstAttribute="top" secondItem="TtH-GG-ssy" secondAttribute="bottom" constant="13" id="Trd-Yr-VJT"/>
+                            <constraint firstAttribute="trailing" secondItem="NiM-QO-vKN" secondAttribute="trailing" id="STs-z9-uD4"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="JO5-NJ-1FO" secondAttribute="bottom" constant="-41" id="Ulv-el-dg0"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="eby-aF-UsA" secondAttribute="bottom" constant="-57" id="VK9-vF-MpM"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="yLb-Ea-dzZ" secondAttribute="trailing" constant="-49" id="XwG-Hg-qyH"/>
                             <constraint firstItem="oCD-Lg-Hcs" firstAttribute="top" secondItem="wk9-yV-S4h" secondAttribute="bottom" constant="-70" id="Y2j-zS-6xh"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="fuO-RU-jQM" secondAttribute="bottom" constant="-49" id="YeU-rb-byb"/>
+                            <constraint firstItem="wk9-yV-S4h" firstAttribute="centerY" secondItem="NiM-QO-vKN" secondAttribute="centerY" id="Yfl-PC-iMi"/>
                             <constraint firstItem="hjg-df-Wb1" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-131" id="Yn8-up-RnE"/>
-                            <constraint firstItem="jIs-Y3-kiP" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="64" id="YzT-ed-8JX"/>
-                            <constraint firstItem="eWa-0G-UD0" firstAttribute="leading" secondItem="9yK-HQ-s0l" secondAttribute="trailing" constant="-59" id="asP-0z-jCq"/>
+                            <constraint firstItem="NiM-QO-vKN" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="Z5k-R2-Wqc"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="jm8-sM-bdj" secondAttribute="bottom" constant="-35" id="bTu-5f-Ube"/>
                             <constraint firstItem="nDj-ub-lna" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-133" id="bri-bi-4P6"/>
-                            <constraint firstAttribute="trailing" secondItem="TtH-GG-ssy" secondAttribute="trailing" constant="48" id="daH-9a-SxX"/>
+                            <constraint firstItem="9yK-HQ-s0l" firstAttribute="leading" secondItem="jIs-Y3-kiP" secondAttribute="trailing" constant="20" id="dAO-Wp-fBb"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="jm8-sM-bdj" secondAttribute="trailing" constant="-77" id="dzX-Od-oqn"/>
-                            <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="294" id="eQj-O8-zdY"/>
                             <constraint firstItem="DOg-7y-FMs" firstAttribute="top" secondItem="wk9-yV-S4h" secondAttribute="bottom" constant="-70" id="efc-c1-HpP"/>
                             <constraint firstItem="DOg-7y-FMs" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-56" id="fDk-Tw-FDX"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="Rrk-2H-uNA" secondAttribute="trailing" constant="-64" id="fJe-Z3-z6k"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="9Ri-T7-1Z8" secondAttribute="bottom" constant="-32" id="fJw-dB-wKa"/>
-                            <constraint firstItem="ypc-z7-uqE" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="27" id="fRV-zZ-zZG"/>
+                            <constraint firstItem="gxb-Ol-U4c" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="g6w-hS-7sv"/>
+                            <constraint firstItem="TtH-GG-ssy" firstAttribute="leading" secondItem="9yK-HQ-s0l" secondAttribute="trailing" constant="20" id="gHY-rE-ydb"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="oCD-Lg-Hcs" secondAttribute="trailing" constant="-75" id="hWH-YP-B6O"/>
                             <constraint firstItem="eby-aF-UsA" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-45" id="has-wQ-utt"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="hqC-l0-gxG" secondAttribute="bottom" constant="-32" id="hci-Ij-hTW"/>
-                            <constraint firstItem="jIs-Y3-kiP" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="196" id="i74-MJ-3lZ"/>
                             <constraint firstItem="0CF-U3-o59" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-82" id="jAA-mT-1Vb"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="nDj-ub-lna" secondAttribute="bottom" constant="-42" id="jEr-7G-YzT"/>
-                            <constraint firstItem="Nf2-Fq-hha" firstAttribute="top" secondItem="jIs-Y3-kiP" secondAttribute="bottom" constant="17" id="jca-xP-6Df"/>
+                            <constraint firstItem="gxb-Ol-U4c" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="jbp-bj-FpZ"/>
+                            <constraint firstItem="9yK-HQ-s0l" firstAttribute="centerY" secondItem="gxb-Ol-U4c" secondAttribute="centerY" id="k8r-Wy-jmK"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="XzI-Xw-eUI" secondAttribute="bottom" constant="-48" id="klJ-Xv-DuY"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="0CF-U3-o59" secondAttribute="bottom" constant="-66" id="kub-GD-lwg"/>
-                            <constraint firstItem="eWa-0G-UD0" firstAttribute="top" secondItem="9yK-HQ-s0l" secondAttribute="bottom" constant="17" id="nmh-k7-KiE"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="leading" secondItem="fuO-RU-jQM" secondAttribute="trailing" constant="-55" id="o84-ce-uOD"/>
+                            <constraint firstItem="gxb-Ol-U4c" firstAttribute="height" secondItem="NiM-QO-vKN" secondAttribute="height" multiplier="3:2" id="r6Y-ll-Zka"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="TBf-BW-6MD" secondAttribute="bottom" constant="-36" id="rUA-pb-17j"/>
+                            <constraint firstAttribute="bottom" secondItem="NiM-QO-vKN" secondAttribute="bottom" id="sNp-Fd-aLT"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="CJM-4c-Up8" secondAttribute="bottom" constant="-70" id="sgr-Ow-9Sy"/>
                             <constraint firstItem="htT-rY-cn1" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-124" id="svN-Hh-dEW"/>
                             <constraint firstItem="hVW-82-pFg" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-74" id="tw5-QT-lyq"/>
-                            <constraint firstItem="MlZ-GB-78Z" firstAttribute="leading" secondItem="TtH-GG-ssy" secondAttribute="trailing" constant="-59" id="ued-Os-vHY"/>
-                            <constraint firstItem="9yK-HQ-s0l" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="196" id="uhu-ZK-zpR"/>
+                            <constraint firstItem="TtH-GG-ssy" firstAttribute="centerY" secondItem="gxb-Ol-U4c" secondAttribute="centerY" id="u8j-bW-4Do"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="hVW-82-pFg" secondAttribute="bottom" constant="-55" id="vGc-DA-aXb"/>
                             <constraint firstItem="hqC-l0-gxG" firstAttribute="leading" secondItem="wk9-yV-S4h" secondAttribute="trailing" constant="-116" id="vSF-vt-HhG"/>
                             <constraint firstItem="wk9-yV-S4h" firstAttribute="top" secondItem="sOa-t8-BU6" secondAttribute="bottom" constant="-38" id="vbc-T8-aec"/>
@@ -1150,7 +1172,6 @@
                         <outlet property="Columbia" destination="oCD-Lg-Hcs" id="6y5-wU-hdA"/>
                         <outlet property="Germany" destination="hjg-df-Wb1" id="TZF-XD-V6d"/>
                         <outlet property="Huperbad" destination="hVW-82-pFg" id="uIo-lX-eA6"/>
-                        <outlet property="IntroLabel" destination="ypc-z7-uqE" id="wUw-XD-04L"/>
                         <outlet property="Luxemburg" destination="sOa-t8-BU6" id="Fhd-pY-zuo"/>
                         <outlet property="Macedonia" destination="nDj-ub-lna" id="mOg-GM-IMl"/>
                         <outlet property="Phillipines" destination="CJM-4c-Up8" id="2ZL-l1-6Xm"/>
@@ -1174,7 +1195,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="XLL-4k-jgZ"/>
             </objects>
-            <point key="canvasLocation" x="50" y="401"/>
+            <point key="canvasLocation" x="-20" y="409"/>
         </scene>
         <!--Detect View Controller-->
         <scene sceneID="r3m-FL-YMS">
@@ -1742,6 +1763,9 @@ DQ
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="safeTableView" destination="R7e-vx-8jm" id="5Xb-bd-bXA"/>
+                    </connections>
                 </viewController>
                 <customObject id="Aax-me-ZXB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1749,9 +1773,10 @@ DQ
         </scene>
     </scenes>
     <resources>
-        <image name="Pay" width="168.75" height="112.5"/>
-        <image name="Safe" width="181.19999694824219" height="204.72000122070312"/>
-        <image name="Scaner" width="480" height="358"/>
+        <image name="Pay" width="180" height="197"/>
+        <image name="Safe" width="180" height="199"/>
+        <image name="Scaner" width="180" height="199"/>
         <image name="WorldMap" width="480" height="258.239990234375"/>
+        <image name="backicons" width="646" height="295"/>
     </resources>
 </document>
