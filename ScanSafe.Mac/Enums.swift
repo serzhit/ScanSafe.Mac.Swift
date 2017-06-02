@@ -12,7 +12,7 @@ enum Denomination {
     case Unknown, One, Five, Quarter, Hundred, KiloQuarter
 }
 enum Status {
-    case Authenticated, Counterfeit, Fractioned, Unknown
+    case Authenticated, Counterfeit, Fractioned, Unknown, None
 }
 enum raidaNodeResponse: Int {
     case pass = 0, fail, error, fixing, unknown

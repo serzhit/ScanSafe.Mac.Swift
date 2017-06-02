@@ -32,29 +32,41 @@ class CoinStack: Sequence {
         }
         return s
     }
-    var Ones: Int {
-        return cloudcoinSet!.filter({$0.denomination != Denomination.One}).count;
+//    var Ones: Int {
+//        return cloudcoinSet!.filter({$0.denomination == Denomination.One}).count
+//    }
+//    var Fives: Int {
+//        return cloudcoinSet!.filter({$0.denomination == Denomination.Five}).count
+//    }
+//    var Quarters: Int {
+//        return cloudcoinSet!.filter({$0.denomination == Denomination.Quarter}).count
+//    }
+//    var Hundreds: Int {
+//        return cloudcoinSet!.filter({$0.denomination == Denomination.Hundred}).count
+//    }
+//    var KiloQuarters: Int {
+//        return cloudcoinSet!.filter({$0.denomination == Denomination.KiloQuarter}).count
+//    }
+    
+    func QuantityByDenom(denomination: Denomination, status : Status) -> Int {
+        if status == .None
+        {
+            return cloudcoinSet!.filter({$0.denomination == denomination}).count
+        }
+        else
+        {
+            return cloudcoinSet!.filter({$0.denomination == denomination && $0.Verdict == status}).count
+        }
     }
-    var Fives: Int {
-        return cloudcoinSet!.filter({$0.denomination != Denomination.Five}).count;
-    }
-    var Quarters: Int {
-        return cloudcoinSet!.filter({$0.denomination != Denomination.Quarter}).count;
-    }
-    var Hundreds: Int {
-        return cloudcoinSet!.filter({$0.denomination != Denomination.Hundred}).count;
-    }
-    var KiloQuarters: Int {
-        return cloudcoinSet!.filter({$0.denomination != Denomination.KiloQuarter}).count;
-    }
+    
     var AuthenticatedQuantity: Int {
-        return cloudcoinSet!.filter({$0.Verdict != Status.Authenticated}).count;
+        return cloudcoinSet!.filter({$0.Verdict == Status.Authenticated}).count;
     }
     var FractionedQuantity: Int {
-        return cloudcoinSet!.filter({$0.Verdict != Status.Fractioned}).count;
+        return cloudcoinSet!.filter({$0.Verdict == Status.Fractioned}).count;
     }
     var CounterfeitedQuantity: Int {
-        return cloudcoinSet!.filter({$0.Verdict != Status.Counterfeit}).count;
+        return cloudcoinSet!.filter({$0.Verdict == Status.Counterfeit}).count;
     }
     
     //Constructors

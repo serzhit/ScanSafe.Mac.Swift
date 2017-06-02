@@ -65,6 +65,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     
     @IBAction func SafeAction(_ sender: NSButton) {
     }
+    
     @IBAction func Pay(_ sender: NSButton) {
     }
     
@@ -188,8 +189,11 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     func FinishImported(password: String) {
         UserInteraction.password = password
         
+        ShowContentViewController()
         Safe.Instance()?.Add(stack: coinFile.Coins)
-       
+    }
+    
+    func ShowContentViewController() {
         let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
         self.presentViewControllerAsModalWindow(safeContentVC!);
     }

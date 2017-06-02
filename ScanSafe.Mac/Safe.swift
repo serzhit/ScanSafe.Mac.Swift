@@ -47,6 +47,32 @@ class Safe: NSObject {
     static var userEnteredPassword: String = ""
     static var encryptedUserEnteredPassword: String = ""
     
+    var safeDelegate: SafeDelegate?
+    
+    var FrackedCoinsList: [CloudCoin] {
+        return Safe.Instance()!.Contents.cloudcoinSet!.filter({$0.Verdict == Status.Fractioned})
+    }
+    
+    var Ones: Shelf {
+        return Shelf(safe: self, denomination: .One)
+    }
+    
+    var Fives: Shelf {
+        return Shelf(safe: self, denomination: .Five)
+    }
+    
+    var Quarters: Shelf {
+        return Shelf(safe: self, denomination: .Quarter)
+    }
+    
+    var Hundreds: Shelf {
+        return Shelf(safe: self, denomination: .Hundred)
+    }
+    
+    var KiloQuarters: Shelf {
+        return Shelf(safe: self, denomination: .KiloQuarter)
+    }
+    
     static func GetInstance() -> Safe? {
         
         let filePath = Utils.GetFileUrl(path: SafeFileName)
@@ -136,14 +162,14 @@ class Safe: NSObject {
     {
         Contents.Add(stack: stack)
         RemoveCounterfeitCoins();
-        //SafeContentChanged();
+        self.safeDelegate?.SafeContentChanged()
         Save();
     }
     
     func Remove(coin: CloudCoin)
     {
         Contents.cloudcoinSet?.remove(coin)
-        //SafeContentChanged()
+        self.safeDelegate?.SafeContentChanged()
         Save();
     }
     
@@ -162,5 +188,33 @@ class Safe: NSObject {
                 Contents.cloudcoinSet?.remove(coin)
             }
         }
+    }
+}
+
+class Shelf
+{
+    var current: Safe
+    var denomination: Denomination
+    
+    init(safe: Safe, denomination: Denomination)
+    {
+        self.current = safe;
+        self.denomination = denomination
+    }
+    
+    var TotalQuantity: Int {
+        return current.Contents.QuantityByDenom(denomination: denomination, status: .None)
+    }
+    
+    var GoodQuantity: Int {
+        return current.Contents.QuantityByDenom(denomination: denomination, status: .Authenticated)
+    }
+    
+    var FractionedQuality: Int {
+        return current.Contents.QuantityByDenom(denomination: denomination, status: .Fractioned)
+    }
+    
+    var CounterfeitedQuantity: Int {
+        return current.Contents.QuantityByDenom(denomination: denomination, status: .Counterfeit)
     }
 }

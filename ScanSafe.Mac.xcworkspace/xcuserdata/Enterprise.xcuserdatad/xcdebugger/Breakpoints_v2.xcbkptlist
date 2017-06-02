@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScanSafe.Mac/Safe.swift"
-            timestampString = "517442037.710688"
+            timestampString = "518061307.843187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "ReadSafeFile(filePath:)"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "Remove(coin:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScanSafe.Mac/Safe.swift"
-            timestampString = "517442037.710688"
+            filePath = "ScanSafe.Mac/IOModels.swift"
+            timestampString = "518062892.039564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "Add(stack:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ScanSafe.Mac/CoinStack.swift"
-            timestampString = "517442035.690233"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "init(jsonArray:)"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "ParseCloudCoinFile(atURL:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -31,6 +31,22 @@ struct DetectDisplay{
     }
 }
 
+struct SafeDisplay
+{
+    var Value: String
+    var Good: Int
+    var Fractioned: Int
+    var Total: Int
+    
+    init(Value: String, Good: Int, Fractioned: Int, Total: Int)
+    {
+        self.Value = Value
+        self.Good = Good
+        self.Fractioned = Fractioned
+        self.Total = Total
+    }
+}
+
 extension DetectResponse{
     init?(json:[String: Any]){
         guard let server = json["server"] as? String,

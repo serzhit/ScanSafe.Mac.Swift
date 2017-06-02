@@ -1195,7 +1195,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="XLL-4k-jgZ"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="409"/>
+            <point key="canvasLocation" x="-3" y="465"/>
         </scene>
         <!--Detect View Controller-->
         <scene sceneID="r3m-FL-YMS">
@@ -1457,7 +1457,7 @@ DQ
                 </viewController>
                 <customObject id="cHa-5I-kaj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195" y="723"/>
+            <point key="canvasLocation" x="510" y="714"/>
         </scene>
         <!--New Password View Controller-->
         <scene sceneID="fEN-1h-98f">
@@ -1571,7 +1571,7 @@ DQ
                 </viewController>
                 <customObject id="t7l-z9-PFS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526.5" y="772.5"/>
+            <point key="canvasLocation" x="841" y="764"/>
         </scene>
         <!--Safe Content View Controller-->
         <scene sceneID="Mw3-C8-RmR">
@@ -1608,7 +1608,7 @@ DQ
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="lUN-t4-hc9">
+                                                        <tableCellView identifier="ValueCellID" id="lUN-t4-hc9">
                                                             <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1641,7 +1641,7 @@ DQ
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="8O0-71-vE1">
+                                                        <tableCellView identifier="GoodCellID" id="8O0-71-vE1">
                                                             <rect key="frame" x="120" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1674,7 +1674,7 @@ DQ
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="eFK-Em-iLl">
+                                                        <tableCellView identifier="FractionedCellID" id="eFK-Em-iLl">
                                                             <rect key="frame" x="239" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1707,7 +1707,7 @@ DQ
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="g6h-fe-5ZP">
+                                                        <tableCellView identifier="TotalCellID" id="g6h-fe-5ZP">
                                                             <rect key="frame" x="358" y="1" width="160" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>

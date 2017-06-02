@@ -27,6 +27,10 @@ protocol RAIDADetectDelegate {
     func CoinDetectionCompleted()
 }
 
+protocol SafeDelegate{
+    func SafeContentChanged()
+}
+
 protocol CloudCoinP {
     
     var nn: Int { get set }
