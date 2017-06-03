@@ -77,6 +77,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     
     @IBAction func Pay(_ sender: NSButton) {
         subViewType = .Exported
+        ShowPasswordViewController()
     }
     
     var Countries: Dictionary<Node,NSBox> = Dictionary<Node,NSBox>()
@@ -114,7 +115,13 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     func FinishImported(password: String) {
         UserInteraction.password = password
         
-        ShowContentViewController()
+        if (subViewType == .Safe)
+        {
+            ShowContentViewController()
+        }
+        else {
+            ShowExportViewController()
+        }
         
         if subViewType == .Imported
         {
@@ -125,6 +132,11 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     func ShowContentViewController() {
         let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
         self.presentViewControllerAsModalWindow(safeContentVC!);
+    }
+    
+    func ShowExportViewController() {
+        let exportVC = self.storyboard?.instantiateController(withIdentifier: "ExportViewController") as? ExportViewController
+        self.presentViewControllerAsModalWindow(exportVC!);
     }
     
     func FinishDetected()

@@ -28,17 +28,6 @@ class Safe: NSObject {
         return theOnlySafeInstance!
     }
     
-//    static func InitPath() {
-//        SafeFileName = "Cloudcoin/Safe.safe"
-//        UserCloudcoinDir = "Cloudcoin"
-//        UserCloudcoinImportDir = "Cloudcoin/Import"
-//        UserCloudcoinExportDir = "Cloudcoin/Export"
-//        UserCloudcoinBackupDir = "Cloudcoin/Backup"
-//        userCloudcoinLogDir = "Cloudcoin/Log"
-//        userCloudcoinTemplateDir = "Cloudcoin/Templates"
-//
-//    }
-    
     let safeFilePath: String
     let bkpFilePath: String
     let safeFileUrl: URL
@@ -200,6 +189,39 @@ class Safe: NSObject {
                 Contents.cloudcoinSet?.remove(coin)
             }
         }
+    }
+    
+    func SaveOutStack(stack: CoinStack, desiredSum: Int, isJson: Bool, note: String) {
+        self.safeDelegate?.SafeContentChanged()
+        var st = CoinStack(stack: stack.cloudcoinSet!)
+        var serialNumbers = ""
+        
+        for coin in stack.cloudcoinSet!
+        {
+            serialNumbers += "\(coin.sn)\n"
+        }
+        
+        if isJson {
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy.HH-mm"
+            
+            var fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
+                + formatter.string(from: date) + ".stack"
+            st.SaveInFile(filePath: NSURL(string: fn) as! URL);
+            
+            //exportedPaths = new List<string>() {fn}
+        }
+        else {
+            var cloudCoinFile = CloudCoinFile()
+            //exportPaths = new List<string>();
+            var path = ""
+            
+            for coin in stack.cloudcoinSet! {
+                
+            }
+        }
+        
     }
 }
 
