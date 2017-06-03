@@ -18,6 +18,7 @@ class SafeContentViewController: NSViewController, SafeDelegate{
         safeTableView.delegate = self
         safeTableView.dataSource = self
         Safe.Instance()?.safeDelegate = self
+        SafeContentChanged()
     }
     
     func SafeContentChanged() {

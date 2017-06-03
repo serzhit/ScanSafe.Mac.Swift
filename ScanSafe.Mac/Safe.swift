@@ -12,20 +12,32 @@ import CryptoSwift
 class Safe: NSObject {
     static let Slogan = "Не в силе Бог, а в правде!"
     
-    static let SafeFileName: String = "Cloudcoin/Safe.safe"
-    static let UserCloudcoinDir: String = "Cloudcoin"
-    static let UserCloudcoinImportDir: String = "Cloudcoin/Import"
-    static let UserCloudcoinExportDir: String = "Cloudcoin/Export"
-    static let UserCloudcoinBackupDir: String = "Cloudcoin/Backup"
-    static let userCloudcoinLogDir: String = "Cloudcoin/Log"
-    static let userCloudcoinTemplateDir: String="Cloudcoin/Templates"
+    static var SafeFileName: String = "Cloudcoin/Safe.safe"
+    static var UserCloudcoinDir: String = "Cloudcoin"
+    static var UserCloudcoinImportDir: String = "Cloudcoin/Import"
+    static var UserCloudcoinExportDir: String = "Cloudcoin/Export"
+    static var UserCloudcoinBackupDir: String = "Cloudcoin/Backup"
+    static var userCloudcoinLogDir: String = "Cloudcoin/Log"
+    static var userCloudcoinTemplateDir: String = "Cloudcoin/Templates"
     
     static func Instance() -> Safe? {
         if theOnlySafeInstance == nil {
+            //InitPath()
             return GetInstance()
         }
         return theOnlySafeInstance!
     }
+    
+//    static func InitPath() {
+//        SafeFileName = "Cloudcoin/Safe.safe"
+//        UserCloudcoinDir = "Cloudcoin"
+//        UserCloudcoinImportDir = "Cloudcoin/Import"
+//        UserCloudcoinExportDir = "Cloudcoin/Export"
+//        UserCloudcoinBackupDir = "Cloudcoin/Backup"
+//        userCloudcoinLogDir = "Cloudcoin/Log"
+//        userCloudcoinTemplateDir = "Cloudcoin/Templates"
+//
+//    }
     
     let safeFilePath: String
     let bkpFilePath: String

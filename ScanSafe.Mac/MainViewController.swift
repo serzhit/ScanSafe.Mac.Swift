@@ -40,8 +40,15 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     @IBOutlet weak var Switzerland: NSBox!
     
     var coinFile: CloudCoinFile = CloudCoinFile()
+    enum ViewType {
+        case Imported, Safe, Exported
+    }
+    var subViewType: ViewType = .Imported
     
     @IBAction func Scan(_ sender: NSButton) {
+        
+        subViewType = .Imported
+        
         guard let files = FileSystem.ChooseInputFile() else {
             return
         }
@@ -64,9 +71,12 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     }
     
     @IBAction func SafeAction(_ sender: NSButton) {
+        subViewType = .Safe
+        ShowPasswordViewController()
     }
     
     @IBAction func Pay(_ sender: NSButton) {
+        subViewType = .Exported
     }
     
     var Countries: Dictionary<Node,NSBox> = Dictionary<Node,NSBox>()
@@ -79,6 +89,63 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         RAIDA.Instance?.EchoDelegate = self
         FileSystem.InitializePaths();
         RAIDA.Instance?.getEcho();
+    }
+    
+    override var representedObject: Any? {
+        didSet {
+            // Update the view, if already loaded.
+        }
+    }
+    
+    func EchoReceivedFrom(node: Node) {
+        DispatchQueue.main.async {
+            self.Countries[node]?.fillColor = NSColor.green
+            print("ViewController: Node \(node.Number) is ready!")
+        }
+    }
+    
+    func AllEchoesReceived() {
+        DispatchQueue.main.async {
+            print("All echoes received!")
+            //UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
+        }
+    }
+    
+    func FinishImported(password: String) {
+        UserInteraction.password = password
+        
+        ShowContentViewController()
+        
+        if subViewType == .Imported
+        {
+            Safe.Instance()?.Add(stack: coinFile.Coins)
+        }
+    }
+    
+    func ShowContentViewController() {
+        let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
+        self.presentViewControllerAsModalWindow(safeContentVC!);
+    }
+    
+    func FinishDetected()
+    {
+        ShowPasswordViewController()
+    }
+    
+    func ShowPasswordViewController() {
+        let safeFilePath = Utils.GetFileUrl(path: Safe.SafeFileName)!
+        if Utils.FileExists(url: safeFilePath)
+        {
+            let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
+            enterPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(enterPassVC!);
+        }
+        else
+        {
+            let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
+            newPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(newPassVC!);
+        }
     }
     
     func initCountries() {
@@ -164,57 +231,6 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
                 USA1.fillColor = NSColor.red
             }
         }
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
-    
-    func EchoReceivedFrom(node: Node) {
-        DispatchQueue.main.async {
-            self.Countries[node]?.fillColor = NSColor.green
-            print("ViewController: Node \(node.Number) is ready!")
-        }
-    }
-    
-    func AllEchoesReceived() {
-        DispatchQueue.main.async {
-            print("All echoes received!")
-            //UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
-        }
-    }
-    
-    func FinishImported(password: String) {
-        UserInteraction.password = password
-        
-        ShowContentViewController()
-        Safe.Instance()?.Add(stack: coinFile.Coins)
-    }
-    
-    func ShowContentViewController() {
-        let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
-        self.presentViewControllerAsModalWindow(safeContentVC!);
-    }
-    
-    func FinishDetected()
-    {
-        let safeFilePath = Utils.GetFileUrl(path: Safe.SafeFileName)!
-            
-        if Utils.FileExists(url: safeFilePath)
-        {
-            let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
-            enterPassVC?.delegate = self
-            self.presentViewControllerAsModalWindow(enterPassVC!);
-        }
-        else
-        {
-            let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
-            newPassVC?.delegate = self
-            self.presentViewControllerAsModalWindow(newPassVC!);
-        }
-        
     }
 }
 
