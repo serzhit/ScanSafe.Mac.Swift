@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScanSafe.Mac/Logger.swift"
-            timestampString = "518151399.040657"
+            filePath = "ScanSafe.Mac/Safe.swift"
+            timestampString = "518236754.731661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "Logger"
-            landmarkType = "3">
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "ChooseNearestPossibleStack(total:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

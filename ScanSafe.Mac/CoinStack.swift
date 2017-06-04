@@ -44,6 +44,46 @@ class CoinStack: Sequence {
         }
     }
     
+    var Ones: Int {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.One}).count
+    }
+    
+    var Fives: Int {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Five}).count
+    }
+    
+    var Quarters: Int {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Quarter}).count
+    }
+    
+    var Hundreds: Int {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Hundred}).count
+    }
+    
+    var KiloQuarters: Int {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.KiloQuarter}).count
+    }
+    
+    var CoinOnes: [CloudCoin] {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.One})
+    }
+    
+    var CoinFives: [CloudCoin] {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Five})
+    }
+    
+    var CoinQuarters: [CloudCoin] {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Quarter})
+    }
+    
+    var CoinHundreds: [CloudCoin] {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.Hundred})
+    }
+    
+    var CoinKiloiQuarters: [CloudCoin] {
+        return cloudcoinSet!.filter({$0.denomination == Denomination.KiloQuarter})
+    }
+    
     var AuthenticatedQuantity: Int {
         return cloudcoinSet!.filter({$0.Verdict == Status.Authenticated}).count;
     }
@@ -79,6 +119,12 @@ class CoinStack: Sequence {
     func Add(stack: CoinStack) {
         for coin in stack.cloudcoinSet! {
             self.cloudcoinSet!.insert(coin)
+        }
+    }
+    
+    func Add(coinList: [CloudCoin], count: Int) {
+        for index in 0...count {
+            self.cloudcoinSet!.insert(coinList[index])
         }
     }
     

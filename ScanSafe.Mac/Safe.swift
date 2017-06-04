@@ -191,9 +191,11 @@ class Safe: NSObject {
         }
     }
     
-    func SaveOutStack(stack: CoinStack, desiredSum: Int, isJson: Bool, note: String) {
-        self.safeDelegate?.SafeContentChanged()
-        var st = CoinStack(stack: stack.cloudcoinSet!)
+    func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) {
+        //self.safeDelegate?.SafeContentChanged()
+        
+        var stack = ChooseNearestPossibleStack(total: desiredSum)
+        let st = CoinStack(stack: stack.cloudcoinSet!)
         var serialNumbers = ""
         
         for coin in stack.cloudcoinSet!
@@ -206,9 +208,9 @@ class Safe: NSObject {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd-MM-yyyy.HH-mm"
             
-            var fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
+            let fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
                 + formatter.string(from: date) + ".stack"
-            st.SaveInFile(filePath: NSURL(string: fn) as! URL);
+            st.SaveInFile(filePath: NSURL(string: fn)! as URL);
             
             //exportedPaths = new List<string>() {fn}
         }
@@ -221,7 +223,56 @@ class Safe: NSObject {
                 
             }
         }
+    }
+    
+    var sum = 0
+    
+    func ChooseNearestPossibleStack(total: Int) -> CoinStack
+    {
+        let csc = Safe.Instance()!.Contents
+        var kQ = 0
+        var h = 0
+        var q = 0
+        var f = 0
+        var o = 0
+        sum = total
         
+        kQ = SubFromTotal(denomination: 250, denomCount: csc.KiloQuarters)
+        
+        h = SubFromTotal(denomination: 100, denomCount: csc.Hundreds)
+        
+        q = SubFromTotal(denomination: 25, denomCount: csc.Quarters)
+        
+        f = SubFromTotal(denomination: 5, denomCount: csc.Fives)
+        
+        o = SubFromTotal(denomination: 0, denomCount: csc.Ones)
+        
+        let coinStack = CoinStack()
+        coinStack.Add(coinList: csc.CoinOnes, count: o)
+        coinStack.Add(coinList: csc.CoinFives, count: f)
+        coinStack.Add(coinList: csc.CoinQuarters, count: q)
+        coinStack.Add(coinList: csc.CoinHundreds, count: h)
+        coinStack.Add(coinList: csc.CoinQuarters, count: kQ)
+        
+        return coinStack
+    }
+    
+    func SubFromTotal(denomination: Int, denomCount: Int) -> Int {
+        var quantity = 0
+        
+        if sum > denomination && denomCount > 0 {
+            if denomCount > sum / denomination
+            {
+                quantity = sum / 250
+            }
+            else
+            {
+                quantity = denomCount
+            }
+            sum -= quantity * 250
+        }
+        
+        return quantity
     }
 }
 

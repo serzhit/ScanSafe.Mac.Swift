@@ -1815,6 +1815,9 @@ DQ
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="JsonRadioAction:" target="sQ1-i7-iJw" id="6NA-Ha-2dV"/>
+                                            </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-Av-u1O">
                                             <rect key="frame" x="108" y="150" width="55" height="18"/>
@@ -1822,6 +1825,9 @@ DQ
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="JpegRadioAction:" target="sQ1-i7-iJw" id="YNZ-H1-NJG"/>
+                                            </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-5o-p2c">
                                             <rect key="frame" x="30" y="109" width="355" height="30"/>
@@ -1903,6 +1909,12 @@ Gw
                             <constraint firstAttribute="trailing" secondItem="dVF-NW-LHF" secondAttribute="trailing" id="Rge-s2-Gyb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="jpegRadio" destination="Xxo-Av-u1O" id="dlI-bI-1qz"/>
+                        <outlet property="jsonRadio" destination="R1p-Ma-XT1" id="ior-GX-vCP"/>
+                        <outlet property="txtNote" destination="Gwr-ng-gdj" id="DMh-9S-y0P"/>
+                        <outlet property="txtSum" destination="5Fs-5o-p2c" id="d8s-hl-qoK"/>
+                    </connections>
                 </viewController>
                 <customObject id="xds-S4-sSi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
