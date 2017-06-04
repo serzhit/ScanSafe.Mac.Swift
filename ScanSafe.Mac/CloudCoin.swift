@@ -29,7 +29,7 @@ class CloudCoin: NSObject {
     
     var percentOfRAIDAPass: Int {
         let passed = CountStatuses(raidaNodeResponse.pass)
-        return passed*100/detectStatus.count
+        return passed * 100 / detectStatus.count
     }
     var isPassed: Bool {
         let passed = CountStatuses(raidaNodeResponse.pass)
@@ -46,7 +46,7 @@ class CloudCoin: NSObject {
     }
     var isValidated: Bool = false
     
-    init? (nn: Int,sn: Int, ans: [String], expired: String, aoid: [String]) {
+    init? (nn: Int,sn: Int, ans: [String], expired: String, aoid: [String], status: [raidaNodeResponse]) {
         
         self.sn = sn;
         self.nn = nn;
@@ -54,7 +54,7 @@ class CloudCoin: NSObject {
         ed = expired;
         self.aoid = aoid;
         
-        detectStatus = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
+        detectStatus = status//Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
         
         pans = CloudCoin.generatePans()
         super.init()

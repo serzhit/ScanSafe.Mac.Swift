@@ -11,6 +11,8 @@ import CryptoSwift
 
 class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, DetectDelegate {
 
+    @IBOutlet weak var lblExplain: NSTextField!
+    @IBOutlet weak var lblStatus: NSTextField!
     @IBOutlet weak var IntroLabel: NSTextField!
     @IBOutlet weak var Australia: NSBox!
     @IBOutlet weak var RAIDAReadyLabel: NSTextField!
@@ -85,6 +87,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lblStatus.isHidden = true
+        lblExplain.isHidden = true
         initCountries()
 
         RAIDA.Instance?.EchoDelegate = self
@@ -108,6 +112,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     func AllEchoesReceived() {
         DispatchQueue.main.async {
             print("All echoes received!")
+            self.lblStatus.isHidden = false
+            self.lblExplain.isHidden = false
             //UserInteraction.alert(with: "RAIDA is ready to detect cloudcoins!", style: NSAlertStyle.informational)
         }
     }
@@ -115,7 +121,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     func FinishImported(password: String) {
         UserInteraction.password = password
         
-        if (subViewType == .Safe)
+        if (subViewType == .Safe || subViewType == .Imported)
         {
             ShowContentViewController()
         }

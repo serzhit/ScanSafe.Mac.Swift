@@ -12,12 +12,14 @@ class SafeContentViewController: NSViewController, SafeDelegate{
     
     @IBOutlet weak var safeTableView: NSTableView!
     
+    @IBOutlet weak var totalCoins: NSTextField!
     var safeResults: [SafeDisplay] = []
     
     override func viewDidLoad() {
         safeTableView.delegate = self
         safeTableView.dataSource = self
         Safe.Instance()?.safeDelegate = self
+        totalCoins.stringValue = String(describing: Safe.Instance()!.Contents.SumInStack)
         SafeContentChanged()
     }
     

@@ -116,8 +116,8 @@ class CloudCoinFile {
         signature = fhandle?.readData(ofLength: 20)
         
         var regEx: NSRegularExpression?
-        //let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
-        let regexpattern: String = "json" //testing case
+        let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
+        //let regexpattern: String = "json" //testing case
         /*do {
             regEx = try NSRegularExpression(pattern: regexpattern, options: [])
         } catch let error as NSError {
@@ -221,7 +221,8 @@ class CloudCoinFile {
         range = start..<end
         sn = Int(jpegHexContent.substring(with: range), radix: 16)
         
-        guard let coin = CloudCoin(nn: nn!, sn: sn!, ans: an, expired: ed!, aoid: aoid) else {
+        let status = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
+        guard let coin = CloudCoin(nn: nn!, sn: sn!, ans: an, expired: ed!, aoid: aoid, status: status) else {
             return nil
         }
         guard coin.Validate() else {

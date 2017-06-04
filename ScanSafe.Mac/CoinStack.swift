@@ -195,7 +195,7 @@ class CoinStack: Sequence {
         cloudcoinSet = Set<CloudCoin>()
         for var json in jsonArray {
             guard let ans = json["ans"] as? [String],
-                let detectStatus = json["detectStatus"] as? [Int],
+                let intStatus = json["detectStatus"] as? [Int],
                 let aoid = json["aoid"] as? [String],
                 let ed = json["ed"] as? String,
                 let nn = json["nn"] as? Int,
@@ -204,7 +204,31 @@ class CoinStack: Sequence {
                     return nil
             }
             
-            var coin = CloudCoin(nn: nn, sn: sn, ans: ans, expired: ed, aoid: aoid)
+            var detectStatusArray: [raidaNodeResponse] = []
+            for status in intStatus {
+                var detectStatus: raidaNodeResponse = .unknown
+                switch status
+                {
+                case 0:
+                    detectStatus = .pass
+                    break
+                case 1:
+                    detectStatus = .fail
+                    break
+                case 2:
+                    detectStatus = .error
+                    break
+                case 3:
+                    detectStatus = .fixing
+                    break
+                default:
+                    detectStatus = .unknown
+                    break
+                }
+                detectStatusArray.append(detectStatus)
+            }
+            
+            let coin = CloudCoin(nn: nn, sn: sn, ans: ans, expired: ed, aoid: aoid, status: detectStatusArray)
             cloudcoinSet?.insert(coin!)
         }
     }

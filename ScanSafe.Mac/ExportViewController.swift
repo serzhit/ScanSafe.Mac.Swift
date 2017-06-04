@@ -12,6 +12,7 @@ class ExportViewController: NSViewController {
     @IBOutlet weak var jpegRadio: NSButton!
     @IBOutlet weak var jsonRadio: NSButton!
     
+    @IBOutlet weak var totalCoins: NSTextField!
     @IBAction func OnCancelAction(_ sender: Any) {
         dismiss(self)
     }
@@ -39,6 +40,6 @@ class ExportViewController: NSViewController {
     }
     
     override func viewDidLoad() {
-        
+        totalCoins.stringValue = String(describing: Safe.Instance()!.Contents.SumInStack)
     }
 }

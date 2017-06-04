@@ -194,7 +194,7 @@ class Safe: NSObject {
     func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) {
         //self.safeDelegate?.SafeContentChanged()
         
-        var stack = ChooseNearestPossibleStack(total: desiredSum)
+        let stack = ChooseNearestPossibleStack(total: desiredSum)
         let st = CoinStack(stack: stack.cloudcoinSet!)
         var serialNumbers = ""
         
