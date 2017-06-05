@@ -191,37 +191,44 @@ class Safe: NSObject {
         }
     }
     
-    func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) {
+    func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) -> Bool{
         //self.safeDelegate?.SafeContentChanged()
         
         let stack = ChooseNearestPossibleStack(total: desiredSum)
-        let st = CoinStack(stack: stack.cloudcoinSet!)
-        var serialNumbers = ""
-        
-        for coin in stack.cloudcoinSet!
-        {
-            serialNumbers += "\(coin.sn)\n"
-        }
-        
-        if isJson {
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy.HH-mm"
+        if stack.cloudcoinSet?.count != 0 {
+            let st = CoinStack(stack: stack.cloudcoinSet!)
+            var serialNumbers = ""
             
-            let fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
-                + formatter.string(from: date) + ".stack"
-            st.SaveInFile(filePath: NSURL(string: fn)! as URL);
+            for coin in stack.cloudcoinSet!
+            {
+                serialNumbers += "\(coin.sn)\n"
+            }
             
-            //exportedPaths = new List<string>() {fn}
+            if isJson {
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd-MM-yyyy.HH-mm"
+                
+                let fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
+                    + formatter.string(from: date) + ".stack"
+                st.SaveInFile(filePath: NSURL(string: fn)! as URL);
+                
+                //exportedPaths = new List<string>() {fn}
+            }
+            else {
+                //            var cloudCoinFile = CloudCoinFile()
+                //exportPaths = new List<string>();
+                var path = ""
+                let cloudCoinFile = CloudCoinFile()
+                
+                for coin in stack.cloudcoinSet! {
+                    cloudCoinFile.WriteJpeg(cc: coin, tag: note, path: &path)
+                }
+            }
+            return true
         }
         else {
-            var cloudCoinFile = CloudCoinFile()
-            //exportPaths = new List<string>();
-            var path = ""
-            
-            for coin in stack.cloudcoinSet! {
-                
-            }
+            return false
         }
     }
     

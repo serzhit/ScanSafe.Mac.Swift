@@ -231,6 +231,197 @@ class CloudCoinFile {
         return coin
     }
     
+    func WriteJpeg(cc: CloudCoin, tag: String, path: inout String) -> Bool {
+        
+        var cloudCoinStr = "01C34A46494600010101006000601D05"
+        for index in 0...24 {
+            cloudCoinStr += cc.ans[index]!
+        }
+        
+        cloudCoinStr += "204f42455920474f4420262044454645415420545952414e545320"
+        cloudCoinStr += "00"
+        cloudCoinStr += "00"
+        
+        let currentDate = Date()
+        let calendar = Calendar.current
+        
+        let month = calendar.component(.month, from: currentDate)
+        let year = calendar.component(.year, from: currentDate)
+        
+        cloudCoinStr += String(format:"%1X", month)
+        cloudCoinStr += String(format:"%3X", year)
+        
+        cloudCoinStr += "01"
+        
+        let hexSN = String(format: "%6X", cc.sn)
+        var fullHexSN = ""
+        
+        switch hexSN.characters.count {
+        case 1:
+            fullHexSN = "00000" + hexSN
+            break
+        case 2:
+            fullHexSN = "0000" + hexSN
+            break
+        case 3:
+            fullHexSN = "000" + hexSN
+            break
+        case 4:
+            fullHexSN = "00" + hexSN
+            break
+        case 5:
+            fullHexSN = "0" + hexSN
+            break
+        case 6:
+            fullHexSN = hexSN
+            break
+        default:
+            fullHexSN = hexSN
+        }
+        
+        cloudCoinStr += fullHexSN
+        /* BYTES THAT WILL GO FROM 04 TO 454 (Inclusive)*/
+        let ccArray = hexStringToByteArray(hexString: cloudCoinStr)
+        
+        var jpgImage: NSImage? = nil
+        
+        switch(GetDenomination(sn: cc.sn)) {
+        case 1:
+            jpgImage = NSImage(named: "Cloudcoin1")
+            break;
+        case 5:
+            jpgImage = NSImage(named: "Cloudcoin5")
+            break;
+        case 25:
+            jpgImage = NSImage(named: "Cloudcoin25")
+            break;
+        case 100:
+            jpgImage = NSImage(named: "Cloudcoin100")
+            break;
+        case 250:
+            jpgImage = NSImage(named: "Cloudcoin250")
+            break;
+        default:
+            break;
+        }
+        //let image = UIImage(named:"Cloudcoin1", in: Bundle(for: self), compatibleWith: nil)
+        jpgImage?.drawWithText(text: "\(cc.sn)" + " of 16,777,216 on Network: 1", point: NSPoint(x: 30, y: 25))
+        
+        var rect = NSRect(x: 0, y: 0, width: jpgImage!.size.width, height: jpgImage!.size.height)
+        let cgImage = jpgImage!.cgImage(forProposedRect: &rect, context: nil, hints: nil)!
+        let bitmapRep = NSBitmapImageRep(cgImage: cgImage)
+        
+        if let imageData = bitmapRep.representation(using: NSBitmapImageFileType.JPEG, properties: [:]) {
+            let len = imageData.count
+            
+            var snbytes = [UInt8](repeating: 0, count: len)
+            imageData.copyBytes(to: &snbytes, count: len)
+            
+            var hrbytes: [UInt8] = []
+            for index in 0...3 {
+                let byte = snbytes.remove(at: index)
+                hrbytes.append(byte)
+            }
+            
+            var tagComment = tag
+            var outbytes: [UInt8] = []
+            outbytes = hrbytes + ccArray! + snbytes
+            
+            if (tagComment == "random")
+            {
+                var random = arc4random_uniform(100000)
+                random = random * 10 + arc4random_uniform(10)
+                tagComment = "\(random)"
+            }
+            
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "ddMMyyyy"
+            
+            let folderPath = Safe.UserCloudcoinExportDir + "/" + tagComment + "_" + formatter.string(from: date) + "/"
+            let folderurl = Utils.GetFileUrl(path: folderPath)
+            try? FileManager.default.createDirectory(at: folderurl!, withIntermediateDirectories: false, attributes: nil)
+            
+            var fileName = "\(GetDenomination(sn: cc.sn))"
+            fileName += ".CloudCoin." + "\(cc.nn)" + "." + "\(cc.sn)" + ".";
+            let jpgFileName = folderPath + fileName + tag + ".jpg"
+            
+            let fileUrl = Utils.GetFileUrl(path: jpgFileName)
+            
+            let pointer = UnsafeBufferPointer(start: outbytes, count: outbytes.count)
+            let data = Data(buffer: pointer)
+            
+            path = jpgFileName
+            try! data.write(to: fileUrl!)
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func hexStringToByteArray(hexString: String) -> [UInt8]?
+    {
+        let length = hexString.characters.count
+        if length & 1 != 0 {
+            return nil
+        }
+        var bytes = [UInt8]()
+        bytes.reserveCapacity(length/2)
+        var index = hexString.startIndex
+        for _ in 0..<length/2 {
+            let nextIndex = hexString.index(index, offsetBy: 2)
+            if let b = UInt8(hexString[index..<nextIndex], radix: 16) {
+                bytes.append(b)
+            } else {
+                return nil
+            }
+            index = nextIndex
+        }
+        return bytes
+    }
+    
+//    func DrawFont(image: NSImage, text: String, point: CGPoint) {
+//        var font = NSFont(name: "Arial", size: 10)
+//        NSGraphicsContext.current()?.cgContext.image
+//        
+//        
+//    }
+    
+    func GetDenomination(sn: Int) -> Int
+    {
+        var nom: Int = 0
+        if (sn < 1)
+        {
+            nom = 0
+        }
+        else if (sn < 2097153)
+        {
+            nom = 1
+        }
+        else if (sn < 4194305)
+        {
+            nom = 5
+        }
+        else if (sn < 6291457)
+        {
+            nom = 25
+        }
+        else if (sn < 14680065)
+        {
+            nom = 100
+        }
+        else if (sn < 16777217)
+        {
+            nom = 250
+        }
+        else
+        {
+            nom = 0
+        }
+        return nom
+    }
+    
     private func ReadJson(withFileHandle: FileHandle) -> CoinStack? {
         var stack: CoinStack?
         let jsonData: Data?

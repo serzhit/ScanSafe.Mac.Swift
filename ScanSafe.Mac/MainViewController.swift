@@ -281,3 +281,17 @@ extension String {
     }
 }
 
+extension NSImage {
+    func drawWithText(text: String, point: NSPoint) {
+        let textRect = NSMakeRect(point.x, point.y, self.size.width, self.size.height)
+        let textContent = NSString(string: text)
+        //let textStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+        
+        let textFontAttributes = [NSFontAttributeName: NSFont(name: "Arial", size: 10)!, NSForegroundColorAttributeName: NSColor.white]
+        
+        NSGraphicsContext.saveGraphicsState()
+        NSRectClip(textRect)
+        textContent.draw(at: point, withAttributes: textFontAttributes)
+        NSGraphicsContext.restoreGraphicsState()
+    }
+}
