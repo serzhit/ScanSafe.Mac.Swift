@@ -116,8 +116,8 @@ class CloudCoinFile {
         signature = fhandle?.readData(ofLength: 20)
         
         var regEx: NSRegularExpression?
-        let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
-        //let regexpattern: String = "json" //testing case
+//        let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
+        let regexpattern: String = "json" //testing case
         /*do {
             regEx = try NSRegularExpression(pattern: regexpattern, options: [])
         } catch let error as NSError {
@@ -287,25 +287,25 @@ class CloudCoinFile {
         
         switch(GetDenomination(sn: cc.sn)) {
         case 1:
-            jpgImage = NSImage(named: "Cloudcoin1")
+            jpgImage = NSImage(named: "Cloudcoin_1")
             break;
         case 5:
-            jpgImage = NSImage(named: "Cloudcoin5")
+            jpgImage = NSImage(named: "Cloudcoin_5")
             break;
         case 25:
-            jpgImage = NSImage(named: "Cloudcoin25")
+            jpgImage = NSImage(named: "Cloudcoin_25")
             break;
         case 100:
-            jpgImage = NSImage(named: "Cloudcoin100")
+            jpgImage = NSImage(named: "Cloudcoin_100")
             break;
         case 250:
-            jpgImage = NSImage(named: "Cloudcoin250")
+            jpgImage = NSImage(named: "Cloudcoin_250")
             break;
         default:
             break;
         }
         //let image = UIImage(named:"Cloudcoin1", in: Bundle(for: self), compatibleWith: nil)
-        jpgImage?.drawWithText(text: "\(cc.sn)" + " of 16,777,216 on Network: 1", point: NSPoint(x: 30, y: 25))
+        jpgImage?.drawWithText(text: "\(cc.sn)" + " of 16,777,216 on Network: 1", point: NSPoint(x: 30, y: jpgImage!.size.height - 25))
         
         var rect = NSRect(x: 0, y: 0, width: jpgImage!.size.width, height: jpgImage!.size.height)
         let cgImage = jpgImage!.cgImage(forProposedRect: &rect, context: nil, hints: nil)!
@@ -318,8 +318,8 @@ class CloudCoinFile {
             imageData.copyBytes(to: &snbytes, count: len)
             
             var hrbytes: [UInt8] = []
-            for index in 0...3 {
-                let byte = snbytes.remove(at: index)
+            for _ in 0...3 {
+                let byte = snbytes.remove(at: 0)
                 hrbytes.append(byte)
             }
             
@@ -338,7 +338,7 @@ class CloudCoinFile {
             let formatter = DateFormatter()
             formatter.dateFormat = "ddMMyyyy"
             
-            let folderPath = Safe.UserCloudcoinExportDir + "/" + tagComment + "_" + formatter.string(from: date) + "/"
+            let folderPath = Safe.UserCloudcoinExportDir + tagComment + "_" + formatter.string(from: date) + "/"
             let folderurl = Utils.GetFileUrl(path: folderPath)
             try? FileManager.default.createDirectory(at: folderurl!, withIntermediateDirectories: false, attributes: nil)
             

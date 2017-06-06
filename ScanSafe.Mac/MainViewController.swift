@@ -40,6 +40,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     @IBOutlet weak var Luxemburg: NSBox!
     @IBOutlet weak var Macedonia: NSBox!
     @IBOutlet weak var Switzerland: NSBox!
+    @IBOutlet weak var imgView: NSImageView!
     
     var coinFile: CloudCoinFile = CloudCoinFile()
     enum ViewType {
@@ -283,15 +284,24 @@ extension String {
 
 extension NSImage {
     func drawWithText(text: String, point: NSPoint) {
-        let textRect = NSMakeRect(point.x, point.y, self.size.width, self.size.height)
-        let textContent = NSString(string: text)
-        //let textStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
-        
-        let textFontAttributes = [NSFontAttributeName: NSFont(name: "Arial", size: 10)!, NSForegroundColorAttributeName: NSColor.white]
-        
+//        let textRect = NSMakeRect(point.x, point.y, self.size.width, self.size.height)
+//        let textContent = NSString(string: text)
+//        //let textStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+//        
+        let textFontAttributes = [NSFontAttributeName: NSFont.labelFont(ofSize: 10), NSForegroundColorAttributeName: NSColor.white]
+//
+//
+//        NSGraphicsContext.saveGraphicsState()
+//        //NSRectClip(textRect)
+//        textContent.draw(in: textRect, withAttributes: nil)
+//        NSGraphicsContext.restoreGraphicsState()
+        let string = NSAttributedString(string: text, attributes: textFontAttributes)
+//        let image = NSImage(size: string.size())
+        self.lockFocus()
         NSGraphicsContext.saveGraphicsState()
-        NSRectClip(textRect)
-        textContent.draw(at: point, withAttributes: textFontAttributes)
+        string.draw(at: point)
         NSGraphicsContext.restoreGraphicsState()
+        self.unlockFocus()
     }
+    
 }

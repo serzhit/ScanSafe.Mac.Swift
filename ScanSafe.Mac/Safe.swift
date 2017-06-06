@@ -252,7 +252,7 @@ class Safe: NSObject {
         
         f = SubFromTotal(denomination: 5, denomCount: csc.Fives)
         
-        o = SubFromTotal(denomination: 0, denomCount: csc.Ones)
+        o = SubFromTotal(denomination: 1, denomCount: csc.Ones)
         
         let coinStack = CoinStack()
         coinStack.Add(coinList: csc.CoinOnes, count: o)
@@ -267,16 +267,16 @@ class Safe: NSObject {
     func SubFromTotal(denomination: Int, denomCount: Int) -> Int {
         var quantity = 0
         
-        if sum > denomination && denomCount > 0 {
+        if sum >= denomination && denomCount > 0 {
             if denomCount > sum / denomination
             {
-                quantity = sum / 250
+                quantity = sum / denomination
             }
             else
             {
                 quantity = denomCount
             }
-            sum -= quantity * 250
+            sum -= quantity * denomination
         }
         
         return quantity

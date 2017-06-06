@@ -123,8 +123,11 @@ class CoinStack: Sequence {
     }
     
     func Add(coinList: [CloudCoin], count: Int) {
-        for index in 0...count {
-            self.cloudcoinSet!.insert(coinList[index])
+        if count == 0 {
+            return
+        }
+        for index in 1...count {
+            self.cloudcoinSet!.insert(coinList[index - 1])
         }
     }
     
