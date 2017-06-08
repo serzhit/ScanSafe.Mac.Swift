@@ -118,7 +118,7 @@ class Safe: NSObject {
     
     static func CreateSafeFile(filePath: URL, stack: CoinStack) -> Bool
     {
-        let stackDic = stack.GetDictionary()
+        let stackDic = stack.GetDictionary(isFromOutSide: false)
         
         if let theJsonData = try? JSONSerialization.data(withJSONObject: stackDic, options: []) {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
@@ -139,7 +139,7 @@ class Safe: NSObject {
         let coinsData = coinsContent?.data(using: String.Encoding.utf8, allowLossyConversion: false)!
         let json = try? JSONSerialization.jsonObject(with: coinsData!, options: []) as? [[String: Any]]
         
-        if let coinStack = CoinStack(jsonArray: json!!){
+        if let coinStack = CoinStack(jsonArray: json!!, isFromOutSide: false){
             return coinStack
         }
         
@@ -209,9 +209,14 @@ class Safe: NSObject {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd-MM-yyyy.HH-mm"
                 
-                let fn = Safe.UserCloudcoinExportDir + "\(desiredSum)" + "." + note + "."
+                let folderurl = Utils.GetFileUrl(path: Safe.UserCloudcoinExportDir)
+                try? FileManager.default.createDirectory(at: folderurl!, withIntermediateDirectories: false, attributes: nil)
+                
+                let fn = Safe.UserCloudcoinExportDir + "/" + "\(desiredSum)" + "." + note + "."
                     + formatter.string(from: date) + ".stack"
-                st.SaveInFile(filePath: NSURL(string: fn)! as URL);
+                let fileUrl = Utils.GetFileUrl(path: fn)
+                
+                st.SaveInFile(filePath: fileUrl!);
                 
                 //exportedPaths = new List<string>() {fn}
             }
