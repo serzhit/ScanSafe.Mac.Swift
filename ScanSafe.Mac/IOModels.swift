@@ -116,14 +116,8 @@ class CloudCoinFile {
         signature = fhandle?.readData(ofLength: 20)
         
         var regEx: NSRegularExpression?
-//        let regexpattern: String = "{[.\\n\\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
-        let regexpattern: String = "json" //testing case
-        /*do {
-            regEx = try NSRegularExpression(pattern: regexpattern, options: [])
-        } catch let error as NSError {
-            print(error.debugDescription)
-            return false
-        }*/
+        let regexpattern: String = "[.\n\t\\s\\x09\\x0A\\x0D]*\"cloudcoin\""
+
         regEx = try! NSRegularExpression(pattern: regexpattern, options: [])
         IsValidFile = false
         
@@ -139,7 +133,6 @@ class CloudCoinFile {
                 return false
             }
             Coins.Add(stack: CoinStack(coin))
-//            Logger.Write("Coin with SN " + coin.sn + " added for detecting", Logger.Level.Normal);
 
         }
         else if (regEx?.numberOfMatches(in: String(data: signature!, encoding: .utf8)!, options: [], range: NSRange(location: 0,length: 19)))! > 0 {//JSON
