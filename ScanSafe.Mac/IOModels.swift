@@ -144,7 +144,7 @@ class CloudCoinFile {
         }
         else if (regEx?.numberOfMatches(in: String(data: signature!, encoding: .utf8)!, options: [], range: NSRange(location: 0,length: 19)))! > 0 {//JSON
 
-            guard let stackFromJson = ReadJson(withFileHandle: fhandle!) else {
+            guard let stackFromJson = ReadJson(fileUrl: atURL) else {
                 print("Cannot read json file \(atURL.absoluteString)")
                 return false
             }
@@ -422,18 +422,19 @@ class CloudCoinFile {
         return nom
     }
     
-    private func ReadJson(withFileHandle: FileHandle) -> CoinStack? {
+    private func ReadJson(fileUrl: URL) -> CoinStack? {
         var stack: CoinStack?
         let jsonData: Data?
         stack = nil
         
-        do {
-            jsonData = withFileHandle.readDataToEndOfFile()
-            stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack
-            withFileHandle.closeFile()
-        } catch let error as NSError {
-            print(error.debugDescription)
-        }
+        var coinsContent = try? String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
+//        do {
+//            jsonData = withFileHandle.readDataToEndOfFile()
+//            stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack
+//            withFileHandle.closeFile()
+//        } catch let error as NSError {
+//            print(error.debugDescription)
+//        }
         return stack
     }
 }

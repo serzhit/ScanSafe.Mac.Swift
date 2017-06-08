@@ -142,7 +142,7 @@ class CoinStack: Sequence {
     }
     
     func SaveInFile(filePath: URL) {
-        let stackDic = self.GetDictionary()
+        let stackDic = self.GetDictionary(isFromOutSide: true)
         
         if let theJsonData = try? JSONSerialization.data(withJSONObject: stackDic, options: []) {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
@@ -151,7 +151,7 @@ class CoinStack: Sequence {
 
     }
     
-    func GetDictionary() -> [[String:Any]] {
+    func GetDictionary(isFromOutSide: Bool) -> [[String:Any]] {
         var allDictionaries: [[String: Any]] = []
         for coin in cloudcoinSet!
         {//    case pass = 0, fail, error, fixing, unknown
@@ -181,24 +181,30 @@ class CoinStack: Sequence {
             }
             
             
-            let dictionary = [
-                "ans": coin.ans,
-                "detectStatus": detectIntArray,
+            
+            var dictionary = [
+                "an": coin.ans,
                 "aoid": coin.aoid,
                 "ed": coin.ed,
                 "nn": coin.nn,
                 "sn": coin.sn] as [String : Any]
+            
+            if !isFromOutSide
+            {
+                dictionary["detectStatus"] = detectIntArray
+            }
+            
             allDictionaries.append(dictionary)
         }
         
         return allDictionaries
     }
     
-    init? (jsonArray:[[String: Any]]){
+    init? (jsonArray: [[String: Any]], isFromOutSide: Bool){
         cloudcoinSet = Set<CloudCoin>()
         for var json in jsonArray {
-            guard let ans = json["ans"] as? [String],
-                let intStatus = json["detectStatus"] as? [Int],
+            guard let ans = json["an"] as? [String],
+                
                 let aoid = json["aoid"] as? [String],
                 let ed = json["ed"] as? String,
                 let nn = json["nn"] as? Int,
@@ -207,30 +213,37 @@ class CoinStack: Sequence {
                     return nil
             }
             
-            var detectStatusArray: [raidaNodeResponse] = []
-            for status in intStatus {
-                var detectStatus: raidaNodeResponse = .unknown
-                switch status
-                {
-                case 0:
-                    detectStatus = .pass
-                    break
-                case 1:
-                    detectStatus = .fail
-                    break
-                case 2:
-                    detectStatus = .error
-                    break
-                case 3:
-                    detectStatus = .fixing
-                    break
-                default:
-                    detectStatus = .unknown
-                    break
-                }
-                detectStatusArray.append(detectStatus)
-            }
+            var detectStatusArray = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
             
+            if !isFromOutSide{
+                guard let intStatus = json["detectStatus"] as? [Int]
+                    else{
+                        return nil
+                }
+                
+                for status in intStatus {
+                    var detectStatus: raidaNodeResponse = .unknown
+                    switch status
+                    {
+                    case 0:
+                        detectStatus = .pass
+                        break
+                    case 1:
+                        detectStatus = .fail
+                        break
+                    case 2:
+                        detectStatus = .error
+                        break
+                    case 3:
+                        detectStatus = .fixing
+                        break
+                    default:
+                        detectStatus = .unknown
+                        break
+                    }
+                    detectStatusArray.append(detectStatus)
+                }
+            }
             let coin = CloudCoin(nn: nn, sn: sn, ans: ans, expired: ed, aoid: aoid, status: detectStatusArray)
             cloudcoinSet?.insert(coin!)
         }
