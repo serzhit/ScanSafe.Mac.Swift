@@ -423,14 +423,6 @@ class CloudCoinFile {
         if let stack = CoinStack(jsonArray: contents!, isFromOutSide: true){
             return stack
         }
-//        json = try? JSONSerialization.jsonObject(with: contents!, options: []) as? [String: Any]
-//        do {
-//            jsonData = withFileHandle.readDataToEndOfFile()
-//            stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack
-//            withFileHandle.closeFile()
-//        } catch let error as NSError {
-//            print(error.debugDescription)
-//        }
         return CoinStack()
     }
 }

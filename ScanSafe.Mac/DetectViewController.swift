@@ -14,7 +14,9 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     @IBOutlet weak var progressBar: NSProgressIndicator!
     @IBOutlet weak var DetectedTableView: NSTableView!
     @IBOutlet weak var lblProgress: NSTextField!
+    @IBOutlet weak var detectProgress: NSProgressIndicator!
     
+    @IBOutlet weak var lblScanned: NSTextField!
     var detectDelegate : DetectDelegate?
     
     @IBAction func OnCancelAction(_ sender: AnyObject) {
@@ -23,6 +25,7 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     }
     
     var detectResults : [DetectDisplay] = []
+    var detectCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,9 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
         DetectedTableView.delegate = self
         DetectedTableView.dataSource = self
         
+        detectCount = 0
         detectResults = [DetectDisplay]()
+        lblScanned.stringValue = "\(detectCount) COINS SCANNED"
     }
     
     func DetectCompletedOn(coin: CloudCoin) {
@@ -42,6 +47,8 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
         detectResults.append(detectInfo)
         DispatchQueue.main.async {
             self.DetectedTableView.reloadData();
+            self.detectCount += 1
+            self.lblScanned.stringValue = "\(self.detectCount) COINS SCANNED"
         }
     }
     
