@@ -36,19 +36,26 @@ class ExportViewController: NSViewController {
             isJson = true
         }
         
-        let isExported = Safe.Instance()?.SaveOutStack(desiredSum: desiredSum!, isJson: isJson, note: txtNote.stringValue)
+        let safe = Safe.Instance()
+        let stack = safe?.SaveOutStack(desiredSum: desiredSum!, isJson: isJson, note: txtNote.stringValue)
         
-        if isExported! {
+        if stack != nil {
             if isJson {
                 UserInteraction.alert(with: "JSON stack of coins saved in Export dir", style: NSAlertStyle.informational)
             }
             else {
                 UserInteraction.alert(with: "Pictures with coins saved in Export dir", style: NSAlertStyle.informational)
             }
+            
+            //safe?.Contents.Remove(stack: stack!)
+            //safe?.Save()
+            
         }
         else {
             UserInteraction.alert(with: "Nothing to export!", style: NSAlertStyle.informational)
         }
+        
+        dismiss(self)
     }
     
     override func viewDidLoad() {

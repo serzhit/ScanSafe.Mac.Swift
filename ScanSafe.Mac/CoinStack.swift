@@ -148,7 +148,6 @@ class CoinStack: Sequence {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
             try? theJsonText?.write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
         }
-
     }
     
     func GetDictionary(isFromOutSide: Bool) -> [[String:Any]] {
@@ -206,11 +205,27 @@ class CoinStack: Sequence {
             guard let ans = json["an"] as? [String],
                 
                 let aoid = json["aoid"] as? [String],
-                let ed = json["ed"] as? String,
-                let nn = json["nn"] as? Int,
-                let sn = json["sn"] as? Int
+                let ed = json["ed"] as? String
                 else {
                     return nil
+            }
+            
+            var nn = json["nn"] as? Int
+            if nn == nil {
+                guard let strnn = json["nn"] as? String
+                    else {
+                        return nil
+                }
+                nn = Int(strnn)!
+            }
+            
+            var sn = json["sn"] as? Int
+            if sn == nil {
+                guard let strsn = json["sn"] as? String
+                    else {
+                        return nil
+                }
+                sn = Int(strsn)
             }
             
             var detectStatusArray = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
@@ -221,6 +236,7 @@ class CoinStack: Sequence {
                         return nil
                 }
                 
+                detectStatusArray.removeAll()
                 for status in intStatus {
                     var detectStatus: raidaNodeResponse = .unknown
                     switch status
@@ -241,10 +257,11 @@ class CoinStack: Sequence {
                         detectStatus = .unknown
                         break
                     }
+                    
                     detectStatusArray.append(detectStatus)
                 }
             }
-            let coin = CloudCoin(nn: nn, sn: sn, ans: ans, expired: ed, aoid: aoid, status: detectStatusArray)
+            let coin = CloudCoin(nn: nn!, sn: sn!, ans: ans, expired: ed, aoid: aoid, status: detectStatusArray)
             cloudcoinSet?.insert(coin!)
         }
     }

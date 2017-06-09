@@ -191,7 +191,7 @@ class Safe: NSObject {
         }
     }
     
-    func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) -> Bool{
+    func SaveOutStack(desiredSum: Int, isJson: Bool, note: String) -> CoinStack? {
         //self.safeDelegate?.SafeContentChanged()
         
         let stack = ChooseNearestPossibleStack(total: desiredSum)
@@ -217,12 +217,8 @@ class Safe: NSObject {
                 let fileUrl = Utils.GetFileUrl(path: fn)
                 
                 st.SaveInFile(filePath: fileUrl!);
-                
-                //exportedPaths = new List<string>() {fn}
             }
             else {
-                //            var cloudCoinFile = CloudCoinFile()
-                //exportPaths = new List<string>();
                 var path = ""
                 let cloudCoinFile = CloudCoinFile()
                 
@@ -230,10 +226,10 @@ class Safe: NSObject {
                     cloudCoinFile.WriteJpeg(cc: coin, tag: note, path: &path)
                 }
             }
-            return true
+            return stack
         }
         else {
-            return false
+            return nil
         }
     }
     

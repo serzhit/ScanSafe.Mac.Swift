@@ -416,11 +416,14 @@ class CloudCoinFile {
     }
     
     private func ReadJson(fileUrl: URL) -> CoinStack? {
-        var stack: CoinStack?
-        let jsonData: Data?
-        stack = nil
-        
-        var coinsContent = try? String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
+        let coinsContent = try? String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
+        let coinsData = coinsContent?.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        var json = try? JSONSerialization.jsonObject(with: coinsData!, options: []) as? [String: Any]
+        let contents = json??["cloudcoin"] as! [[String: Any]]!
+        if let stack = CoinStack(jsonArray: contents!, isFromOutSide: true){
+            return stack
+        }
+//        json = try? JSONSerialization.jsonObject(with: contents!, options: []) as? [String: Any]
 //        do {
 //            jsonData = withFileHandle.readDataToEndOfFile()
 //            stack = try JSONSerialization.jsonObject(with: jsonData!, options: []) as? CoinStack
@@ -428,6 +431,6 @@ class CloudCoinFile {
 //        } catch let error as NSError {
 //            print(error.debugDescription)
 //        }
-        return stack
+        return CoinStack()
     }
 }

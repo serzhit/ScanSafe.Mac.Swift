@@ -284,19 +284,8 @@ extension String {
 
 extension NSImage {
     func drawWithText(text: String, point: NSPoint) {
-//        let textRect = NSMakeRect(point.x, point.y, self.size.width, self.size.height)
-//        let textContent = NSString(string: text)
-//        //let textStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
-//        
         let textFontAttributes = [NSFontAttributeName: NSFont.labelFont(ofSize: 10), NSForegroundColorAttributeName: NSColor.white]
-//
-//
-//        NSGraphicsContext.saveGraphicsState()
-//        //NSRectClip(textRect)
-//        textContent.draw(in: textRect, withAttributes: nil)
-//        NSGraphicsContext.restoreGraphicsState()
         let string = NSAttributedString(string: text, attributes: textFontAttributes)
-//        let image = NSImage(size: string.size())
         self.lockFocus()
         NSGraphicsContext.saveGraphicsState()
         string.draw(at: point)

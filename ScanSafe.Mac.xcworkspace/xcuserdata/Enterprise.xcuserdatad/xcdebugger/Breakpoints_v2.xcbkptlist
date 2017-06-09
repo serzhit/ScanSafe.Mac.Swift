@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScanSafe.Mac/IOModels.swift"
-            timestampString = "518611000.248418"
+            timestampString = "518647546.693753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438">
+            startingLineNumber = "441"
+            endingLineNumber = "441">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -23,13 +23,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScanSafe.Mac/IOModels.swift"
-            timestampString = "518611042.197074"
+            filePath = "ScanSafe.Mac/Safe.swift"
+            timestampString = "518656345.862619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
-            landmarkName = "ReadJson(fileUrl:)"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "SaveOutStack(desiredSum:isJson:note:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
