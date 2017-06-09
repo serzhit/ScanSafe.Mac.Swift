@@ -47,15 +47,15 @@ class ExportViewController: NSViewController {
                 UserInteraction.alert(with: "Pictures with coins saved in Export dir", style: NSAlertStyle.informational)
             }
             
-            //safe?.Contents.Remove(stack: stack!)
-            //safe?.Save()
+            safe?.Contents.Remove(stack: stack!)
+            safe?.Save()
             
         }
         else {
             UserInteraction.alert(with: "Nothing to export!", style: NSAlertStyle.informational)
         }
         
-        dismiss(self)
+        //dismiss(self)
     }
     
     override func viewDidLoad() {

@@ -146,7 +146,8 @@ class CoinStack: Sequence {
         
         if let theJsonData = try? JSONSerialization.data(withJSONObject: stackDic, options: []) {
             let theJsonText = String(data: theJsonData, encoding: .ascii)
-            try? theJsonText?.write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
+            let stackText = "{\"cloudcoin\":" + theJsonText! + "}"
+            try? stackText.write(to: filePath, atomically: false, encoding: String.Encoding.utf8)
         }
     }
     
