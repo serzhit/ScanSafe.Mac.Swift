@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DetectViewController: NSViewController, RAIDADetectDelegate {
+class DetectViewController: NSViewController, RAIDADetectDelegate, NSWindowDelegate {
     
     @IBOutlet weak var btnClose: NSButton!
     @IBOutlet weak var progressBar: NSProgressIndicator!
@@ -19,9 +19,9 @@ class DetectViewController: NSViewController, RAIDADetectDelegate {
     @IBOutlet weak var lblScanned: NSTextField!
     var detectDelegate : DetectDelegate?
     
-    @IBAction func OnCancelAction(_ sender: AnyObject) {
+    func windowShouldClose(_ sender: Any) -> Bool {
         detectDelegate?.FinishDetected()
-        dismiss(self)
+        return true
     }
     
     var detectResults : [DetectDisplay] = []

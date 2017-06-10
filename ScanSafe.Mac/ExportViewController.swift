@@ -2,7 +2,7 @@
 //  ExportViewController.swift
 //  ScanSafe.Mac
 //
-//  Created by Donald on 6/3/17.
+//  Created by Gao on 6/3/17.
 //  Copyright © 2017 Git in Sky. All rights reserved.
 //
 

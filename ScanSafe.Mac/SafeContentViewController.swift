@@ -10,10 +10,16 @@ import Cocoa
 
 class SafeContentViewController: NSViewController, SafeDelegate{
     
+    @IBOutlet weak var btnFixFracked: NSButton!
     @IBOutlet weak var safeTableView: NSTableView!
-    
     @IBOutlet weak var totalCoins: NSTextField!
+    
     var safeResults: [SafeDisplay] = []
+    
+    @IBAction func onFixFrackedAction(_ sender: AnyObject) {
+        let fixProcessVC = self.storyboard?.instantiateController(withIdentifier: "FixProcessViewController") as? FixProcessViewController
+        self.presentViewControllerAsModalWindow(fixProcessVC!);
+    }
     
     override func viewDidLoad() {
         safeTableView.delegate = self
@@ -21,6 +27,7 @@ class SafeContentViewController: NSViewController, SafeDelegate{
         Safe.Instance()?.safeDelegate = self
         totalCoins.stringValue = String(describing: Safe.Instance()!.Contents.SumInStack)
         SafeContentChanged()
+        
     }
     
     func SafeContentChanged() {
