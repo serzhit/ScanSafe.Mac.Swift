@@ -26,6 +26,8 @@
 		F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082761EBA44B000B70D4C /* RAIDA.swift */; };
 		F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082781EBA44DF00B70D4C /* RAIDANode.swift */; };
 		F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920827A1EBACEC100B70D4C /* CoinStack.swift */; };
+		F96EF6601EED516900DE9B40 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */; };
+		F96EF6611EED516900DE9B40 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F98951FB1EC604DE00ABF8D6 /* DetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */; };
 		F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7871EBE6AE900E9B64D /* Protocols.swift */; };
 		F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7891EC048F300E9B64D /* UserInteraction.swift */; };
@@ -35,7 +37,6 @@
 		F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */; };
 		F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7931EC0DF4700E9B64D /* Enums.swift */; };
 		F9ECA7981EC5934300E9B64D /* ApplicationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */; };
-		FF2081EC6DB8577AFF17E884 /* Pods_ScanSafe_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +54,44 @@
 			remoteGlobalIDString = F92082391EB9F49C00B70D4C;
 			remoteInfo = ScanSafe.Mac;
 		};
+		F96EF65B1EED50FC00DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		F96EF65D1EED50FC00DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		F96EF6621EED516900DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F96EF6641EED516900DE9B40 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F96EF6611EED516900DE9B40 /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanSafe.Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac.debug.xcconfig"; sourceTree = "<group>"; };
 		723AAE4F1ED3ABD000668327 /* SafeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeContentViewController.swift; sourceTree = "<group>"; };
 		7269E1741ED4DEF50071C8C4 /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
 		729A3A8A1ED2363B003B94FF /* DetectResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
@@ -66,8 +101,6 @@
 		72A3B75D1EEB8E1800800A4B /* RaidaStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaidaStatusView.swift; sourceTree = "<group>"; };
 		72E2CAFA1EE35774007C75BB /* ExportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		72F1B3311ED52DBE00758529 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
-		AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanSafe_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanSafe.Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac.release.xcconfig"; sourceTree = "<group>"; };
 		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +118,7 @@
 		F92082761EBA44B000B70D4C /* RAIDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDA.swift; sourceTree = "<group>"; };
 		F92082781EBA44DF00B70D4C /* RAIDANode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDANode.swift; sourceTree = "<group>"; };
 		F920827A1EBACEC100B70D4C /* CoinStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinStack.swift; sourceTree = "<group>"; };
+		F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 		F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectViewController.swift; sourceTree = "<group>"; };
 		F9ECA7871EBE6AE900E9B64D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F9ECA7891EC048F300E9B64D /* UserInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
@@ -101,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF2081EC6DB8577AFF17E884 /* Pods_ScanSafe_Mac.framework in Frameworks */,
+				F96EF6601EED516900DE9B40 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,18 +217,9 @@
 		7E884DFBB5BA770E5E13E969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AAD1E1891716BB5D42D5BF43 /* Pods_ScanSafe_Mac.framework */,
+				F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9DD2E7B3DDD626569605CEE8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */,
-				F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		F92082311EB9F49C00B70D4C = {
@@ -205,7 +230,6 @@
 				F920824E1EB9F49D00B70D4C /* ScanSafe.MacTests */,
 				F92082591EB9F49D00B70D4C /* ScanSafe.MacUITests */,
 				F920823B1EB9F49D00B70D4C /* Products */,
-				9DD2E7B3DDD626569605CEE8 /* Pods */,
 				7E884DFBB5BA770E5E13E969 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -254,6 +278,15 @@
 			path = ScanSafe.MacUITests;
 			sourceTree = "<group>";
 		};
+		F96EF6571EED50FB00DE9B40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */,
+				F96EF65E1EED50FC00DE9B40 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,10 +300,12 @@
 				F92082381EB9F49C00B70D4C /* Resources */,
 				58332217AA732861AFBB22EA /* [CP] Embed Pods Frameworks */,
 				BBB574B0B785D71297F25C13 /* [CP] Copy Pods Resources */,
+				F96EF6641EED516900DE9B40 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F96EF6631EED516900DE9B40 /* PBXTargetDependency */,
 			);
 			name = ScanSafe.Mac;
 			productName = ScanSafe.Mac;
@@ -325,7 +360,7 @@
 				TargetAttributes = {
 					F92082391EB9F49C00B70D4C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 6GNRYZ4GJF;
+						DevelopmentTeam = KA9EEPV34B;
 						ProvisioningStyle = Automatic;
 					};
 					F920824A1EB9F49D00B70D4C = {
@@ -353,6 +388,12 @@
 			mainGroup = F92082311EB9F49C00B70D4C;
 			productRefGroup = F920823B1EB9F49D00B70D4C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F96EF6571EED50FB00DE9B40 /* Products */;
+					ProjectRef = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F92082391EB9F49C00B70D4C /* ScanSafe.Mac */,
@@ -361,6 +402,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = F96EF65B1EED50FC00DE9B40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F96EF65E1EED50FC00DE9B40 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = F96EF65D1EED50FC00DE9B40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F92082381EB9F49C00B70D4C /* Resources */ = {
@@ -497,6 +555,11 @@
 			target = F92082391EB9F49C00B70D4C /* ScanSafe.Mac */;
 			targetProxy = F92082571EB9F49D00B70D4C /* PBXContainerItemProxy */;
 		};
+		F96EF6631EED516900DE9B40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = F96EF6621EED516900DE9B40 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -605,12 +668,12 @@
 		};
 		F92082601EB9F49D00B70D4C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02E013F1321BFF147C26549A /* Pods-ScanSafe.Mac.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6GNRYZ4GJF;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -624,12 +687,12 @@
 		};
 		F92082611EB9F49D00B70D4C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6269595E1729D168344896A /* Pods-ScanSafe.Mac.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 6GNRYZ4GJF;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
 				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
