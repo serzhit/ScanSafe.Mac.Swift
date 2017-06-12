@@ -1,12 +1,16 @@
 {
   "autoPin": true,
   "pins": [
+<<<<<<< HEAD
     {
       "package": "CryptoSwift",
       "reason": null,
       "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
       "version": "0.6.9"
     }
+=======
+
+>>>>>>> d91d07692031ad5cf679cb2896ddd6fd2c066248
   ],
   "version": 1
 }

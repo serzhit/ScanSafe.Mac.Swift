@@ -1,0 +1,811 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		723AAE501ED3ABD000668327 /* SafeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723AAE4F1ED3ABD000668327 /* SafeContentViewController.swift */; };
+		7269E1751ED4DEF50071C8C4 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7269E1741ED4DEF50071C8C4 /* Safe.swift */; };
+		729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8A1ED2363B003B94FF /* DetectResponse.swift */; };
+		729A3A8D1ED2E5A3003B94FF /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */; };
+		729A3A8F1ED2E6C4003B94FF /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */; };
+		72A3B75B1EEB713F00800A4B /* FixProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A3B75A1EEB713F00800A4B /* FixProcess.swift */; };
+		72A3B75E1EEB8E1800800A4B /* RaidaStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A3B75D1EEB8E1800800A4B /* RaidaStatusView.swift */; };
+		72E2CAFB1EE35774007C75BB /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2CAFA1EE35774007C75BB /* ExportViewController.swift */; };
+		F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920823D1EB9F49D00B70D4C /* AppDelegate.swift */; };
+		F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92082411EB9F49D00B70D4C /* Assets.xcassets */; };
+		F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92082431EB9F49D00B70D4C /* Main.storyboard */; };
+		F92082501EB9F49D00B70D4C /* ScanSafe_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920824F1EB9F49D00B70D4C /* ScanSafe_MacTests.swift */; };
+		F920825B1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */; };
+		F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082701EBA218500B70D4C /* CloudCoin.swift */; };
+		F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082721EBA21D900B70D4C /* MainViewController.swift */; };
+		F92082751EBA32CC00B70D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082741EBA32CC00B70D4C /* Utils.swift */; };
+		F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082761EBA44B000B70D4C /* RAIDA.swift */; };
+		F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92082781EBA44DF00B70D4C /* RAIDANode.swift */; };
+		F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920827A1EBACEC100B70D4C /* CoinStack.swift */; };
+		F96EF6601EED516900DE9B40 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */; };
+		F96EF6611EED516900DE9B40 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F98951FB1EC604DE00ABF8D6 /* DetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */; };
+		F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7871EBE6AE900E9B64D /* Protocols.swift */; };
+		F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7891EC048F300E9B64D /* UserInteraction.swift */; };
+		F9ECA78C1EC09D6000E9B64D /* IOModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA78B1EC09D6000E9B64D /* IOModels.swift */; };
+		F9ECA78E1EC09FC900E9B64D /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9ECA78D1EC09FC900E9B64D /* Settings.plist */; };
+		F9ECA7901EC0C55100E9B64D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA78F1EC0C55100E9B64D /* Logger.swift */; };
+		F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */; };
+		F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7931EC0DF4700E9B64D /* Enums.swift */; };
+		F9ECA7981EC5934300E9B64D /* ApplicationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F920824C1EB9F49D00B70D4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F92082321EB9F49C00B70D4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F92082391EB9F49C00B70D4C;
+			remoteInfo = ScanSafe.Mac;
+		};
+		F92082571EB9F49D00B70D4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F92082321EB9F49C00B70D4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F92082391EB9F49C00B70D4C;
+			remoteInfo = ScanSafe.Mac;
+		};
+		F96EF65B1EED50FC00DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		F96EF65D1EED50FC00DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		F96EF6621EED516900DE9B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F96EF6641EED516900DE9B40 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F96EF6611EED516900DE9B40 /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		723AAE4F1ED3ABD000668327 /* SafeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeContentViewController.swift; sourceTree = "<group>"; };
+		7269E1741ED4DEF50071C8C4 /* Safe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		729A3A8A1ED2363B003B94FF /* DetectResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
+		729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		72A3B75A1EEB713F00800A4B /* FixProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixProcess.swift; sourceTree = "<group>"; };
+		72A3B75D1EEB8E1800800A4B /* RaidaStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaidaStatusView.swift; sourceTree = "<group>"; };
+		72E2CAFA1EE35774007C75BB /* ExportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
+		72F1B3311ED52DBE00758529 /* Crypto-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crypto-Bridging-Header.h"; sourceTree = "<group>"; };
+		F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanSafe.Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F920823D1EB9F49D00B70D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F92082411EB9F49D00B70D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F92082441EB9F49D00B70D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F92082461EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F920824B1EB9F49D00B70D4C /* ScanSafe.MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanSafe.MacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F920824F1EB9F49D00B70D4C /* ScanSafe_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSafe_MacTests.swift; sourceTree = "<group>"; };
+		F92082511EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F92082561EB9F49D00B70D4C /* ScanSafe.MacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanSafe.MacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSafe_MacUITests.swift; sourceTree = "<group>"; };
+		F920825C1EB9F49D00B70D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F92082701EBA218500B70D4C /* CloudCoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCoin.swift; sourceTree = "<group>"; };
+		F92082721EBA21D900B70D4C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F92082741EBA32CC00B70D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F92082761EBA44B000B70D4C /* RAIDA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDA.swift; sourceTree = "<group>"; };
+		F92082781EBA44DF00B70D4C /* RAIDANode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAIDANode.swift; sourceTree = "<group>"; };
+		F920827A1EBACEC100B70D4C /* CoinStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinStack.swift; sourceTree = "<group>"; };
+		F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectViewController.swift; sourceTree = "<group>"; };
+		F9ECA7871EBE6AE900E9B64D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		F9ECA7891EC048F300E9B64D /* UserInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteraction.swift; sourceTree = "<group>"; };
+		F9ECA78B1EC09D6000E9B64D /* IOModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOModels.swift; sourceTree = "<group>"; };
+		F9ECA78D1EC09FC900E9B64D /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		F9ECA78F1EC0C55100E9B64D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSOpenPanelExtension.swift; sourceTree = "<group>"; };
+		F9ECA7931EC0DF4700E9B64D /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationLogic.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F92082371EB9F49C00B70D4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96EF6601EED516900DE9B40 /* CryptoSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082481EB9F49D00B70D4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082531EB9F49D00B70D4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		729A3A881ED23530003B94FF /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				729A3A891ED235B4003B94FF /* Raida */,
+			);
+			name = Modals;
+			sourceTree = "<group>";
+		};
+		729A3A891ED235B4003B94FF /* Raida */ = {
+			isa = PBXGroup;
+			children = (
+				729A3A8A1ED2363B003B94FF /* DetectResponse.swift */,
+			);
+			name = Raida;
+			sourceTree = "<group>";
+		};
+		729BDD041ECFE0B400FFECB3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7269E1741ED4DEF50071C8C4 /* Safe.swift */,
+				F92082701EBA218500B70D4C /* CloudCoin.swift */,
+				F92082741EBA32CC00B70D4C /* Utils.swift */,
+				F92082761EBA44B000B70D4C /* RAIDA.swift */,
+				F92082781EBA44DF00B70D4C /* RAIDANode.swift */,
+				F920827A1EBACEC100B70D4C /* CoinStack.swift */,
+				F9ECA7871EBE6AE900E9B64D /* Protocols.swift */,
+				F9ECA7891EC048F300E9B64D /* UserInteraction.swift */,
+				F9ECA78B1EC09D6000E9B64D /* IOModels.swift */,
+				F9ECA78F1EC0C55100E9B64D /* Logger.swift */,
+				F9ECA7911EC0DE1C00E9B64D /* NSOpenPanelExtension.swift */,
+				F9ECA7931EC0DF4700E9B64D /* Enums.swift */,
+				F9ECA7971EC5934300E9B64D /* ApplicationLogic.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		729BDD051ECFE0D400FFECB3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F92082721EBA21D900B70D4C /* MainViewController.swift */,
+				F98951FA1EC604DE00ABF8D6 /* DetectViewController.swift */,
+				729A3A8C1ED2E5A3003B94FF /* EnterPasswordViewController.swift */,
+				729A3A8E1ED2E6C4003B94FF /* NewPasswordViewController.swift */,
+				723AAE4F1ED3ABD000668327 /* SafeContentViewController.swift */,
+				72E2CAFA1EE35774007C75BB /* ExportViewController.swift */,
+				72A3B75A1EEB713F00800A4B /* FixProcess.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		72A3B75C1EEB880600800A4B /* CollectionItem */ = {
+			isa = PBXGroup;
+			children = (
+				72A3B75D1EEB8E1800800A4B /* RaidaStatusView.swift */,
+			);
+			name = CollectionItem;
+			sourceTree = "<group>";
+		};
+		7E884DFBB5BA770E5E13E969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F92082311EB9F49C00B70D4C = {
+			isa = PBXGroup;
+			children = (
+				72F1B3311ED52DBE00758529 /* Crypto-Bridging-Header.h */,
+				F920823C1EB9F49D00B70D4C /* ScanSafe.Mac */,
+				F920824E1EB9F49D00B70D4C /* ScanSafe.MacTests */,
+				F92082591EB9F49D00B70D4C /* ScanSafe.MacUITests */,
+				F920823B1EB9F49D00B70D4C /* Products */,
+				7E884DFBB5BA770E5E13E969 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F920823B1EB9F49D00B70D4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */,
+				F920824B1EB9F49D00B70D4C /* ScanSafe.MacTests.xctest */,
+				F92082561EB9F49D00B70D4C /* ScanSafe.MacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F920823C1EB9F49D00B70D4C /* ScanSafe.Mac */ = {
+			isa = PBXGroup;
+			children = (
+				72A3B75C1EEB880600800A4B /* CollectionItem */,
+				729A3A881ED23530003B94FF /* Modals */,
+				729BDD051ECFE0D400FFECB3 /* ViewControllers */,
+				729BDD041ECFE0B400FFECB3 /* Core */,
+				F920823D1EB9F49D00B70D4C /* AppDelegate.swift */,
+				F92082411EB9F49D00B70D4C /* Assets.xcassets */,
+				F92082431EB9F49D00B70D4C /* Main.storyboard */,
+				F92082461EB9F49D00B70D4C /* Info.plist */,
+				F9ECA78D1EC09FC900E9B64D /* Settings.plist */,
+			);
+			path = ScanSafe.Mac;
+			sourceTree = "<group>";
+		};
+		F920824E1EB9F49D00B70D4C /* ScanSafe.MacTests */ = {
+			isa = PBXGroup;
+			children = (
+				F920824F1EB9F49D00B70D4C /* ScanSafe_MacTests.swift */,
+				F92082511EB9F49D00B70D4C /* Info.plist */,
+			);
+			path = ScanSafe.MacTests;
+			sourceTree = "<group>";
+		};
+		F92082591EB9F49D00B70D4C /* ScanSafe.MacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F920825A1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift */,
+				F920825C1EB9F49D00B70D4C /* Info.plist */,
+			);
+			path = ScanSafe.MacUITests;
+			sourceTree = "<group>";
+		};
+		F96EF6571EED50FB00DE9B40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */,
+				F96EF65E1EED50FC00DE9B40 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F92082391EB9F49C00B70D4C /* ScanSafe.Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F920825F1EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.Mac" */;
+			buildPhases = (
+				4968E6CAABAD7FC631EA9ADD /* [CP] Check Pods Manifest.lock */,
+				F92082361EB9F49C00B70D4C /* Sources */,
+				F92082371EB9F49C00B70D4C /* Frameworks */,
+				F92082381EB9F49C00B70D4C /* Resources */,
+				58332217AA732861AFBB22EA /* [CP] Embed Pods Frameworks */,
+				BBB574B0B785D71297F25C13 /* [CP] Copy Pods Resources */,
+				F96EF6641EED516900DE9B40 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F96EF6631EED516900DE9B40 /* PBXTargetDependency */,
+			);
+			name = ScanSafe.Mac;
+			productName = ScanSafe.Mac;
+			productReference = F920823A1EB9F49D00B70D4C /* ScanSafe.Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F920824A1EB9F49D00B70D4C /* ScanSafe.MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F92082621EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.MacTests" */;
+			buildPhases = (
+				F92082471EB9F49D00B70D4C /* Sources */,
+				F92082481EB9F49D00B70D4C /* Frameworks */,
+				F92082491EB9F49D00B70D4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F920824D1EB9F49D00B70D4C /* PBXTargetDependency */,
+			);
+			name = ScanSafe.MacTests;
+			productName = ScanSafe.MacTests;
+			productReference = F920824B1EB9F49D00B70D4C /* ScanSafe.MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F92082551EB9F49D00B70D4C /* ScanSafe.MacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F92082651EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.MacUITests" */;
+			buildPhases = (
+				F92082521EB9F49D00B70D4C /* Sources */,
+				F92082531EB9F49D00B70D4C /* Frameworks */,
+				F92082541EB9F49D00B70D4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F92082581EB9F49D00B70D4C /* PBXTargetDependency */,
+			);
+			name = ScanSafe.MacUITests;
+			productName = ScanSafe.MacUITests;
+			productReference = F92082561EB9F49D00B70D4C /* ScanSafe.MacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F92082321EB9F49C00B70D4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Git in Sky";
+				TargetAttributes = {
+					F92082391EB9F49C00B70D4C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KA9EEPV34B;
+						ProvisioningStyle = Automatic;
+					};
+					F920824A1EB9F49D00B70D4C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KA9EEPV34B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F92082391EB9F49C00B70D4C;
+					};
+					F92082551EB9F49D00B70D4C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KA9EEPV34B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F92082391EB9F49C00B70D4C;
+					};
+				};
+			};
+			buildConfigurationList = F92082351EB9F49C00B70D4C /* Build configuration list for PBXProject "ScanSafe.Mac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F92082311EB9F49C00B70D4C;
+			productRefGroup = F920823B1EB9F49D00B70D4C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F96EF6571EED50FB00DE9B40 /* Products */;
+					ProjectRef = F96EF6561EED50FB00DE9B40 /* CryptoSwift.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F92082391EB9F49C00B70D4C /* ScanSafe.Mac */,
+				F920824A1EB9F49D00B70D4C /* ScanSafe.MacTests */,
+				F92082551EB9F49D00B70D4C /* ScanSafe.MacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F96EF65C1EED50FC00DE9B40 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = F96EF65B1EED50FC00DE9B40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F96EF65E1EED50FC00DE9B40 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = F96EF65D1EED50FC00DE9B40 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F92082381EB9F49C00B70D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F92082421EB9F49D00B70D4C /* Assets.xcassets in Resources */,
+				F9ECA78E1EC09FC900E9B64D /* Settings.plist in Resources */,
+				F92082451EB9F49D00B70D4C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082491EB9F49D00B70D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082541EB9F49D00B70D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4968E6CAABAD7FC631EA9ADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58332217AA732861AFBB22EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBB574B0B785D71297F25C13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanSafe.Mac/Pods-ScanSafe.Mac-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F92082361EB9F49C00B70D4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F92082711EBA218500B70D4C /* CloudCoin.swift in Sources */,
+				F9ECA7921EC0DE1C00E9B64D /* NSOpenPanelExtension.swift in Sources */,
+				723AAE501ED3ABD000668327 /* SafeContentViewController.swift in Sources */,
+				F98951FB1EC604DE00ABF8D6 /* DetectViewController.swift in Sources */,
+				72A3B75E1EEB8E1800800A4B /* RaidaStatusView.swift in Sources */,
+				F9ECA7901EC0C55100E9B64D /* Logger.swift in Sources */,
+				F92082731EBA21D900B70D4C /* MainViewController.swift in Sources */,
+				F920827B1EBACEC100B70D4C /* CoinStack.swift in Sources */,
+				F920823E1EB9F49D00B70D4C /* AppDelegate.swift in Sources */,
+				7269E1751ED4DEF50071C8C4 /* Safe.swift in Sources */,
+				729A3A8B1ED2363B003B94FF /* DetectResponse.swift in Sources */,
+				729A3A8F1ED2E6C4003B94FF /* NewPasswordViewController.swift in Sources */,
+				72E2CAFB1EE35774007C75BB /* ExportViewController.swift in Sources */,
+				F92082751EBA32CC00B70D4C /* Utils.swift in Sources */,
+				F9ECA7941EC0DF4700E9B64D /* Enums.swift in Sources */,
+				729A3A8D1ED2E5A3003B94FF /* EnterPasswordViewController.swift in Sources */,
+				F92082771EBA44B000B70D4C /* RAIDA.swift in Sources */,
+				F92082791EBA44DF00B70D4C /* RAIDANode.swift in Sources */,
+				F9ECA7881EBE6AE900E9B64D /* Protocols.swift in Sources */,
+				F9ECA78A1EC048F300E9B64D /* UserInteraction.swift in Sources */,
+				72A3B75B1EEB713F00800A4B /* FixProcess.swift in Sources */,
+				F9ECA78C1EC09D6000E9B64D /* IOModels.swift in Sources */,
+				F9ECA7981EC5934300E9B64D /* ApplicationLogic.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082471EB9F49D00B70D4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F92082501EB9F49D00B70D4C /* ScanSafe_MacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F92082521EB9F49D00B70D4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F920825B1EB9F49D00B70D4C /* ScanSafe_MacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F920824D1EB9F49D00B70D4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F92082391EB9F49C00B70D4C /* ScanSafe.Mac */;
+			targetProxy = F920824C1EB9F49D00B70D4C /* PBXContainerItemProxy */;
+		};
+		F92082581EB9F49D00B70D4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F92082391EB9F49C00B70D4C /* ScanSafe.Mac */;
+			targetProxy = F92082571EB9F49D00B70D4C /* PBXContainerItemProxy */;
+		};
+		F96EF6631EED516900DE9B40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = F96EF6621EED516900DE9B40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F92082431EB9F49D00B70D4C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F92082441EB9F49D00B70D4C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F920825D1EB9F49D00B70D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F920825E1EB9F49D00B70D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F92082601EB9F49D00B70D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crypto-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F92082611EB9F49D00B70D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crypto-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F92082631EB9F49D00B70D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.MacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanSafe.Mac.app/Contents/MacOS/ScanSafe.Mac";
+			};
+			name = Debug;
+		};
+		F92082641EB9F49D00B70D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.MacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanSafe.Mac.app/Contents/MacOS/ScanSafe.Mac";
+			};
+			name = Release;
+		};
+		F92082661EB9F49D00B70D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.MacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-MacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ScanSafe.Mac;
+			};
+			name = Debug;
+		};
+		F92082671EB9F49D00B70D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KA9EEPV34B;
+				INFOPLIST_FILE = ScanSafe.MacUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gitinsky.ScanSafe-MacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ScanSafe.Mac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F92082351EB9F49C00B70D4C /* Build configuration list for PBXProject "ScanSafe.Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F920825D1EB9F49D00B70D4C /* Debug */,
+				F920825E1EB9F49D00B70D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F920825F1EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F92082601EB9F49D00B70D4C /* Debug */,
+				F92082611EB9F49D00B70D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F92082621EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F92082631EB9F49D00B70D4C /* Debug */,
+				F92082641EB9F49D00B70D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F92082651EB9F49D00B70D4C /* Build configuration list for PBXNativeTarget "ScanSafe.MacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F92082661EB9F49D00B70D4C /* Debug */,
+				F92082671EB9F49D00B70D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F92082321EB9F49C00B70D4C /* Project object */;
+}
