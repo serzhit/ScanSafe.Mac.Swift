@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A264c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
@@ -657,7 +657,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ScanSafe_Mac" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ScanSafe_Mac_App" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44" y="-376"/>
@@ -683,7 +683,7 @@
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="5gI-5U-AMq" customClass="MainViewController" customModule="ScanSafe_Mac" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="5gI-5U-AMq" customClass="MainViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" misplaced="YES" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="606" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1202,7 +1202,7 @@
         <!--Detect View Controller-->
         <scene sceneID="r3m-FL-YMS">
             <objects>
-                <viewController identifier="DetectViewController" storyboardIdentifier="DetectViewController" id="OG7-h9-KFl" customClass="DetectViewController" customModule="ScanSafe_Mac" sceneMemberID="viewController">
+                <viewController identifier="DetectViewController" storyboardIdentifier="DetectViewController" id="OG7-h9-KFl" customClass="DetectViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Ngc-yA-rBG">
                         <rect key="frame" x="0.0" y="0.0" width="574" height="436"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1233,17 +1233,17 @@
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO1-Gu-EtV">
                                             <rect key="frame" x="20" y="8" width="534" height="149"/>
                                             <clipView key="contentView" id="ofY-qw-dLa">
-                                                <rect key="frame" x="1" y="0.0" width="532" height="133"/>
+                                                <rect key="frame" x="1" y="0.0" width="532" height="148"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="QK4-05-mpf" viewBased="YES" id="hIc-Kl-777">
-                                                        <rect key="frame" x="0.0" y="0.0" width="542" height="110"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="542" height="125"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                         <tableColumns>
-                                                            <tableColumn width="90" minWidth="70" maxWidth="100" id="7zs-Np-HyD">
+                                                            <tableColumn identifier="" width="90" minWidth="70" maxWidth="100" id="7zs-Np-HyD">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Serial">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1276,7 +1276,7 @@
                                                                     </tableCellView>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn width="50" minWidth="40" maxWidth="50" id="40X-lB-A2O">
+                                                            <tableColumn identifier="" width="50" minWidth="40" maxWidth="50" id="40X-lB-A2O">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Value">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1380,7 +1380,7 @@
                                                 </subviews>
                                             </clipView>
                                             <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="h7E-1A-mAH">
-                                                <rect key="frame" x="1" y="133" width="532" height="15"/>
+                                                <rect key="frame" x="1" y="132" width="532" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Ogk-EE-Bv2">
@@ -1862,7 +1862,7 @@
         <!--Enter Password View Controller-->
         <scene sceneID="xaU-Dj-4wi">
             <objects>
-                <viewController identifier="EnterPasswordViewController" storyboardIdentifier="EnterPasswordViewController" id="f5B-9Q-uO2" customClass="EnterPasswordViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="EnterPasswordViewController" storyboardIdentifier="EnterPasswordViewController" id="f5B-9Q-uO2" customClass="EnterPasswordViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="x4V-rn-nuU">
                         <rect key="frame" x="0.0" y="0.0" width="285" height="122"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1916,7 +1916,7 @@ DQ
         <!--New Password View Controller-->
         <scene sceneID="fEN-1h-98f">
             <objects>
-                <viewController identifier="NewPasswordViewController" storyboardIdentifier="NewPasswordViewController" id="ZkY-KV-ZLH" customClass="NewPasswordViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="NewPasswordViewController" storyboardIdentifier="NewPasswordViewController" id="ZkY-KV-ZLH" customClass="NewPasswordViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ru4-3a-hDc">
                         <rect key="frame" x="0.0" y="0.0" width="319" height="221"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2030,7 +2030,7 @@ DQ
         <!--Bank-->
         <scene sceneID="Mw3-C8-RmR">
             <objects>
-                <viewController title="Bank" identifier="SafeContentViewController" storyboardIdentifier="SafeContentViewController" id="yyz-8K-oKy" customClass="SafeContentViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Bank" identifier="SafeContentViewController" storyboardIdentifier="SafeContentViewController" id="yyz-8K-oKy" customClass="SafeContentViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="gVb-dG-9yY">
                         <rect key="frame" x="0.0" y="0.0" width="520" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2131,7 +2131,7 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="116" minWidth="40" maxWidth="1000" id="Hij-cs-Nbp">
+                                                <tableColumn identifier="" width="116" minWidth="40" maxWidth="1000" id="Hij-cs-Nbp">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Fractioned">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2168,7 +2168,7 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="98" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
+                                                <tableColumn identifier="" width="98" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2233,7 +2233,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-E4-hcG">
-                                <rect key="frame" x="203" y="300" width="115" height="50"/>
+                                <rect key="frame" x="203" y="300" width="114" height="50"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2 250" id="Qe6-4h-BBx">
                                     <font key="font" metaFont="system" size="41"/>
                                     <color key="textColor" red="0.16078431369999999" green="0.53333333329999999" blue="0.98431372549999996" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2275,7 +2275,7 @@ DQ
         <!--Fix Process-->
         <scene sceneID="5pG-qy-nja">
             <objects>
-                <viewController title="Fix Process" identifier="FixProcessViewController" storyboardIdentifier="FixProcessViewController" id="eyX-yl-HrF" customClass="FixProcessViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Fix Process" identifier="FixProcessViewController" storyboardIdentifier="FixProcessViewController" id="eyX-yl-HrF" customClass="FixProcessViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ymb-JT-0xx">
                         <rect key="frame" x="0.0" y="0.0" width="599" height="294"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2356,7 +2356,7 @@ DQ
         <!--Export-->
         <scene sceneID="6bV-TO-Wy2">
             <objects>
-                <viewController title="Export" identifier="ExportViewController" storyboardIdentifier="ExportViewController" id="sQ1-i7-iJw" customClass="ExportViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Export" identifier="ExportViewController" storyboardIdentifier="ExportViewController" id="sQ1-i7-iJw" customClass="ExportViewController" customModule="ScanSafe_Mac_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hZw-zW-X2Y">
                         <rect key="frame" x="0.0" y="0.0" width="417" height="317"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2368,7 +2368,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lk-Te-ihM">
-                                            <rect key="frame" x="150" y="238" width="115" height="50"/>
+                                            <rect key="frame" x="151" y="238" width="114" height="50"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2 250" id="BUG-1o-wft">
                                                 <font key="font" metaFont="system" size="41"/>
                                                 <color key="textColor" red="0.16078431372549018" green="0.53333333333333333" blue="0.98431372549019602" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2508,7 +2508,7 @@ Gw
         <image name="Pay" width="180" height="197"/>
         <image name="Safe" width="180" height="199"/>
         <image name="Scaner" width="180" height="199"/>
-        <image name="WorldMap" width="480" height="258.239990234375"/>
+        <image name="WorldMap" width="2000" height="1075"/>
         <image name="backicons" width="646" height="295"/>
     </resources>
 </document>
