@@ -12,6 +12,7 @@ class Node: NSObject {
     //properties
     let Number: Int
     let Name: String
+    let NODEQNTY = 25
     var LastEchoStatus: RAIDAResponse?
     
     //computed properties
@@ -187,6 +188,38 @@ class Node: NSObject {
                 }
                 completion(detectResult)
             }
+        }
+        
+        task.resume()
+    }
+    
+    func fixCoin(brokeCoin: CloudCoin, coinindex: Int) {
+        var result = [raidaNodeResponse]()
+        
+        for index in 0...NODEQNTY-1 {
+            result.append(raidaNodeResponse.unknown)
+            if brokeCoin.detectStatus[index] != .pass {
+                //onCoinFixStarted();
+                //result[index] = ProcessFixingGUID(index, brokeCoin, coinindex)
+            }
+            else {
+                result[index] = brokeCoin.detectStatus[index]
+            }
+        }
+    }
+    
+    func ProcessFixingGUID(guid_id: Int, returnCoin: CloudCoin, coinindex: Int) {
+        
+    }
+    
+    func getTicket(nn: Int, sn: Int, an: String, d: Denomination){
+        let query : String = "/get_ticket?nn=\(nn)&sn=\(sn)&an=\(an)&pan=\(an)&denomination=\(Utils.Denomination2Int(forValue: d))"
+        let coinUrl = URL(string: BaseUri!.absoluteString + query)
+        var request = URLRequest(url: coinUrl!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){data, response, error in
+            
         }
         
         task.resume()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
@@ -2032,7 +2032,7 @@ DQ
             <objects>
                 <viewController title="Bank" identifier="SafeContentViewController" storyboardIdentifier="SafeContentViewController" id="yyz-8K-oKy" customClass="SafeContentViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="gVb-dG-9yY">
-                        <rect key="frame" x="0.0" y="0.0" width="520" height="364"/>
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dww-Ta-QQb">
@@ -2045,13 +2045,13 @@ DQ
                                 <color key="fillColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFV-Jw-bAl">
-                                <rect key="frame" x="30" y="73" width="460" height="176"/>
+                                <rect key="frame" x="30" y="73" width="287" height="176"/>
                                 <clipView key="contentView" id="Aki-8G-ahv">
-                                    <rect key="frame" x="1" y="0.0" width="458" height="175"/>
+                                    <rect key="frame" x="1" y="0.0" width="285" height="160"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="uz7-Db-Kwc" viewBased="YES" id="R7e-vx-8jm">
-                                            <rect key="frame" x="0.0" y="0.0" width="458" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2168,7 +2168,7 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="98" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
+                                                <tableColumn width="40" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2182,11 +2182,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TotalCellID" id="g6h-fe-5ZP">
-                                                            <rect key="frame" x="358" y="1" width="98" height="17"/>
+                                                            <rect key="frame" x="358" y="1" width="40" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMx-Os-m1e">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Z02-aQ-jAo">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2209,8 +2209,8 @@ DQ
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="M64-lO-afK">
-                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="M64-lO-afK">
+                                    <rect key="frame" x="1" y="160" width="285" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="0Qd-gz-ZCn">
@@ -2218,12 +2218,12 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="uz7-Db-Kwc">
-                                    <rect key="frame" x="0.0" y="0.0" width="458" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-yo-1xZ">
-                                <rect key="frame" x="386" y="25" width="110" height="32"/>
+                                <rect key="frame" x="213" y="25" width="110" height="32"/>
                                 <buttonCell key="cell" type="push" title="Fix Fracked" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDG-O1-fSX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -2233,7 +2233,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-E4-hcG">
-                                <rect key="frame" x="203" y="300" width="115" height="50"/>
+                                <rect key="frame" x="116" y="300" width="115" height="50"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2 250" id="Qe6-4h-BBx">
                                     <font key="font" metaFont="system" size="41"/>
                                     <color key="textColor" red="0.16078431369999999" green="0.53333333329999999" blue="0.98431372549999996" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2241,7 +2241,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-Xs-eAT">
-                                <rect key="frame" x="198" y="276" width="124" height="17"/>
+                                <rect key="frame" x="112" y="276" width="124" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Total Coins in Bank" id="NQb-n9-xWd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.60784313729999995" green="0.61176470589999998" blue="0.62745098040000002" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2270,88 +2270,457 @@ DQ
                 </viewController>
                 <customObject id="Aax-me-ZXB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="401"/>
+            <point key="canvasLocation" x="1323.5" y="401"/>
         </scene>
         <!--Fix Process-->
         <scene sceneID="5pG-qy-nja">
             <objects>
                 <viewController title="Fix Process" identifier="FixProcessViewController" storyboardIdentifier="FixProcessViewController" id="eyX-yl-HrF" customClass="FixProcessViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ymb-JT-0xx">
-                        <rect key="frame" x="0.0" y="0.0" width="599" height="294"/>
+                        <rect key="frame" x="0.0" y="0.0" width="625" height="314"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="oY3-xi-OFY">
-                                <rect key="frame" x="0.0" y="0.0" width="599" height="294"/>
+                                <rect key="frame" x="0.0" y="0.0" width="625" height="314"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" ambiguous="YES" id="oC8-Yk-2KQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="599" height="294"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="625" height="314"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0f-Wk-wAq">
-                                            <rect key="frame" x="44" y="232" width="67" height="17"/>
+                                        <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="fCJ-ta-l1R">
+                                            <rect key="frame" x="50" y="39" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="16652594" id="ua2-Ub-SkZ">
+                                            <view key="contentView" ambiguous="YES" id="zU3-bG-UW4">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-tG-8sa">
+                                            <rect key="frame" x="141" y="39" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" ambiguous="YES" id="5gi-ws-fz4">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="0.97647058823529409" green="0.68235294117647061" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="tqJ-UA-Aqf">
+                                            <rect key="frame" x="229" y="39" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" ambiguous="YES" id="RdF-bP-yfH">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="1" green="0.38431372549019605" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-DO-fLJ">
+                                            <rect key="frame" x="302" y="39" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" ambiguous="YES" id="dFo-kb-7uU">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="0.72549019607843135" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-Ju-lFc">
+                                            <rect key="frame" x="388" y="39" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" ambiguous="YES" id="IRo-Ew-uGH">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="0.96470588235294119" green="0.90196078431372551" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giC-jh-L4b">
+                                            <rect key="frame" x="76" y="42" width="48" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Passed" id="zc4-BA-C8r">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbc-Qg-kur">
-                                            <rect key="frame" x="46" y="122" width="67" height="17"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yd-58-pRS">
+                                            <rect key="frame" x="169" y="41" width="37" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="16652594" id="gJS-vf-5Cn">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fixing" id="2sw-js-0kU">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1S-jz-ceT">
-                                            <rect key="frame" x="127" y="122" width="69" height="17"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYv-bc-ICd">
+                                            <rect key="frame" x="259" y="41" width="37" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="KiloQuarte" id="oVs-6y-yW8">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fail" id="nnt-hZ-uHz">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p3-gn-Y5A">
-                                            <rect key="frame" x="46" y="176" width="193" height="17"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jol-1D-qDl">
+                                            <rect key="frame" x="331" y="40" width="37" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Key on node was 16 was fixed" id="vuj-zP-Pnv">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Error" id="BXo-Bd-7zA">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJo-Ex-6t7">
-                                            <rect key="frame" x="48" y="67" width="298" height="17"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdO-hT-abY">
+                                            <rect key="frame" x="413" y="41" width="61" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Processing key on node 6, corner 1" id="ZST-bc-cHq">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Unknown" id="gx3-I5-7Lq">
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7l-KQ-G0l">
-                                            <rect key="frame" x="127" y="232" width="69" height="17"/>
+                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ge-9h-8UU">
+                                            <rect key="frame" x="26" y="75" width="573" height="219"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="KiloQuarte" id="MHz-Io-tbO">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
+                                            <clipView key="contentView" ambiguous="YES" id="ZuB-cs-Rge">
+                                                <rect key="frame" x="1" y="1" width="571" height="217"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="80" rowSizeStyle="automatic" viewBased="YES" id="BHC-FC-aLA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="217"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn width="568" minWidth="40" maxWidth="1000" id="rZk-1Y-YVN">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="jcS-Oh-80F">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView identifier="StatusCellID" id="u8w-sb-XCs" customClass="RaidaStatusView" customModule="ScanSafe_Mac" customModuleProvider="target">
+                                                                        <rect key="frame" x="1" y="1" width="568" height="80"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0f-Wk-wAq">
+                                                                                <rect key="frame" x="10" y="60" width="72" height="17"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="16652594" id="ua2-Ub-SkZ">
+                                                                                    <font key="font" metaFont="systemBold"/>
+                                                                                    <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                            </textField>
+                                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7l-KQ-G0l">
+                                                                                <rect key="frame" x="104" y="60" width="69" height="17"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="KiloQuarte" id="MHz-Io-tbO">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                            </textField>
+                                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p3-gn-Y5A">
+                                                                                <rect key="frame" x="10" y="6" width="193" height="17"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Key on node was 16 was fixed" id="vuj-zP-Pnv">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                            </textField>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dFc-FY-n7A">
+                                                                                <rect key="frame" x="10" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="bbe-H8-nBO">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="osW-UG-ezr">
+                                                                                <rect key="frame" x="33" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="mHU-bU-rhm">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-V1-4pN">
+                                                                                <rect key="frame" x="55" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="dc6-ZX-HSx">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="pHu-Ad-i8N">
+                                                                                <rect key="frame" x="77" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="mnk-CQ-EUC">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="n0T-6T-Kvm">
+                                                                                <rect key="frame" x="99" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="qXt-WQ-DtN">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="lLc-ZA-JyK">
+                                                                                <rect key="frame" x="121" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="qKS-dn-xFz">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="z4h-4A-DuK">
+                                                                                <rect key="frame" x="143" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="T2J-Hj-5k7">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="I8K-G0-LUx">
+                                                                                <rect key="frame" x="165" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="eAd-yX-MXh">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="chV-QI-FC4">
+                                                                                <rect key="frame" x="187" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="oAB-PV-wCK">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Xzz-pb-UUA">
+                                                                                <rect key="frame" x="209" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="QtE-5Q-gbP">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="1ef-HC-lXn">
+                                                                                <rect key="frame" x="231" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="gCF-ja-R7P">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-AN-WKW">
+                                                                                <rect key="frame" x="253" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="64v-8D-tmb">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="cYE-gk-Eqj">
+                                                                                <rect key="frame" x="275" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="8De-1L-EoI">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="MJK-Dm-8C3">
+                                                                                <rect key="frame" x="297" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="ffI-Ob-1fY">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="G5u-ZF-5gS">
+                                                                                <rect key="frame" x="319" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="cbs-1X-kWb">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Inb-sz-lGK">
+                                                                                <rect key="frame" x="341" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="Fx9-Lo-Kc2">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="TfK-fr-7DB">
+                                                                                <rect key="frame" x="363" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="FaB-Af-pW3">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Io-m4v">
+                                                                                <rect key="frame" x="385" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="NuA-xd-DuL">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="6ph-2g-to9">
+                                                                                <rect key="frame" x="407" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="JlT-zX-ymO">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="XV7-5I-GaM">
+                                                                                <rect key="frame" x="429" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="Erm-fs-hkY">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-0V-scL">
+                                                                                <rect key="frame" x="451" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="QBH-Wy-tW1">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="JO7-uM-fdt">
+                                                                                <rect key="frame" x="473" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="YJz-OU-pdO">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-IL-zTb">
+                                                                                <rect key="frame" x="495" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="TCB-Pu-pT7">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="jLB-Cl-KOA">
+                                                                                <rect key="frame" x="517" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="kDl-k7-g0G">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-mF-8HE">
+                                                                                <rect key="frame" x="539" y="32" width="20" height="20"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <view key="contentView" ambiguous="YES" id="E33-ch-243">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                </view>
+                                                                                <color key="fillColor" red="0.32287741269999998" green="0.67486308979999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </box>
+                                                                        </subviews>
+                                                                        <connections>
+                                                                            <outlet property="lblDenomination" destination="d7l-KQ-G0l" id="ZIx-4A-9om"/>
+                                                                            <outlet property="lblSerialNo" destination="c0f-Wk-wAq" id="oFY-Re-yg5"/>
+                                                                            <outlet property="lblStatus" destination="8p3-gn-Y5A" id="IlA-yP-fLD"/>
+                                                                            <outlet property="rect1" destination="dFc-FY-n7A" id="nCX-L3-Tn5"/>
+                                                                            <outlet property="rect10" destination="Xzz-pb-UUA" id="R7B-bg-W0Q"/>
+                                                                            <outlet property="rect11" destination="1ef-HC-lXn" id="qdr-HO-Fl9"/>
+                                                                            <outlet property="rect12" destination="0OF-AN-WKW" id="h6e-X6-Dhz"/>
+                                                                            <outlet property="rect13" destination="cYE-gk-Eqj" id="h16-ma-JPu"/>
+                                                                            <outlet property="rect14" destination="MJK-Dm-8C3" id="R6M-SU-AXh"/>
+                                                                            <outlet property="rect15" destination="G5u-ZF-5gS" id="Mgn-IX-Wjz"/>
+                                                                            <outlet property="rect16" destination="Inb-sz-lGK" id="n34-vi-VL9"/>
+                                                                            <outlet property="rect17" destination="TfK-fr-7DB" id="PrC-lc-pRR"/>
+                                                                            <outlet property="rect18" destination="Eks-Io-m4v" id="54o-R1-q2m"/>
+                                                                            <outlet property="rect19" destination="6ph-2g-to9" id="3ao-fT-iXe"/>
+                                                                            <outlet property="rect2" destination="osW-UG-ezr" id="b0A-UV-IPG"/>
+                                                                            <outlet property="rect20" destination="XV7-5I-GaM" id="Isl-04-uAB"/>
+                                                                            <outlet property="rect21" destination="ymr-0V-scL" id="i27-CN-LrM"/>
+                                                                            <outlet property="rect22" destination="JO7-uM-fdt" id="5rX-9K-ivZ"/>
+                                                                            <outlet property="rect23" destination="xUd-IL-zTb" id="gHL-Y8-5Oc"/>
+                                                                            <outlet property="rect24" destination="jLB-Cl-KOA" id="dhC-Pq-LcV"/>
+                                                                            <outlet property="rect25" destination="e6Q-mF-8HE" id="BVU-Qu-hef"/>
+                                                                            <outlet property="rect3" destination="WgC-V1-4pN" id="7R5-i0-P6v"/>
+                                                                            <outlet property="rect4" destination="pHu-Ad-i8N" id="Gxd-XQ-El5"/>
+                                                                            <outlet property="rect5" destination="n0T-6T-Kvm" id="Yzn-5l-KkX"/>
+                                                                            <outlet property="rect6" destination="lLc-ZA-JyK" id="Qml-E1-FQr"/>
+                                                                            <outlet property="rect7" destination="z4h-4A-DuK" id="VJz-7S-jbE"/>
+                                                                            <outlet property="rect8" destination="I8K-G0-LUx" id="vLD-iX-mTu"/>
+                                                                            <outlet property="rect9" destination="chV-QI-FC4" id="DLY-uL-reU"/>
+                                                                        </connections>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                    </tableView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="4hV-Fz-sCq">
+                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="2jf-fg-ecn">
+                                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
                                     </subviews>
                                 </view>
                                 <color key="fillColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                             </box>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="fixTableView" destination="BHC-FC-aLA" id="1yL-7H-Bkk"/>
+                    </connections>
                 </viewController>
                 <customObject id="oAg-Kh-nTp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customCell alignment="left" id="dcV-oi-XOb"/>
             </objects>
-            <point key="canvasLocation" x="1346.5" y="817"/>
+            <point key="canvasLocation" x="1359.5" y="827"/>
         </scene>
         <!--Export-->
         <scene sceneID="6bV-TO-Wy2">
