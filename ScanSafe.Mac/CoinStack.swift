@@ -229,7 +229,7 @@ class CoinStack: Sequence {
                 sn = Int(strsn)
             }
             
-            var detectStatusArray = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
+            var detectStatusArray = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQNTY)
             
             if !isFromOutSide{
                 guard let intStatus = json["detectStatus"] as? [Int]

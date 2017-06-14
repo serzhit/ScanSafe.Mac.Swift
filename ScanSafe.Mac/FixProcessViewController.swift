@@ -11,9 +11,16 @@ import Cocoa
 class FixProcessViewController: NSViewController {
     
     @IBOutlet weak var fixTableView: NSTableView!
+    
     override func viewDidLoad() {
         fixTableView.dataSource = self
         fixTableView.delegate = self
+        
+        var index = 0
+        for coin in (Safe.Instance()?.FrackedCoinsList)! {
+            RAIDA.Instance?.fixCoin(brokeCoin: coin, coinindex: index)
+            index += 1
+        }
     }
 }
 

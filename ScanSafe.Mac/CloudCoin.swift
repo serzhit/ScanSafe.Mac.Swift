@@ -34,7 +34,7 @@ class CloudCoin: NSObject {
     var isPassed: Bool {
         let passed = CountStatuses(raidaNodeResponse.pass)
         
-        return (passed >= RAIDA.NODEQUANTITY) ? true : false
+        return (passed >= RAIDA.NODEQNTY) ? true : false
     }
     var Verdict: Status {
         if (percentOfRAIDAPass != 100) {
@@ -62,8 +62,8 @@ class CloudCoin: NSObject {
     }
     
     static func generatePans() -> [String?] {
-        var result = Array<String?>(repeating: nil, count: RAIDA.NODEQUANTITY)
-        for i in 0..<RAIDA.NODEQUANTITY {
+        var result = Array<String?>(repeating: nil, count: RAIDA.NODEQNTY)
+        for i in 0..<RAIDA.NODEQNTY {
             let randstr: String = Utils.randomString(length: 32)
             result[i] = randstr
         }//end for each Pan
@@ -80,7 +80,7 @@ class CloudCoin: NSObject {
         guard !(ans.isEmpty) else {
             return false
         }
-        guard ans.count == RAIDA.NODEQUANTITY else {
+        guard ans.count == RAIDA.NODEQNTY else {
             return false
         }
         for anValue in ans {

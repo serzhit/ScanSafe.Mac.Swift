@@ -12,9 +12,8 @@ class Node: NSObject {
     //properties
     let Number: Int
     let Name: String
-    let NODEQNTY = 25
+
     var LastEchoStatus: RAIDAResponse?
-    var fixer: FixitHelper?
     
     //computed properties
     var Country: Countries {
@@ -194,74 +193,6 @@ class Node: NSObject {
         task.resume()
     }
     
-    func fixCoin(brokeCoin: CloudCoin, coinindex: Int) {
-        var result = [raidaNodeResponse]()
-        
-        for index in 0...NODEQNTY-1 {
-            result.append(raidaNodeResponse.unknown)
-            if brokeCoin.detectStatus[index] != .pass {
-                //onCoinFixStarted();
-                //result[index] = ProcessFixingGUID(index, brokeCoin, coinindex)
-            }
-            else {
-                result[index] = brokeCoin.detectStatus[index]
-            }
-        }
-    }
-    
-    func ProcessFixingGUID(guid_id: Int, returnCoin: CloudCoin, coinindex: Int, completion: @escaping (raidaNodeResponse?) -> Void) {
-        fixer = FixitHelper(raidaNumber: guid_id, ans: returnCoin.ans)
-        var ticketStatus = [DetectResponse?](repeating: nil, count: 3)
-        var corner = 1
-        var result : raidaNodeResponse = .unknown
-        let detectGroup = DispatchGroup()
-        
-        while(!(fixer?.finished)!) {
-            //onCoinFixProcessing(new )
-            detectGroup.enter()
-            let trustedServerAns = [returnCoin.ans[(fixer?.currentTraid[0].Number)!], returnCoin.ans[(fixer?.currentTraid[1].Number)!], returnCoin.ans[(fixer?.currentTraid[2].Number)!]]
-            
-            getTickets(traid: (fixer?.currentTraid)!, ans: trustedServerAns as! [String], nn: returnCoin.nn, sn: returnCoin.sn, denomination: returnCoin.denomination) { ticketStatus in
-                // See if there are errors in the tickets
-                if ticketStatus[0]?.status != "ticket" || ticketStatus[1]?.status != "ticket" || ticketStatus[2]?.status != "ticket" {
-                    corner += 1
-                    self.fixer?.setCornerToCheck(corner: corner)
-                }
-                else { // Has three good tickets
-                    self.fix(triad: (self.fixer?.currentTraid)!, m1: (ticketStatus[0]?.message)!, m2: (ticketStatus[1]?.message)!, m3: (ticketStatus[2]?.message)!, pan: returnCoin.pans[guid_id]!, sn: returnCoin.sn) {fixResult in
-                        detectGroup.leave()
-                        if fixResult?.status == "success" {
-                            returnCoin.detectStatus[guid_id] = .pass
-                            result = .pass
-                            //onCoinFixFinished()
-                            returnCoin.ans[guid_id] = returnCoin.pans[guid_id]
-                            self.fixer?.finished = true
-                            //return result
-                        } else if fixResult?.status == "fail" {
-                            corner += 1
-                            self.fixer?.setCornerToCheck(corner: corner)
-                            returnCoin.detectStatus[guid_id] = .fail
-                        } else if fixResult?.status == "error" {
-                            corner += 1
-                            self.fixer?.setCornerToCheck(corner: corner)
-                            returnCoin.detectStatus[guid_id] = .error
-                        } else {
-                            corner += 1
-                            self.fixer?.setCornerToCheck(corner: corner)
-                            returnCoin.detectStatus[guid_id] = .error
-                        }
-                    }
-                }
-            }
-        }
-        
-        detectGroup.notify(queue: DispatchQueue.main) {
-            result = returnCoin.detectStatus[guid_id]
-            //onCoinFixfinished()
-            completion(result)
-        }
-    }
-    
     func fix(triad: [Node], m1: String, m2: String, m3: String, pan: String, sn: Int, completion: @escaping (DetectResponse?) -> Void) {
         let query : String = "/fix?fromserver1=\(triad[0].Number)&fromserver2=\(triad[1].Number)&fromserver3=\(triad[2].Number)&message1=\(m1)&message2=\(m2)&message3=\(m3)&pan=\(pan))"
         let coinUrl = URL(string: BaseUri!.absoluteString + query)
@@ -292,27 +223,10 @@ class Node: NSObject {
             if let fixResult = DetectResponse(json: json!!) {
                 completion(fixResult)
             }
-
+            
         }
         
         task.resume()
-    }
-    
-    func getTickets(traid: [Node], ans: [String], nn: Int, sn: Int, denomination: Denomination, completion: @escaping ([DetectResponse?]) -> Void) {
-        var returnTicketsStatus = [DetectResponse?](repeating: nil, count: 3)
-        let ticketsGroup = DispatchGroup()
-        
-        for index in 0...2 {
-            ticketsGroup.enter()
-            getTicketFromNode(nn: nn, sn: sn, an: ans[index], d: denomination) {detectResult in
-                ticketsGroup.leave()
-                returnTicketsStatus[index] = detectResult
-            }
-        }
-        
-        ticketsGroup.notify(queue: DispatchQueue.main) {
-            completion(returnTicketsStatus)
-        }
     }
     
     func getTicketFromNode(nn: Int, sn: Int, an: String, d: Denomination, completion: @escaping (DetectResponse?) -> Void){

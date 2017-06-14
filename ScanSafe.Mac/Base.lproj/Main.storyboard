@@ -2032,26 +2032,25 @@ DQ
             <objects>
                 <viewController title="Bank" identifier="SafeContentViewController" storyboardIdentifier="SafeContentViewController" id="yyz-8K-oKy" customClass="SafeContentViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="gVb-dG-9yY">
-                        <rect key="frame" x="0.0" y="0.0" width="347" height="364"/>
+                        <rect key="frame" x="0.0" y="0.0" width="528" height="364"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dww-Ta-QQb">
-                                <rect key="frame" x="0.0" y="0.0" width="520" height="364"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="4b6-2l-6j2">
-                                    <rect key="frame" x="0.0" y="0.0" width="520" height="364"/>
+                            <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dww-Ta-QQb">
+                                <rect key="frame" x="0.0" y="0.0" width="528" height="364"/>
+                                <view key="contentView" id="4b6-2l-6j2">
+                                    <rect key="frame" x="0.0" y="0.0" width="528" height="364"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="fillColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFV-Jw-bAl">
-                                <rect key="frame" x="30" y="73" width="287" height="176"/>
+                                <rect key="frame" x="30" y="73" width="468" height="176"/>
                                 <clipView key="contentView" id="Aki-8G-ahv">
-                                    <rect key="frame" x="1" y="0.0" width="285" height="160"/>
+                                    <rect key="frame" x="1" y="0.0" width="466" height="175"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="uz7-Db-Kwc" viewBased="YES" id="R7e-vx-8jm">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="466" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2168,7 +2167,7 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="40" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
+                                                <tableColumn width="106" minWidth="40" maxWidth="1000" id="hoV-1K-SMU">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2182,11 +2181,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TotalCellID" id="g6h-fe-5ZP">
-                                                            <rect key="frame" x="358" y="1" width="40" height="17"/>
+                                                            <rect key="frame" x="358" y="1" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMx-Os-m1e">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Z02-aQ-jAo">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2209,7 +2208,7 @@ DQ
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="M64-lO-afK">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="M64-lO-afK">
                                     <rect key="frame" x="1" y="160" width="285" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -2218,12 +2217,12 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="uz7-Db-Kwc">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="466" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-yo-1xZ">
-                                <rect key="frame" x="213" y="25" width="110" height="32"/>
+                                <rect key="frame" x="394" y="25" width="110" height="32"/>
                                 <buttonCell key="cell" type="push" title="Fix Fracked" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDG-O1-fSX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -2233,7 +2232,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-E4-hcG">
-                                <rect key="frame" x="116" y="300" width="115" height="50"/>
+                                <rect key="frame" x="207" y="300" width="115" height="50"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2 250" id="Qe6-4h-BBx">
                                     <font key="font" metaFont="system" size="41"/>
                                     <color key="textColor" red="0.16078431369999999" green="0.53333333329999999" blue="0.98431372549999996" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2241,7 +2240,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-Xs-eAT">
-                                <rect key="frame" x="112" y="276" width="124" height="17"/>
+                                <rect key="frame" x="202" y="276" width="124" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Total Coins in Bank" id="NQb-n9-xWd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.60784313729999995" green="0.61176470589999998" blue="0.62745098040000002" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2251,13 +2250,17 @@ DQ
                         </subviews>
                         <constraints>
                             <constraint firstItem="Ilg-yo-1xZ" firstAttribute="top" secondItem="mFV-Jw-bAl" secondAttribute="bottom" constant="20" id="1MQ-4P-Y6A"/>
+                            <constraint firstItem="dww-Ta-QQb" firstAttribute="top" secondItem="gVb-dG-9yY" secondAttribute="top" id="4Et-h6-9QO"/>
                             <constraint firstItem="lY6-E4-hcG" firstAttribute="centerX" secondItem="gVb-dG-9yY" secondAttribute="centerX" id="AFJ-NK-aAE"/>
                             <constraint firstAttribute="bottom" secondItem="Ilg-yo-1xZ" secondAttribute="bottom" constant="32" id="Ded-d1-i60"/>
+                            <constraint firstItem="dww-Ta-QQb" firstAttribute="leading" secondItem="gVb-dG-9yY" secondAttribute="leading" id="Lmk-re-DjM"/>
                             <constraint firstItem="mFV-Jw-bAl" firstAttribute="leading" secondItem="gVb-dG-9yY" secondAttribute="leading" constant="30" id="Rfc-SJ-Ptk"/>
                             <constraint firstItem="J8i-Xs-eAT" firstAttribute="top" secondItem="lY6-E4-hcG" secondAttribute="bottom" constant="7" id="VHA-JO-q99"/>
+                            <constraint firstAttribute="trailing" secondItem="dww-Ta-QQb" secondAttribute="trailing" id="XCx-Ia-gCS"/>
                             <constraint firstItem="mFV-Jw-bAl" firstAttribute="top" secondItem="J8i-Xs-eAT" secondAttribute="bottom" constant="27" id="YnM-xa-k6K"/>
                             <constraint firstAttribute="trailing" secondItem="Ilg-yo-1xZ" secondAttribute="trailing" constant="30" id="dFF-CU-xyY"/>
                             <constraint firstAttribute="trailing" secondItem="mFV-Jw-bAl" secondAttribute="trailing" constant="30" id="me3-jx-hgc"/>
+                            <constraint firstAttribute="bottom" secondItem="dww-Ta-QQb" secondAttribute="bottom" id="sf3-wm-f3D"/>
                             <constraint firstItem="lY6-E4-hcG" firstAttribute="top" secondItem="gVb-dG-9yY" secondAttribute="top" constant="14" id="u47-Sn-uZU"/>
                             <constraint firstItem="J8i-Xs-eAT" firstAttribute="centerX" secondItem="gVb-dG-9yY" secondAttribute="centerX" id="wSc-YB-oit"/>
                         </constraints>
@@ -2270,7 +2273,7 @@ DQ
                 </viewController>
                 <customObject id="Aax-me-ZXB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323.5" y="401"/>
+            <point key="canvasLocation" x="1271" y="401"/>
         </scene>
         <!--Fix Process-->
         <scene sceneID="5pG-qy-nja">
@@ -2699,7 +2702,7 @@ DQ
                                                 </subviews>
                                             </clipView>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="4hV-Fz-sCq">
-                                                <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                                <rect key="frame" x="1" y="-14" width="0.0" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="2jf-fg-ecn">
@@ -2870,7 +2873,7 @@ Gw
                 </viewController>
                 <customObject id="xds-S4-sSi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790.5" y="401.5"/>
+            <point key="canvasLocation" x="1772" y="378"/>
         </scene>
     </scenes>
     <resources>

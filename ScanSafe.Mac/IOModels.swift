@@ -177,7 +177,7 @@ class CloudCoinFile {
         
         let fileRange = NSRange(location: 0, length: 455)
         let fileByteContent = NSData(contentsOfFile: withFilePath)?.subdata(with: fileRange)
-        var an: [String] = Array<String>(repeating: "", count: RAIDA.NODEQUANTITY)
+        var an: [String] = Array<String>(repeating: "", count: RAIDA.NODEQNTY)
         var aoid: [String] = [""]
         var nn: Int?
         var sn: Int?
@@ -187,7 +187,7 @@ class CloudCoinFile {
         
         print("content file = \(fileByteContent! as NSData)")
         
-        for i in 0..<RAIDA.NODEQUANTITY {
+        for i in 0..<RAIDA.NODEQNTY {
             let start = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 40+i*32)
             let end = jpegHexContent.index(jpegHexContent.startIndex, offsetBy: 72+i*32)
             let range = start..<end
@@ -214,7 +214,7 @@ class CloudCoinFile {
         range = start..<end
         sn = Int(jpegHexContent.substring(with: range), radix: 16)
         
-        let status = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQUANTITY)
+        let status = Array(repeating: raidaNodeResponse.unknown, count: RAIDA.NODEQNTY)
         guard let coin = CloudCoin(nn: nn!, sn: sn!, ans: an, expired: ed!, aoid: aoid, status: status) else {
             return nil
         }

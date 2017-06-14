@@ -10,12 +10,13 @@ import Cocoa
 
 class RAIDA: NSObject {
     //constants needed in other classes
-    static let NODEQUANTITY = 25
+    static let NODEQNTY = 25
     static let MINNODES4PASS = 13
+    var fixer: FixitHelper?
     
     //properties
-    var NodesArray: [Node?] = Array<Node?>(repeating: nil, count: NODEQUANTITY)
-    var EchoStatus: [RAIDAResponse?] = Array<RAIDAResponse?>(repeating: nil, count: NODEQUANTITY)
+    var NodesArray: [Node?] = Array<Node?>(repeating: nil, count: NODEQNTY)
+    var EchoStatus: [RAIDAResponse?] = Array<RAIDAResponse?>(repeating: nil, count: NODEQNTY)
     
     //Singeton pattern
     private static let theOnlyInstance: RAIDA? = RAIDA()
@@ -31,7 +32,7 @@ class RAIDA: NSObject {
     
     //Constructor
     override init() {
-        for i in 0..<RAIDA.NODEQUANTITY {
+        for i in 0..<RAIDA.NODEQNTY {
             self.NodesArray[i] = Node(number: i)
 //            self.EchoStatus[i] = nil
         }
@@ -94,6 +95,97 @@ class RAIDA: NSObject {
             }
         }
     }
+    
+    func fixCoin(brokeCoin: CloudCoin, coinindex: Int) {
+        var result = [raidaNodeResponse]()
+        
+        for index in 0...RAIDA.NODEQNTY-1 {
+            result.append(raidaNodeResponse.unknown)
+            if brokeCoin.detectStatus[index] != .pass {
+                //onCoinFixStarted();
+                ProcessFixingGUID(guid_id: index, returnCoin: brokeCoin, coinindex: coinindex) { result in
+                    
+                }
+            }
+            else {
+                result[index] = brokeCoin.detectStatus[index]
+            }
+        }
+    }
+    
+    func ProcessFixingGUID(guid_id: Int, returnCoin: CloudCoin, coinindex: Int, completion: @escaping (raidaNodeResponse?) -> Void) {
+        fixer = FixitHelper(raidaNumber: guid_id, ans: returnCoin.ans)
+        var ticketStatus = [DetectResponse?](repeating: nil, count: 3)
+        var corner = 1
+        var result : raidaNodeResponse = .unknown
+        let detectGroup = DispatchGroup()
+        
+        while(!(fixer?.finished)!) {
+            //onCoinFixProcessing(new )
+            detectGroup.enter()
+            let trustedServerAns = [returnCoin.ans[(fixer?.currentTraid[0].Number)!], returnCoin.ans[(fixer?.currentTraid[1].Number)!], returnCoin.ans[(fixer?.currentTraid[2].Number)!]]
+            
+            getTickets(traid: (fixer?.currentTraid)!, ans: trustedServerAns as! [String], nn: returnCoin.nn, sn: returnCoin.sn, denomination: returnCoin.denomination) { ticketStatus in
+                // See if there are errors in the tickets
+                if ticketStatus[0]?.status != "ticket" || ticketStatus[1]?.status != "ticket" || ticketStatus[2]?.status != "ticket" {
+                    corner += 1
+                    self.fixer?.setCornerToCheck(corner: corner)
+                }
+                else { // Has three good tickets
+                    self.NodesArray[guid_id]?.fix(triad: (self.fixer?.currentTraid)!, m1: (ticketStatus[0]?.message)!, m2: (ticketStatus[1]?.message)!, m3: (ticketStatus[2]?.message)!, pan: returnCoin.pans[guid_id]!, sn: returnCoin.sn) {fixResult in
+                        detectGroup.leave()
+                        if fixResult?.status == "success" {
+                            returnCoin.detectStatus[guid_id] = .pass
+                            result = .pass
+                            //onCoinFixFinished()
+                            returnCoin.ans[guid_id] = returnCoin.pans[guid_id]
+                            self.fixer?.finished = true
+                            //return result
+                        } else if fixResult?.status == "fail" {
+                            corner += 1
+                            self.fixer?.setCornerToCheck(corner: corner)
+                            returnCoin.detectStatus[guid_id] = .fail
+                        } else if fixResult?.status == "error" {
+                            corner += 1
+                            self.fixer?.setCornerToCheck(corner: corner)
+                            returnCoin.detectStatus[guid_id] = .error
+                        } else {
+                            corner += 1
+                            self.fixer?.setCornerToCheck(corner: corner)
+                            returnCoin.detectStatus[guid_id] = .error
+                        }
+                    }
+                }
+            }
+        }
+        
+        detectGroup.notify(queue: DispatchQueue.main) {
+            result = returnCoin.detectStatus[guid_id]
+            //onCoinFixfinished()
+            completion(result)
+        }
+    }
+    
+        
+    func getTickets(traid: [Node], ans: [String], nn: Int, sn: Int, denomination: Denomination, completion: @escaping ([DetectResponse?]) -> Void) {
+        var returnTicketsStatus = [DetectResponse?](repeating: nil, count: 3)
+        let ticketsGroup = DispatchGroup()
+        var index = 0
+        
+        for node in traid {
+            ticketsGroup.enter()
+            node.getTicketFromNode(nn: nn, sn: sn, an: ans[index], d: denomination) {detectResult in
+                ticketsGroup.leave()
+                returnTicketsStatus[index] = detectResult
+            }
+            
+            index += 1
+        }
+        
+        ticketsGroup.notify(queue: DispatchQueue.main) {
+            completion(returnTicketsStatus)
+        }
+    }    
 }
 
 struct RAIDAResponse {

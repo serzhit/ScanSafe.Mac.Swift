@@ -2,4 +2,118 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScanSafe.Mac/RAIDA.swift"
+            timestampString = "519100937.076562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "ProcessFixingGUID(guid_id:returnCoin:coinindex:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScanSafe_Mac.RAIDA.ProcessFixingGUID (guid_id : Swift.Int, returnCoin : ScanSafe_Mac.CloudCoin, coinindex : Swift.Int, completion : (Swift.Optional&lt;ScanSafe_Mac.raidaNodeResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ScanSafe.Mac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/ScanSafe.Mac.Swift/ScanSafe.Mac/RAIDA.swift"
+                  timestampString = "519101010.035948"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "770">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScanSafe_Mac.RAIDA.ProcessFixingGUID (guid_id : Swift.Int, returnCoin : ScanSafe_Mac.CloudCoin, coinindex : Swift.Int, completion : (Swift.Optional&lt;ScanSafe_Mac.raidaNodeResponse&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ScanSafe.Mac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/ScanSafe.Mac.Swift/ScanSafe.Mac/RAIDA.swift"
+                  timestampString = "519101010.042057"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "3458">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScanSafe.Mac/RAIDA.swift"
+            timestampString = "519100968.654125"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "fixCoin(brokeCoin:coinindex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScanSafe.Mac/FixProcessViewController.swift"
+            timestampString = "519101005.809459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScanSafe_Mac.FixProcessViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "ScanSafe.Mac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/ScanSafe.Mac.Swift/ScanSafe.Mac/FixProcessViewController.swift"
+                  timestampString = "519101010.07282"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "415">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ScanSafe_Mac.FixProcessViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "ScanSafe.Mac"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/ScanSafe.Mac.Swift/ScanSafe.Mac/FixProcessViewController.swift"
+                  timestampString = "519101010.078246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "887">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
