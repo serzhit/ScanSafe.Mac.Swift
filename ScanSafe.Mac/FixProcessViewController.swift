@@ -16,10 +16,20 @@ class FixProcessViewController: NSViewController {
         fixTableView.dataSource = self
         fixTableView.delegate = self
         
+        let detectGroup = DispatchGroup()
+        
         var index = 0
         for coin in (Safe.Instance()?.FrackedCoinsList)! {
-            RAIDA.Instance?.fixCoin(brokeCoin: coin, coinindex: index)
+            detectGroup.enter()
+            RAIDA.Instance?.fixCoin(brokeCoin: coin, coinindex: index) {result in
+                detectGroup.leave()
+            }
             index += 1
+        }
+        
+        detectGroup.notify(queue: DispatchQueue.main) {
+            Safe.Instance()?.safeDelegate?.SafeContentChanged()
+            Safe.Instance()?.Save()
         }
     }
 }

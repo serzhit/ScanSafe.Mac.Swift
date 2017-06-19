@@ -12,6 +12,7 @@ class RAIDA: NSObject {
     //constants needed in other classes
     static let NODEQNTY = 25
     static let MINNODES4PASS = 13
+    static let MINTRUSTEDNODES4AUTH = 8
     var fixer: FixitHelper?
     
     //properties
@@ -96,7 +97,7 @@ class RAIDA: NSObject {
         }
     }
     
-    func fixCoin(brokeCoin: CloudCoin, coinindex: Int) {
+    func fixCoin(brokeCoin: CloudCoin, coinindex: Int, completion: @escaping (raidaNodeResponse?) -> Void) {
         var result = [raidaNodeResponse]()
         
         for index in 0...RAIDA.NODEQNTY-1 {
@@ -104,7 +105,7 @@ class RAIDA: NSObject {
             if brokeCoin.detectStatus[index] != .pass {
                 //onCoinFixStarted();
                 ProcessFixingGUID(guid_id: index, returnCoin: brokeCoin, coinindex: coinindex) { result in
-                    
+                    completion(result)
                 }
             }
             else {
@@ -113,33 +114,39 @@ class RAIDA: NSObject {
         }
     }
     
+    
+    
     func ProcessFixingGUID(guid_id: Int, returnCoin: CloudCoin, coinindex: Int, completion: @escaping (raidaNodeResponse?) -> Void) {
         fixer = FixitHelper(raidaNumber: guid_id, ans: returnCoin.ans)
         var ticketStatus = [DetectResponse?](repeating: nil, count: 3)
         var corner = 1
         var result : raidaNodeResponse = .unknown
-        let detectGroup = DispatchGroup()
+//        let detectGroup = DispatchGroup()
         
-        while(!(fixer?.finished)!) {
+//        while(!(fixer?.finished)!) {
+        for index in 1...30 {
             //onCoinFixProcessing(new )
-            detectGroup.enter()
+//            detectGroup.enter()
+        
             let trustedServerAns = [returnCoin.ans[(fixer?.currentTraid[0].Number)!], returnCoin.ans[(fixer?.currentTraid[1].Number)!], returnCoin.ans[(fixer?.currentTraid[2].Number)!]]
             
             getTickets(traid: (fixer?.currentTraid)!, ans: trustedServerAns as! [String], nn: returnCoin.nn, sn: returnCoin.sn, denomination: returnCoin.denomination) { ticketStatus in
                 // See if there are errors in the tickets
+
+                
                 if ticketStatus[0]?.status != "ticket" || ticketStatus[1]?.status != "ticket" || ticketStatus[2]?.status != "ticket" {
                     corner += 1
                     self.fixer?.setCornerToCheck(corner: corner)
                 }
                 else { // Has three good tickets
                     self.NodesArray[guid_id]?.fix(triad: (self.fixer?.currentTraid)!, m1: (ticketStatus[0]?.message)!, m2: (ticketStatus[1]?.message)!, m3: (ticketStatus[2]?.message)!, pan: returnCoin.pans[guid_id]!, sn: returnCoin.sn) {fixResult in
-                        detectGroup.leave()
                         if fixResult?.status == "success" {
                             returnCoin.detectStatus[guid_id] = .pass
                             result = .pass
                             //onCoinFixFinished()
                             returnCoin.ans[guid_id] = returnCoin.pans[guid_id]
                             self.fixer?.finished = true
+                            completion(result)
                             //return result
                         } else if fixResult?.status == "fail" {
                             corner += 1
@@ -154,16 +161,17 @@ class RAIDA: NSObject {
                             self.fixer?.setCornerToCheck(corner: corner)
                             returnCoin.detectStatus[guid_id] = .error
                         }
+//                        detectGroup.leave()
                     }
                 }
             }
         }
         
-        detectGroup.notify(queue: DispatchQueue.main) {
-            result = returnCoin.detectStatus[guid_id]
-            //onCoinFixfinished()
-            completion(result)
-        }
+//        detectGroup.notify(queue: DispatchQueue.main) {
+//            result = returnCoin.detectStatus[guid_id]
+//            //onCoinFixfinished()
+//            completion(result)
+//        }
     }
     
         
@@ -174,9 +182,10 @@ class RAIDA: NSObject {
         
         for node in traid {
             ticketsGroup.enter()
-            node.getTicketFromNode(nn: nn, sn: sn, an: ans[index], d: denomination) {detectResult in
+            print("count = \(index)")
+            node.getTicketFromNode(nn: nn, sn: sn, an: ans[index], d: denomination, index: index) {detectResult, order in
                 ticketsGroup.leave()
-                returnTicketsStatus[index] = detectResult
+                returnTicketsStatus[order] = detectResult
             }
             
             index += 1

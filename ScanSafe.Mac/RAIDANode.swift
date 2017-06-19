@@ -212,6 +212,7 @@ class Node: NSObject {
                 return;
             }
             
+            print(String.init(data: data, encoding: .utf8))
             let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             
             if (json == nil)
@@ -229,25 +230,25 @@ class Node: NSObject {
         task.resume()
     }
     
-    func getTicketFromNode(nn: Int, sn: Int, an: String, d: Denomination, completion: @escaping (DetectResponse?) -> Void){
+    func getTicketFromNode(nn: Int, sn: Int, an: String, d: Denomination, index: Int, completion: @escaping (DetectResponse?, Int) -> Void){
         let query : String = "/get_ticket?nn=\(nn)&sn=\(sn)&an=\(an)&pan=\(an)&denomination=\(Utils.Denomination2Int(forValue: d))"
         let coinUrl = URL(string: BaseUri!.absoluteString + query)
         var request = URLRequest(url: coinUrl!)
         request.httpMethod = "GET"
-        
+        print("ticket from node")
         let task = URLSession.shared.dataTask(with: request) {data, response, error in
             let dateFormatter: DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
             guard error == nil else {
                 print(error!)
-                completion(nil)
+                completion(nil, index)
                 return;
             }
             
             guard let data = data else {
                 print("Data is empty")
-                completion(nil)
+                completion(nil, index)
                 return;
             }
             
@@ -255,13 +256,13 @@ class Node: NSObject {
             
             if (json == nil)
             {
-                completion(nil)
+                completion(nil, index)
                 return;
             }
             
             if let detectResult = DetectResponse(json: json!!)
             {
-                completion(detectResult)
+                completion(detectResult, index)
             }
         }
         
