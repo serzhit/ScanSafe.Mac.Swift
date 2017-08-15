@@ -95,6 +95,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         RAIDA.Instance?.EchoDelegate = self
         FileSystem.InitializePaths();
         RAIDA.Instance?.getEcho();
+        self.title = "Scan and Safe"
+        
     }
     
     override var representedObject: Any? {
