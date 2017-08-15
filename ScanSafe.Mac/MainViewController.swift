@@ -68,7 +68,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
                 
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
             } else {
-                RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
+              //  RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
             }
         }
     }
@@ -97,12 +97,36 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         RAIDA.Instance?.getEcho();
         self.title = "Scan and Safe"
         
+        showDisclaimer()
+        
     }
     
+    func showDisclaimer() {
+        let disclaimershown = UserDefaults.standard.string(forKey: "disclaimershown")
+        
+        if(disclaimershown != "yes") {
+        let alert = NSAlert()
+        alert.messageText = "Disclaimer"
+        alert.informativeText = "This software is provided as is with all faults, defects and errors, and without warranty of any kind. Free from the CloudCoin Consortium"
+        alert.alertStyle = NSAlertStyle.warning
+        alert.addButton(withTitle: "Agree")
+        alert.addButton(withTitle: "Disagree")
+        let answer = alert.runModal() == NSAlertFirstButtonReturn
+        if(answer == true) {
+            UserDefaults.standard.set("yes", forKey: "disclaimershown")
+        }
+        else {
+            NSApplication.shared().terminate(self);
+            
+        }
+        }
+        
+    }
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
         }
+        
     }
     
     func EchoReceivedFrom(node: Node) {
