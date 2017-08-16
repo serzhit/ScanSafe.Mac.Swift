@@ -15,13 +15,16 @@ class FixProcessViewController: NSViewController {
     override func viewDidLoad() {
         fixTableView.dataSource = self
         fixTableView.delegate = self
-        
+        self.title = "Fix Coins"
         let detectGroup = DispatchGroup()
         
         var index = 0
+        print ("Fracked count - ",Safe.Instance()?.FrackedCoinsList.count)
+        
         for coin in (Safe.Instance()?.FrackedCoinsList)! {
             detectGroup.enter()
-            RAIDA.Instance?.fixCoin(brokeCoin: coin, coinindex: index) {result in
+            RAIDA.Instance?.fixCoin(brokeCoin: coin, coinindex: index) {
+                result in
                 detectGroup.leave()
             }
             index += 1

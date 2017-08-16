@@ -40,6 +40,7 @@ class Safe: NSObject {
         safeFileUrl = filePath
         bkpFileUrl = URL(fileURLWithPath: bkpFilePath)
         Contents = coins;
+        print(safeFilePath)
     }
     
     static var theOnlySafeInstance: Safe? = nil

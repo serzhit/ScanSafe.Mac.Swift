@@ -30,10 +30,11 @@ class EnterPasswordViewController: NSViewController{
                 UserInteraction.alert(with: "Wrong password to access the Safe. \n Please enter a correct password.", style: NSAlertStyle.warning)
             }
         }
+        
     }
     
     override func viewDidLoad() {
-        
+        self.title = "Enter Password"
     }
     
     func CheckPassword(url: URL, password: String) -> Bool

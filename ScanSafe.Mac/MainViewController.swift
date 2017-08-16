@@ -68,7 +68,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
                 
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
             } else {
-              //  RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
+                RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
             }
         }
     }

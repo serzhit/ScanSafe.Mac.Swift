@@ -135,6 +135,7 @@ class RAIDA: NSObject {
 
                 
                 if ticketStatus[0]?.status != "ticket" || ticketStatus[1]?.status != "ticket" || ticketStatus[2]?.status != "ticket" {
+                    // No tickets, go to next triad corner
                     corner += 1
                     self.fixer?.setCornerToCheck(corner: corner)
                 }

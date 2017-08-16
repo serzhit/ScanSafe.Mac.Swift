@@ -38,6 +38,7 @@ class DetectViewController: NSViewController, RAIDADetectDelegate, NSWindowDeleg
         detectCount = 0
         detectResults = [DetectDisplay]()
         lblScanned.stringValue = "\(detectCount) COINS SCANNED"
+        self.title = "Scanning Coins"
     }
     
     func DetectCompletedOn(coin: CloudCoin) {
