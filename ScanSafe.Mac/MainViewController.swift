@@ -43,6 +43,9 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     @IBOutlet weak var imgView: NSImageView!
     
     var coinFile: CloudCoinFile = CloudCoinFile()
+    var scanOpType : String = "Detect"
+    
+    
     enum ViewType {
         case Imported, Safe, Exported
     }
@@ -62,12 +65,18 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         {
             let alertAnswer = UserInteraction.YesNoAlert(with: "Do you want to take ownership of imported coins. Choose 'No' to check coins and leave psasswords unchanged", style: NSAlertStyle.informational)
             if alertAnswer == NSAlertFirstButtonReturn {
+                scanOpType = "Import"
                 let detectVC = self.storyboard?.instantiateController(withIdentifier: "DetectViewController") as? DetectViewController
                 detectVC?.detectDelegate = self
                 self.presentViewControllerAsModalWindow(detectVC!);
                 
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: true)
             } else {
+                scanOpType = "Detect"
+                let detectVC = self.storyboard?.instantiateController(withIdentifier: "DetectViewController") as? DetectViewController
+                detectVC?.detectDelegate = self
+                self.presentViewControllerAsModalWindow(detectVC!);
+                
                 RAIDA.Instance?.Detect(stack: coinFile.Coins, ArePasswordsToBeChanged: false)
             }
         }
@@ -158,7 +167,9 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         
         if subViewType == .Imported
         {
-            Safe.Instance()?.Add(stack: coinFile.Coins)
+            if(scanOpType == "Import") {
+                Safe.Instance()?.Add(stack: coinFile.Coins)
+            }
         }
     }
     

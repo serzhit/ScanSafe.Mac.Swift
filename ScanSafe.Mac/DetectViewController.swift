@@ -50,6 +50,14 @@ class DetectViewController: NSViewController, RAIDADetectDelegate, NSWindowDeleg
             self.DetectedTableView.reloadData();
             self.detectCount += 1
             self.lblScanned.stringValue = "\(self.detectCount) COINS SCANNED"
+            
+            let rem = (self.detectCount * 100) / (RAIDA.Instance?.coinCount)!
+            self.detectProgress.doubleValue = Double(rem)
+            
+            var progress = String(Int(rem))
+            self.lblProgress.stringValue = progress + " %"
+            
+            
         }
     }
     

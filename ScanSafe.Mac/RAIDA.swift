@@ -51,11 +51,13 @@ class RAIDA: NSObject {
             self.EchoDelegate?.AllEchoesReceived()
         }
     }
+    var coinCount: Int = 0
     
     func Detect(stack: CoinStack, ArePasswordsToBeChanged: Bool) {
         let stackGroup = DispatchGroup()
         var coinSetGroup = [DispatchGroup]()
         var coinList = [CloudCoin]()
+        coinCount = (stack.cloudcoinSet?.count)!
         
         for coin: CloudCoin in stack {
             stackGroup.enter()
