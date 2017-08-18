@@ -173,6 +173,18 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         }
     }
     
+    func FinishImported() {
+        
+        
+        if subViewType == .Imported
+        {
+            if(scanOpType == "Import") {
+                Safe.Instance()?.Add(stack: coinFile.Coins)
+            }
+        }
+    }
+    
+    
     func ShowContentViewController() {
         let safeContentVC = self.storyboard?.instantiateController(withIdentifier: "SafeContentViewController") as? SafeContentViewController
         self.presentViewControllerAsModalWindow(safeContentVC!);

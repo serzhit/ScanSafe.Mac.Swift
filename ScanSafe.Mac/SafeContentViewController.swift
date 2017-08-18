@@ -27,6 +27,7 @@ class SafeContentViewController: NSViewController, SafeDelegate{
         Safe.Instance()?.safeDelegate = self
         totalCoins.stringValue = String(describing: Safe.Instance()!.Contents.SumInStack)
         SafeContentChanged()
+        btnFixFracked.isHidden = true
         
     }
     

@@ -123,12 +123,12 @@ class RAIDA: NSObject {
         var ticketStatus = [DetectResponse?](repeating: nil, count: 3)
         var corner = 1
         var result : raidaNodeResponse = .unknown
-//        let detectGroup = DispatchGroup()
+        let detectGroup = DispatchGroup()
         
 //        while(!(fixer?.finished)!) {
         for index in 1...30 {
             //onCoinFixProcessing(new )
-//            detectGroup.enter()
+            detectGroup.enter()
         
             let trustedServerAns = [returnCoin.ans[(fixer?.currentTraid[0].Number)!], returnCoin.ans[(fixer?.currentTraid[1].Number)!], returnCoin.ans[(fixer?.currentTraid[2].Number)!]]
             
@@ -164,17 +164,17 @@ class RAIDA: NSObject {
                             self.fixer?.setCornerToCheck(corner: corner)
                             returnCoin.detectStatus[guid_id] = .error
                         }
-//                        detectGroup.leave()
+                        detectGroup.leave()
                     }
                 }
             }
         }
         
-//        detectGroup.notify(queue: DispatchQueue.main) {
-//            result = returnCoin.detectStatus[guid_id]
-//            //onCoinFixfinished()
-//            completion(result)
-//        }
+        detectGroup.notify(queue: DispatchQueue.main) {
+            result = returnCoin.detectStatus[guid_id]
+           // onCoinFixfinished()
+           completion(result)
+        }
     }
     
         

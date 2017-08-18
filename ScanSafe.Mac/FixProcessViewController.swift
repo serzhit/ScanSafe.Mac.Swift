@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class FixProcessViewController: NSViewController {
+class FixProcessViewController: NSViewController,SafeDelegate {
     
     @IBOutlet weak var fixTableView: NSTableView!
     
@@ -34,6 +34,11 @@ class FixProcessViewController: NSViewController {
             Safe.Instance()?.safeDelegate?.SafeContentChanged()
             Safe.Instance()?.Save()
         }
+    }
+    func SafeContentChanged() {
+       var frackcount = Safe.Instance()?.FrackedCoinsList.count
+        print("\(frackcount) fracked remaining")
+        
     }
 }
 

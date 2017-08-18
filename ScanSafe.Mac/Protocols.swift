@@ -15,6 +15,7 @@ protocol RAIDAEchoDelegate {
 
 protocol ImportDelegate{
     func FinishImported(password: String)
+    func FinishImported()
 }
 
 protocol DetectDelegate {
