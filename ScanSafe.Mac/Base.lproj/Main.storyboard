@@ -1454,7 +1454,7 @@
                                     <constraint firstAttribute="width" constant="7" id="XDp-04-78r"/>
                                     <constraint firstAttribute="width" secondItem="Oq3-rw-hE7" secondAttribute="height" multiplier="1:1" id="oNZ-jN-7id"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.45164781009999999" green="1" blue="0.33224832560000001" alpha="1" colorSpace="calibratedRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA2" translatesAutoresizingMaskIntoConstraints="NO" id="6AZ-t8-INY">
                                 <rect key="frame" x="200" y="128" width="7" height="7"/>
@@ -1467,7 +1467,7 @@
                                     <constraint firstAttribute="width" constant="7" id="jW4-5s-fCC"/>
                                     <constraint firstAttribute="height" constant="7" id="m0C-oc-xnC"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Philippines" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-zq-X4d">
                                 <rect key="frame" x="373" y="99" width="7" height="7"/>
@@ -1480,7 +1480,7 @@
                                     <constraint firstAttribute="height" constant="7" id="kkf-SD-NaJ"/>
                                     <constraint firstAttribute="width" secondItem="QcJ-zq-X4d" secondAttribute="height" multiplier="1:1" id="tkD-IZ-ciD"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Macedonia" translatesAutoresizingMaskIntoConstraints="NO" id="H3K-0N-Ldj">
                                 <rect key="frame" x="284" y="127" width="7" height="7"/>
@@ -1493,7 +1493,7 @@
                                     <constraint firstAttribute="height" constant="7" id="Mr7-6c-cJL"/>
                                     <constraint firstAttribute="width" constant="7" id="erS-4c-Vat"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia2" translatesAutoresizingMaskIntoConstraints="NO" id="c2N-c6-9MC">
                                 <rect key="frame" x="298" y="140" width="7" height="7"/>
@@ -1506,7 +1506,7 @@
                                     <constraint firstAttribute="width" constant="7" id="s02-zO-flU"/>
                                     <constraint firstAttribute="height" constant="7" id="vx3-t8-4aD"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia1" translatesAutoresizingMaskIntoConstraints="NO" id="aTJ-Na-fJH">
                                 <rect key="frame" x="301" y="137" width="7" height="7"/>
@@ -1519,7 +1519,7 @@
                                     <constraint firstAttribute="width" constant="7" id="rM1-xH-dPY"/>
                                     <constraint firstAttribute="width" secondItem="aTJ-Na-fJH" secondAttribute="height" multiplier="1:1" id="uiM-l3-vlc"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Canada" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-IE-rJ1">
                                 <rect key="frame" x="228" y="134" width="7" height="7"/>
@@ -1532,7 +1532,7 @@
                                     <constraint firstAttribute="width" secondItem="Oco-IE-rJ1" secondAttribute="height" multiplier="1:1" id="m6A-yd-8Ob"/>
                                     <constraint firstAttribute="width" constant="7" id="oxx-VW-v1Z"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Bangalore" translatesAutoresizingMaskIntoConstraints="NO" id="YmL-53-9dL">
                                 <rect key="frame" x="335" y="103" width="7" height="7"/>
@@ -1545,7 +1545,7 @@
                                     <constraint firstAttribute="width" secondItem="YmL-53-9dL" secondAttribute="height" multiplier="1:1" id="LrG-gW-upL"/>
                                     <constraint firstAttribute="height" constant="7" id="nqS-Nb-nTb"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Punjab" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-hd-utN">
                                 <rect key="frame" x="337" y="110" width="7" height="7"/>
@@ -1558,7 +1558,7 @@
                                     <constraint firstAttribute="width" constant="7" id="uEC-Cb-du3"/>
                                     <constraint firstAttribute="width" secondItem="KWw-hd-utN" secondAttribute="height" multiplier="1:1" id="vbT-Uz-b8f"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="UK" translatesAutoresizingMaskIntoConstraints="NO" id="Ims-bl-X5l">
                                 <rect key="frame" x="275" y="137" width="7" height="7"/>
@@ -1571,7 +1571,7 @@
                                     <constraint firstAttribute="height" constant="7" id="Wka-O4-Vq4"/>
                                     <constraint firstAttribute="width" secondItem="Ims-bl-X5l" secondAttribute="height" multiplier="1:1" id="YCY-gy-Pr9"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Columbia" translatesAutoresizingMaskIntoConstraints="NO" id="CFe-c3-PhY">
                                 <rect key="frame" x="226" y="98" width="7" height="7"/>
@@ -1584,7 +1584,7 @@
                                     <constraint firstAttribute="width" secondItem="CFe-c3-PhY" secondAttribute="height" multiplier="1:1" id="pl8-Fx-9LQ"/>
                                     <constraint firstAttribute="width" constant="7" id="vqq-jn-hZz"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Ukraine" translatesAutoresizingMaskIntoConstraints="NO" id="4Gx-po-fbt">
                                 <rect key="frame" x="298" y="132" width="7" height="7"/>
@@ -1597,7 +1597,7 @@
                                     <constraint firstAttribute="height" constant="7" id="ArN-98-Zx8"/>
                                     <constraint firstAttribute="width" secondItem="4Gx-po-fbt" secondAttribute="height" multiplier="1:1" id="rZg-SP-xBY"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Venezuela" translatesAutoresizingMaskIntoConstraints="NO" id="vgY-oC-FBM">
                                 <rect key="frame" x="215" y="93" width="7" height="7"/>
@@ -1610,7 +1610,7 @@
                                     <constraint firstAttribute="height" constant="7" id="GcL-q7-VgA"/>
                                     <constraint firstAttribute="width" constant="7" id="XS2-2g-XLa"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Texas" translatesAutoresizingMaskIntoConstraints="NO" id="zKs-NQ-4Hh">
                                 <rect key="frame" x="206" y="120" width="7" height="7"/>
@@ -1623,7 +1623,7 @@
                                     <constraint firstAttribute="width" constant="7" id="UO9-8t-Srb"/>
                                     <constraint firstAttribute="height" constant="7" id="pfy-vU-m01"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA1" translatesAutoresizingMaskIntoConstraints="NO" id="44t-p8-XMA">
                                 <rect key="frame" x="194" y="121" width="7" height="7"/>
@@ -1636,7 +1636,7 @@
                                     <constraint firstAttribute="height" constant="7" id="56s-Kq-DxB"/>
                                     <constraint firstAttribute="width" constant="7" id="anW-yO-iUS"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Romania" translatesAutoresizingMaskIntoConstraints="NO" id="TYM-JJ-1ko">
                                 <rect key="frame" x="296" y="128" width="7" height="7"/>
@@ -1649,7 +1649,7 @@
                                     <constraint firstAttribute="width" secondItem="TYM-JJ-1ko" secondAttribute="height" multiplier="1:1" id="Elt-yM-LVR"/>
                                     <constraint firstAttribute="height" constant="7" id="MNA-Uw-N8s"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Taiwan" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-mz-HMw">
                                 <rect key="frame" x="372" y="112" width="7" height="7"/>
@@ -1662,7 +1662,7 @@
                                     <constraint firstAttribute="width" constant="7" id="LUV-td-BdJ"/>
                                     <constraint firstAttribute="width" secondItem="AZG-mz-HMw" secondAttribute="height" multiplier="1:1" id="tOM-Ux-5sh"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Luxembourg" translatesAutoresizingMaskIntoConstraints="NO" id="8sy-qo-0oc">
                                 <rect key="frame" x="278" y="131" width="7" height="7"/>
@@ -1675,7 +1675,7 @@
                                     <constraint firstAttribute="width" secondItem="8sy-qo-0oc" secondAttribute="height" multiplier="1:1" id="baN-Wa-o6d"/>
                                     <constraint firstAttribute="width" constant="7" id="iw2-hc-AY2"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Australia" translatesAutoresizingMaskIntoConstraints="NO" id="a8x-uV-A7t">
                                 <rect key="frame" x="391" y="68" width="7" height="7"/>
@@ -1688,7 +1688,7 @@
                                     <constraint firstAttribute="width" secondItem="a8x-uV-A7t" secondAttribute="height" multiplier="1:1" id="jcj-7R-17e"/>
                                     <constraint firstAttribute="height" constant="7" id="uPF-hp-haj"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="HyperBad" translatesAutoresizingMaskIntoConstraints="NO" id="Jlu-mG-aJc">
                                 <rect key="frame" x="343" y="114" width="7" height="7"/>
@@ -1701,7 +1701,7 @@
                                     <constraint firstAttribute="width" secondItem="Jlu-mG-aJc" secondAttribute="height" multiplier="1:1" id="f9i-H3-3Sg"/>
                                     <constraint firstAttribute="height" constant="7" id="xPC-M2-ZS8"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Romania" translatesAutoresizingMaskIntoConstraints="NO" id="saT-Zp-Voi">
                                 <rect key="frame" x="293" y="131" width="7" height="7"/>
@@ -1714,7 +1714,7 @@
                                     <constraint firstAttribute="width" secondItem="saT-Zp-Voi" secondAttribute="height" multiplier="1:1" id="SLW-Wf-OKe"/>
                                     <constraint firstAttribute="height" constant="7" id="wNt-aq-99I"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Switzerland" translatesAutoresizingMaskIntoConstraints="NO" id="tBF-UI-Kkg">
                                 <rect key="frame" x="281" y="133" width="7" height="7"/>
@@ -1727,7 +1727,7 @@
                                     <constraint firstAttribute="width" secondItem="tBF-UI-Kkg" secondAttribute="height" multiplier="1:1" id="qwG-pU-9Jw"/>
                                     <constraint firstAttribute="height" constant="7" id="vCo-01-58I"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="USA3" translatesAutoresizingMaskIntoConstraints="NO" id="NEc-Gc-QDP">
                                 <rect key="frame" x="214" y="127" width="7" height="7"/>
@@ -1740,7 +1740,7 @@
                                     <constraint firstAttribute="height" constant="7" id="9MK-0B-E01"/>
                                     <constraint firstAttribute="width" secondItem="NEc-Gc-QDP" secondAttribute="height" multiplier="1:1" id="kSc-PK-sHM"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Singapore" translatesAutoresizingMaskIntoConstraints="NO" id="pz0-Yv-wth">
                                 <rect key="frame" x="361" y="98" width="7" height="7"/>
@@ -1753,7 +1753,7 @@
                                     <constraint firstAttribute="height" constant="7" id="Cyu-gr-tp6"/>
                                     <constraint firstAttribute="width" constant="7" id="E5s-Wc-UTs"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Russia3" translatesAutoresizingMaskIntoConstraints="NO" id="2s9-mb-Jfa">
                                 <rect key="frame" x="309" y="140" width="7" height="7"/>
@@ -1766,7 +1766,7 @@
                                     <constraint firstAttribute="width" constant="7" id="qgp-ZW-D1L"/>
                                     <constraint firstAttribute="height" constant="7" id="wXC-HL-hhS"/>
                                 </constraints>
-                                <color key="fillColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="fillColor" red="0.46211010217666626" green="0.94247168302536011" blue="0.095707423985004425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                         </subviews>
                         <constraints>

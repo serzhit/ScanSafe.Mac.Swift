@@ -10,7 +10,7 @@ import Cocoa
 import CryptoSwift
 
 class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, DetectDelegate {
-
+    static var isPasswordShown : Bool = false
     @IBOutlet weak var lblExplain: NSTextField!
     @IBOutlet weak var lblStatus: NSTextField!
     @IBOutlet weak var IntroLabel: NSTextField!
@@ -84,12 +84,15 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     
     @IBAction func SafeAction(_ sender: NSButton) {
         subViewType = .Safe
-        ShowPasswordViewController()
-    }
+            ShowPasswordViewController(showPassword : MainViewController.isPasswordShown)
+        }
     
     @IBAction func Pay(_ sender: NSButton) {
         subViewType = .Exported
-        ShowPasswordViewController()
+        
+            ShowPasswordViewController(showPassword : MainViewController.isPasswordShown)
+            
+  
     }
     
     var Countries: Dictionary<Node,NSBox> = Dictionary<Node,NSBox>()
@@ -107,6 +110,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
         self.title = "Scan and Safe"
         
         showDisclaimer()
+        MainViewController.isPasswordShown = false
+        
         
     }
     
@@ -197,7 +202,7 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
     
     func FinishDetected()
     {
-        ShowPasswordViewController()
+        ShowPasswordViewController(showPassword : MainViewController.isPasswordShown)
     }
     
     func ShowPasswordViewController() {
@@ -214,6 +219,44 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
             newPassVC?.delegate = self
             self.presentViewControllerAsModalWindow(newPassVC!);
         }
+        MainViewController.isPasswordShown = true
+    }
+    
+    func ShowPasswordViewController(showPassword:Bool) {
+        let safeFilePath = Utils.GetFileUrl(path: Safe.SafeFileName)!
+        if(MainViewController.isPasswordShown == false) {
+        if Utils.FileExists(url: safeFilePath)
+        {
+            let enterPassVC = self.storyboard?.instantiateController(withIdentifier: "EnterPasswordViewController") as? EnterPasswordViewController
+            enterPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(enterPassVC!);
+        }
+        else
+        {
+            let newPassVC = self.storyboard?.instantiateController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController
+            newPassVC?.delegate = self
+            self.presentViewControllerAsModalWindow(newPassVC!);
+        }
+        }
+        else {
+            if (subViewType == .Safe || subViewType == .Imported)
+            {
+                ShowContentViewController()
+            }
+            else {
+                ShowExportViewController()
+            }
+            
+            if subViewType == .Imported
+            {
+                if(scanOpType == "Import") {
+                    Safe.Instance()?.Add(stack: coinFile.Coins)
+                }
+            }
+            
+        }
+        
+        MainViewController.isPasswordShown = true
     }
     
     func initCountries() {

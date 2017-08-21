@@ -45,10 +45,6 @@ class EnterPasswordViewController: NSViewController{
         button?.isHidden = true
         delegate?.FinishImported()
         
-        //button?.removeFromSuperview()
-       // window!.standardWindowButton(.closeButton)!.isHidden = true
-        //closeButton : NSCloseButton = window.standardW
-        //self.!.standardWindowButton(NSWindowButton.CloseButton)!.hidden = true
     }
     
     func CheckPassword(url: URL, password: String) -> Bool
