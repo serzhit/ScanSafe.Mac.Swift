@@ -2736,17 +2736,17 @@ DQ
             <objects>
                 <viewController title="Export" identifier="ExportViewController" storyboardIdentifier="ExportViewController" id="sQ1-i7-iJw" customClass="ExportViewController" customModule="ScanSafe_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hZw-zW-X2Y">
-                        <rect key="frame" x="0.0" y="0.0" width="417" height="317"/>
+                        <rect key="frame" x="0.0" y="0.0" width="515" height="343"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dVF-NW-LHF">
-                                <rect key="frame" x="0.0" y="0.0" width="417" height="317"/>
+                                <rect key="frame" x="0.0" y="0.0" width="515" height="343"/>
                                 <view key="contentView" id="2NM-tM-A1P">
-                                    <rect key="frame" x="1" y="1" width="415" height="315"/>
+                                    <rect key="frame" x="1" y="1" width="513" height="341"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lk-Te-ihM">
-                                            <rect key="frame" x="150" y="238" width="115" height="50"/>
+                                            <rect key="frame" x="199" y="264" width="115" height="50"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2 250" id="BUG-1o-wft">
                                                 <font key="font" metaFont="system" size="41"/>
                                                 <color key="textColor" red="0.16078431372549018" green="0.53333333333333333" blue="0.98431372549019602" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2754,7 +2754,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGL-W0-r2u">
-                                            <rect key="frame" x="146" y="214" width="124" height="17"/>
+                                            <rect key="frame" x="195" y="240" width="124" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Total Coins in Bank" id="wTq-KP-nKS">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" red="0.60784313725490191" green="0.61176470588235299" blue="0.62745098039215685" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2762,7 +2762,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eK-CZ-r1P">
-                                            <rect key="frame" x="25" y="171" width="47" height="17"/>
+                                            <rect key="frame" x="25" y="197" width="47" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Format" id="reV-ge-yJe">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" red="0.60784313729999995" green="0.61176470589999998" blue="0.62745098040000002" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -2770,7 +2770,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="R1p-Ma-XT1">
-                                            <rect key="frame" x="26" y="150" width="57" height="18"/>
+                                            <rect key="frame" x="26" y="176" width="57" height="18"/>
                                             <buttonCell key="cell" type="radio" title="JSON" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="5lk-cr-Rzp">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -2780,7 +2780,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="Xxo-Av-u1O">
-                                            <rect key="frame" x="108" y="150" width="55" height="18"/>
+                                            <rect key="frame" x="108" y="176" width="55" height="18"/>
                                             <buttonCell key="cell" type="radio" title="JPEG" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="AAt-DP-5Sb">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -2789,8 +2789,8 @@ DQ
                                                 <action selector="JpegRadioAction:" target="sQ1-i7-iJw" id="YNZ-H1-NJG"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-5o-p2c">
-                                            <rect key="frame" x="30" y="109" width="355" height="30"/>
+                                        <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-5o-p2c">
+                                            <rect key="frame" x="31" y="108" width="453" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Hfb-i6-MZs"/>
                                             </constraints>
@@ -2800,8 +2800,8 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-ng-gdj">
-                                            <rect key="frame" x="30" y="72" width="355" height="30"/>
+                                        <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwr-ng-gdj">
+                                            <rect key="frame" x="31" y="68" width="453" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Xsn-6K-xVD"/>
                                             </constraints>
@@ -2811,8 +2811,8 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dqq-q6-aqg">
-                                            <rect key="frame" x="220" y="14" width="82" height="32"/>
+                                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqq-q6-aqg">
+                                            <rect key="frame" x="323" y="13" width="82" height="32"/>
                                             <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MCB-QH-uIZ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -2824,8 +2824,8 @@ Gw
                                                 <action selector="OnCancelAction:" target="sQ1-i7-iJw" id="TW7-HT-paa"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ZN-o0-vJu">
-                                            <rect key="frame" x="311" y="14" width="80" height="32"/>
+                                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ZN-o0-vJu">
+                                            <rect key="frame" x="416" y="13" width="80" height="32"/>
                                             <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IOo-qj-Bgz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -2834,6 +2834,143 @@ Gw
                                                 <action selector="OnExportAction:" target="sQ1-i7-iJw" id="0QD-5i-7sm"/>
                                             </connections>
                                         </button>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djE-aP-bBG">
+                                            <rect key="frame" x="355" y="278" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="O5S-aA-AiV">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="A9m-B0-OJ1"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czP-wk-4gq">
+                                            <rect key="frame" x="355" y="248" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="pvx-Qi-RjQ">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="z49-F9-aP2"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAt-GN-Fir">
+                                            <rect key="frame" x="447" y="275" width="19" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="5" id="5Ye-cE-WvT">
+                                                <connections>
+                                                    <action selector="oneValueChanged:" target="sQ1-i7-iJw" id="ozq-E5-Qro"/>
+                                                </connections>
+                                            </stepperCell>
+                                        </stepper>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fV2-Xn-ION">
+                                            <rect key="frame" x="447" y="248" width="19" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="5" id="MQf-su-fBX">
+                                                <connections>
+                                                    <action selector="fiveCountChanged:" target="sQ1-i7-iJw" id="G1t-RN-ZDJ"/>
+                                                </connections>
+                                            </stepperCell>
+                                        </stepper>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsH-ga-DUn">
+                                            <rect key="frame" x="332" y="283" width="17" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1s" id="V6L-wY-pO2">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVV-h3-fMk">
+                                            <rect key="frame" x="332" y="253" width="19" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5s" id="oEa-xp-Gvg">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNz-6i-t91">
+                                            <rect key="frame" x="327" y="218" width="27" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="25s" id="akT-1x-NTH">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-p0-Ru6">
+                                            <rect key="frame" x="358" y="215" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gXM-RF-9xU">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="PxA-FV-sPr"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMw-ZA-XFN">
+                                            <rect key="frame" x="450" y="215" width="19" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="5" id="JqK-1g-QGB"/>
+                                            <connections>
+                                                <action selector="twoFiveValueChanged:" target="sQ1-i7-iJw" id="yWb-Ia-ANT"/>
+                                            </connections>
+                                        </stepper>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrB-ok-Mud">
+                                            <rect key="frame" x="358" y="184" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="HcA-xn-uwV">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="1WH-UY-Bf3"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4G-RV-fMA">
+                                            <rect key="frame" x="450" y="184" width="19" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="5" id="BvP-yv-sf8"/>
+                                            <connections>
+                                                <action selector="hundredValueChanged:" target="sQ1-i7-iJw" id="PXO-0r-of2"/>
+                                            </connections>
+                                        </stepper>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e10-Od-7fX">
+                                            <rect key="frame" x="320" y="186" width="33" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="100s" id="Den-bV-PcP">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-PY-FXB">
+                                            <rect key="frame" x="320" y="154" width="35" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="250s" id="ugp-cP-pEi">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDa-Kh-8Qt">
+                                            <rect key="frame" x="358" y="150" width="96" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="vbS-nm-Jmc">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Mp5-H9-WTy"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWm-OB-g9w">
+                                            <rect key="frame" x="450" y="150" width="19" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="5" id="agu-Z9-yJe"/>
+                                            <connections>
+                                                <action selector="twoFiveZeroValueChanged:" target="sQ1-i7-iJw" id="z4r-D1-6aX"/>
+                                            </connections>
+                                        </stepper>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="5Fs-5o-p2c" firstAttribute="leading" secondItem="2NM-tM-A1P" secondAttribute="leading" constant="30" id="1fP-Ql-mMn"/>
@@ -2870,16 +3007,27 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fiveStepper" destination="fV2-Xn-ION" id="aU0-9b-0Zd"/>
+                        <outlet property="hundredStepper" destination="d4G-RV-fMA" id="HrC-Mz-WqS"/>
                         <outlet property="jpegRadio" destination="Xxo-Av-u1O" id="dlI-bI-1qz"/>
                         <outlet property="jsonRadio" destination="R1p-Ma-XT1" id="ior-GX-vCP"/>
+                        <outlet property="oneStep" destination="mAt-GN-Fir" id="op8-FC-VmM"/>
+                        <outlet property="oneStepper" destination="mAt-GN-Fir" id="uT3-9A-zPP"/>
                         <outlet property="totalCoins" destination="8Lk-Te-ihM" id="Mgr-8f-tMl"/>
+                        <outlet property="twentyFiveStepper" destination="cMw-ZA-XFN" id="3D6-RF-AMn"/>
+                        <outlet property="twoFiveZeroStepper" destination="bWm-OB-g9w" id="lkD-ZD-yxf"/>
+                        <outlet property="txtFives" destination="czP-wk-4gq" id="gaD-T2-U2X"/>
+                        <outlet property="txtHundreds" destination="jrB-ok-Mud" id="NjA-v4-aCQ"/>
                         <outlet property="txtNote" destination="Gwr-ng-gdj" id="DMh-9S-y0P"/>
+                        <outlet property="txtOnes" destination="djE-aP-bBG" id="plI-mi-Dt5"/>
                         <outlet property="txtSum" destination="5Fs-5o-p2c" id="d8s-hl-qoK"/>
+                        <outlet property="txtTwentyFives" destination="X2z-p0-Ru6" id="CLf-19-PZ0"/>
+                        <outlet property="txtTwoFiftys" destination="yDa-Kh-8Qt" id="F6J-Ww-4Js"/>
                     </connections>
                 </viewController>
                 <customObject id="xds-S4-sSi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="378"/>
+            <point key="canvasLocation" x="1820.5" y="390.5"/>
         </scene>
     </scenes>
     <resources>

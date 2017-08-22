@@ -11,6 +11,41 @@ import Cocoa
 class ExportViewController: NSViewController {
     @IBOutlet weak var jpegRadio: NSButton!
     @IBOutlet weak var jsonRadio: NSButton!
+  
+    @IBOutlet weak var oneStep: NSStepper!
+    @IBOutlet weak var fiveStepper: NSStepper!
+    @IBOutlet weak var twentyFiveStepper: NSStepper!
+    @IBOutlet weak var hundredStepper: NSStepper!
+    @IBOutlet weak var twoFiveZeroStepper: NSStepper!
+    
+    
+    @IBAction func oneValueChanged(_ sender: Any) {
+        txtOnes.stringValue = oneStep.stringValue
+    }
+    
+    
+    @IBAction func fiveCountChanged(_ sender: Any) {
+        txtFives.stringValue = fiveStepper.stringValue
+        
+    }
+    
+    @IBAction func twoFiveValueChanged(_ sender: Any) {
+        txtTwentyFives.stringValue = twentyFiveStepper.stringValue
+    }
+    
+    @IBAction func hundredValueChanged(_ sender: Any) {
+        txtHundreds.stringValue = hundredStepper.stringValue
+    }
+    
+    @IBAction func twoFiveZeroValueChanged(_ sender: Any) {
+        txtTwoFiftys.stringValue = twoFiveZeroStepper.stringValue
+    }
+    @IBOutlet weak var txtOnes: NSTextField!
+    @IBOutlet weak var txtFives: NSTextField!
+    @IBOutlet weak var txtTwentyFives: NSTextField!
+    @IBOutlet weak var txtHundreds: NSTextField!
+    @IBOutlet weak var txtTwoFiftys: NSTextField!
+    
     
     @IBOutlet weak var totalCoins: NSTextField!
     @IBAction func OnCancelAction(_ sender: Any) {
@@ -60,5 +95,10 @@ class ExportViewController: NSViewController {
     
     override func viewDidLoad() {
         totalCoins.stringValue = String(describing: Safe.Instance()!.Contents.SumInStack)
+        txtOnes.stringValue = "0"
+        txtTwoFiftys.stringValue = "0"
+        txtHundreds.stringValue = "0"
+        txtFives.stringValue = "5"
+        txtTwentyFives.stringValue = "0"
     }
 }

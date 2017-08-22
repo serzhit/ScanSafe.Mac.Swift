@@ -243,7 +243,8 @@ class MainViewController: NSViewController, RAIDAEchoDelegate, ImportDelegate, D
             {
                 ShowContentViewController()
             }
-            else {
+            else
+            {
                 ShowExportViewController()
             }
             
