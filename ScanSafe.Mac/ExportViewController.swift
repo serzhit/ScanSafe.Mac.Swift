@@ -112,6 +112,12 @@ class ExportViewController: NSViewController {
         hundredStepper.maxValue = Double((safe?.Hundreds.TotalQuantity)!)
         twoFiveZeroStepper.maxValue = Double((safe?.KiloQuarters.TotalQuantity)!)
         twentyFiveStepper.maxValue = Double((safe?.Quarters.TotalQuantity)!)
+        //oneStep.maxValue = 100
+        //fiveStepper.maxValue = 100
+        //hundredStepper.maxValue = 100
+        //twoFiveZeroStepper.maxValue = 100
+        //twentyFiveStepper.maxValue = 100
+        
         txtSum.isHidden = true
         txtOnes.isEnabled = false
         txtTwoFiftys.isEnabled = false

@@ -2770,8 +2770,8 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1p-Ma-XT1">
-                                            <rect key="frame" x="99" y="241" width="57" height="18"/>
-                                            <buttonCell key="cell" type="radio" title="JSON" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="5lk-cr-Rzp">
+                                            <rect key="frame" x="99" y="241" width="64" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="STACK" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="5lk-cr-Rzp">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -2972,7 +2972,7 @@ Gw
                                             </connections>
                                         </stepper>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZJ-GO-fzH">
-                                            <rect key="frame" x="228" y="232" width="91" height="50"/>
+                                            <rect key="frame" x="239" y="232" width="131" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="S4Q-tK-8mC">
                                                 <font key="font" metaFont="system" size="41"/>
@@ -2981,7 +2981,7 @@ Gw
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94n-yq-GSk">
-                                            <rect key="frame" x="313" y="247" width="67" height="17"/>
+                                            <rect key="frame" x="383" y="248" width="67" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="To Export" id="CtN-WQ-7lY">
                                                 <font key="font" metaFont="system"/>
